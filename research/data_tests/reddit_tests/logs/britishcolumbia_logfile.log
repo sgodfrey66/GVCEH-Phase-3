@@ -1,0 +1,182 @@
+INFO - time: 2024-02-15 14:02:54: event: start fetch: subreddit_name: britishcolumbia
+INFO - time: 2024-02-15 14:02:55: event: submission ID processing: submission_id: 1acco4p: api_call_count: 1
+INFO - time: 2024-02-15 14:02:57: event: submission ID processing: submission_id: 1apm3yy: api_call_count: 3
+INFO - time: 2024-02-15 14:02:57: event: submission ID processing: submission_id: 1acxhkg: api_call_count: 5
+INFO - time: 2024-02-15 14:02:59: event: submission ID processing: submission_id: 1ake11d: api_call_count: 7
+INFO - time: 2024-02-15 14:03:00: event: submission ID processing: submission_id: 1aomefz: api_call_count: 9
+INFO - time: 2024-02-15 14:03:00: event: submission ID processing: submission_id: 199262s: api_call_count: 11
+INFO - time: 2024-02-15 14:03:00: event: submission ID processing: submission_id: 1ah9vyl: api_call_count: 13
+INFO - time: 2024-02-15 14:03:00: event: submission ID processing: submission_id: 1abp9bt: api_call_count: 15
+INFO - time: 2024-02-15 14:03:01: event: submission ID found: submission_id: 1ah9vyl
+INFO - time: 2024-02-15 14:03:02: event: submission ID processing: submission_id: 1abx95r: api_call_count: 18
+INFO - time: 2024-02-15 14:03:02: event: submission ID processing: submission_id: 1af1lu0: api_call_count: 20
+INFO - time: 2024-02-15 14:03:02: event: submission ID processing: submission_id: 19a04u2: api_call_count: 22
+INFO - time: 2024-02-15 14:03:04: event: submission ID processing: submission_id: 19bdm10: api_call_count: 24
+INFO - time: 2024-02-15 14:03:05: event: submission ID found: submission_id: 1acco4p
+INFO - time: 2024-02-15 14:03:05: event: submission ID processing: submission_id: 1ani796: api_call_count: 27
+INFO - time: 2024-02-15 14:03:06: event: submission ID processing: submission_id: 1ait4dx: api_call_count: 29
+INFO - time: 2024-02-15 14:03:07: event: submission ID processing: submission_id: 1agusm3: api_call_count: 31
+INFO - time: 2024-02-15 14:03:07: event: submission ID processing: submission_id: 19dzdbn: api_call_count: 33
+INFO - time: 2024-02-15 14:03:07: event: submission ID processing: submission_id: 19es7mc: api_call_count: 35
+INFO - time: 2024-02-15 14:03:08: event: submission ID processing: submission_id: 1ar88cx: api_call_count: 37
+INFO - time: 2024-02-15 14:03:08: event: submission ID processing: submission_id: 1aq3ymw: api_call_count: 39
+INFO - time: 2024-02-15 14:03:08: event: submission ID processing: submission_id: 199vvoi: api_call_count: 41
+INFO - time: 2024-02-15 14:03:09: event: submission ID processing: submission_id: 1acf4ju: api_call_count: 43
+INFO - time: 2024-02-15 14:03:09: event: submission ID processing: submission_id: 197jm5o: api_call_count: 45
+INFO - time: 2024-02-15 14:03:10: event: submission ID processing: submission_id: 1anwp3b: api_call_count: 47
+INFO - time: 2024-02-15 14:03:12: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:12: event: submission ID processing: submission_id: 1ab5sgv: api_call_count: 50
+INFO - time: 2024-02-15 14:03:13: event: submission ID processing: submission_id: 1aiezi9: api_call_count: 52
+INFO - time: 2024-02-15 14:03:13: event: submission ID processing: submission_id: 19e8nhe: api_call_count: 54
+INFO - time: 2024-02-15 14:03:14: event: submission ID processing: submission_id: 19ersd4: api_call_count: 56
+INFO - time: 2024-02-15 14:03:14: event: submission ID processing: submission_id: 198yd7l: api_call_count: 58
+INFO - time: 2024-02-15 14:03:14: event: submission ID processing: submission_id: 1ag0tmv: api_call_count: 60
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 1aq3ymw
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 199vvoi
+INFO - time: 2024-02-15 14:03:15: event: submission ID processing: submission_id: 1arm9e4: api_call_count: 64
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 1apm3yy
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 1anwp3b
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 1ah9vyl
+INFO - time: 2024-02-15 14:03:15: event: submission ID found: submission_id: 19a04u2
+INFO - time: 2024-02-15 14:03:15: event: submission ID processing: submission_id: 1aq4tew: api_call_count: 70
+INFO - time: 2024-02-15 14:03:16: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:16: event: submission ID found: submission_id: 19a04u2
+INFO - time: 2024-02-15 14:03:16: event: submission ID processing: submission_id: 1adcnl1: api_call_count: 74
+INFO - time: 2024-02-15 14:03:17: event: submission ID found: submission_id: 1ani796
+INFO - time: 2024-02-15 14:03:18: event: submission ID processing: submission_id: 1adf0rt: api_call_count: 77
+INFO - time: 2024-02-15 14:03:18: event: submission ID processing: submission_id: 1adcy39: api_call_count: 79
+INFO - time: 2024-02-15 14:03:19: event: submission ID found: submission_id: 19dzdbn
+INFO - time: 2024-02-15 14:03:19: event: submission ID processing: submission_id: 1amdaql: api_call_count: 82
+INFO - time: 2024-02-15 14:03:19: event: submission ID processing: submission_id: 19asexh: api_call_count: 84
+INFO - time: 2024-02-15 14:03:19: event: submission ID processing: submission_id: 197gfbu: api_call_count: 86
+INFO - time: 2024-02-15 14:03:19: event: submission ID processing: submission_id: 1an5tm9: api_call_count: 88
+INFO - time: 2024-02-15 14:03:20: event: submission ID processing: submission_id: 19eiz8e: api_call_count: 90
+INFO - time: 2024-02-15 14:03:20: event: submission ID found: submission_id: 1ab5sgv
+INFO - time: 2024-02-15 14:03:20: event: submission ID processing: submission_id: 1aqpen3: api_call_count: 93
+INFO - time: 2024-02-15 14:03:21: event: submission ID processing: submission_id: 19fgwd2: api_call_count: 95
+INFO - time: 2024-02-15 14:03:21: event: submission ID found: submission_id: 1ah9vyl
+INFO - time: 2024-02-15 14:03:22: event: submission ID found: submission_id: 1ah9vyl
+INFO - time: 2024-02-15 14:03:23: event: submission ID found: submission_id: 19a04u2
+INFO - time: 2024-02-15 14:03:23: event: submission ID processing: submission_id: 19akzwy: api_call_count: 100
+INFO - time: 2024-02-15 14:03:23: event: submission ID processing: submission_id: 1alfz8a: api_call_count: 102
+INFO - time: 2024-02-15 14:03:26: event: submission ID processing: submission_id: 1al4nms: api_call_count: 104
+INFO - time: 2024-02-15 14:03:27: event: submission ID processing: submission_id: 19clzix: api_call_count: 106
+INFO - time: 2024-02-15 14:03:28: event: submission ID processing: submission_id: 198gxde: api_call_count: 108
+INFO - time: 2024-02-15 14:03:28: event: submission ID processing: submission_id: 1aee88n: api_call_count: 110
+INFO - time: 2024-02-15 14:03:29: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:03:29: event: submission ID processing: submission_id: 19bt2e0: api_call_count: 113
+INFO - time: 2024-02-15 14:03:29: event: submission ID processing: submission_id: 197bxpm: api_call_count: 115
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 198yd7l
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 1aq3ymw
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 199vvoi
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 1arm9e4
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 1anwp3b
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 1adcy39
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 19a04u2
+INFO - time: 2024-02-15 14:03:31: event: submission ID found: submission_id: 19es7mc
+INFO - time: 2024-02-15 14:03:31: event: submission ID processing: submission_id: 1alw4bn: api_call_count: 125
+INFO - time: 2024-02-15 14:03:32: event: submission ID found: submission_id: 1aq4tew
+INFO - time: 2024-02-15 14:03:32: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:03:32: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:32: event: submission ID found: submission_id: 1ab5sgv
+INFO - time: 2024-02-15 14:03:32: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:03:34: event: submission ID processing: submission_id: 1am0hyk: api_call_count: 132
+INFO - time: 2024-02-15 14:03:34: event: submission ID found: submission_id: 197gfbu
+INFO - time: 2024-02-15 14:03:35: event: submission ID found: submission_id: 1ah9vyl
+INFO - time: 2024-02-15 14:03:35: event: submission ID found: submission_id: 1adcy39
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 1ait4dx
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 1agusm3
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 19dzdbn
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 19es7mc
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 1ar88cx
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 1acf4ju
+INFO - time: 2024-02-15 14:03:36: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:36: event: submission ID processing: submission_id: 1acken6: api_call_count: 144
+INFO - time: 2024-02-15 14:03:37: event: submission ID found: submission_id: 1adcy39
+INFO - time: 2024-02-15 14:03:37: event: submission ID processing: submission_id: 1aj7nva: api_call_count: 147
+INFO - time: 2024-02-15 14:03:39: event: submission ID found: submission_id: 1ab5sgv
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1ait4dx
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1agusm3
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 19dzdbn
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 19es7mc
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1ar88cx
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1acf4ju
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1acken6
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1adcy39
+INFO - time: 2024-02-15 14:03:41: event: submission ID found: submission_id: 1aj7nva
+INFO - time: 2024-02-15 14:03:43: event: submission ID found: submission_id: 1apm3yy
+INFO - time: 2024-02-15 14:03:44: event: submission ID found: submission_id: 1am0hyk
+INFO - time: 2024-02-15 14:03:44: event: submission ID processing: submission_id: 1aoe11j: api_call_count: 162
+INFO - time: 2024-02-15 14:03:45: event: submission ID found: submission_id: 1aqpen3
+INFO - time: 2024-02-15 14:03:45: event: submission ID processing: submission_id: 1ankgr5: api_call_count: 165
+INFO - time: 2024-02-15 14:03:45: event: submission ID processing: submission_id: 1ahf840: api_call_count: 167
+INFO - time: 2024-02-15 14:03:45: event: submission ID found: submission_id: 19fgwd2
+INFO - time: 2024-02-15 14:03:45: event: submission ID found: submission_id: 1abx95r
+INFO - time: 2024-02-15 14:03:45: event: submission ID processing: submission_id: 1arbnhg: api_call_count: 171
+INFO - time: 2024-02-15 14:03:46: event: submission ID found: submission_id: 1acxhkg
+INFO - time: 2024-02-15 14:03:46: event: submission ID found: submission_id: 19dzdbn
+INFO - time: 2024-02-15 14:03:46: event: submission ID processing: submission_id: 1amtmp8: api_call_count: 175
+INFO - time: 2024-02-15 14:03:47: event: submission ID processing: submission_id: 1ak6nl2: api_call_count: 177
+INFO - time: 2024-02-15 14:03:48: event: submission ID processing: submission_id: 1amg4tt: api_call_count: 179
+INFO - time: 2024-02-15 14:03:48: event: submission ID found: submission_id: 1ani796
+INFO - time: 2024-02-15 14:03:48: event: submission ID processing: submission_id: 1ahy017: api_call_count: 182
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1acco4p
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1alw4bn
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1aq4tew
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1ait4dx
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 197jm5o
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1agusm3
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 19dzdbn
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 19es7mc
+INFO - time: 2024-02-15 14:03:49: event: submission ID found: submission_id: 1ar88cx
+INFO - time: 2024-02-15 14:03:49: event: submission ID processing: submission_id: 199xty2: api_call_count: 194
+INFO - time: 2024-02-15 14:03:50: event: submission ID found: submission_id: 1acf4ju
+INFO - time: 2024-02-15 14:03:50: event: submission ID found: submission_id: 1acken6
+INFO - time: 2024-02-15 14:03:50: event: submission ID found: submission_id: 1adcy39
+INFO - time: 2024-02-15 14:03:50: event: submission ID processing: submission_id: 19dgmgk: api_call_count: 199
+INFO - time: 2024-02-15 14:03:51: event: submission ID found: submission_id: 1aiezi9
+INFO - time: 2024-02-15 14:03:52: event: submission ID processing: submission_id: 19adnx8: api_call_count: 202
+INFO - time: 2024-02-15 14:03:53: event: submission ID processing: submission_id: 1af5s4o: api_call_count: 204
+INFO - time: 2024-02-15 14:03:53: event: submission ID found: submission_id: 1amtmp8
+INFO - time: 2024-02-15 14:03:53: event: submission ID found: submission_id: 1ahy017
+INFO - time: 2024-02-15 14:03:53: event: submission ID found: submission_id: 19bdm10
+INFO - time: 2024-02-15 14:03:53: event: submission ID processing: submission_id: 197mjik: api_call_count: 209
+INFO - time: 2024-02-15 14:03:55: event: submission ID processing: submission_id: 19evxti: api_call_count: 211
+INFO - time: 2024-02-15 14:03:56: event: submission ID processing: submission_id: 1988ulc: api_call_count: 213
+INFO - time: 2024-02-15 14:03:56: event: submission ID processing: submission_id: 19algpq: api_call_count: 215
+INFO - time: 2024-02-15 14:03:57: event: submission ID found: submission_id: 197gfbu
+INFO - time: 2024-02-15 14:03:57: event: submission ID processing: submission_id: 197ezzt: api_call_count: 218
+INFO - time: 2024-02-15 14:03:57: event: submission ID processing: submission_id: 1anw2in: api_call_count: 220
+INFO - time: 2024-02-15 14:03:58: event: submission ID processing: submission_id: 19dd0lk: api_call_count: 222
+INFO - time: 2024-02-15 14:03:59: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:04:00: event: submission ID processing: submission_id: 19bhyhn: api_call_count: 225
+INFO - time: 2024-02-15 14:04:01: event: submission ID found: submission_id: 19e8nhe
+INFO - time: 2024-02-15 14:04:01: event: submission ID found: submission_id: 198yd7l
+INFO - time: 2024-02-15 14:04:01: event: submission ID found: submission_id: 1ag0tmv
+INFO - time: 2024-02-15 14:04:02: event: submission ID found: submission_id: 19bdm10
+INFO - time: 2024-02-15 14:04:03: event: submission ID processing: submission_id: 1alpjyq: api_call_count: 231
+INFO - time: 2024-02-15 14:04:03: event: submission ID found: submission_id: 1ab5sgv
+INFO - time: 2024-02-15 14:04:03: event: submission ID found: submission_id: 19eiz8e
+INFO - time: 2024-02-15 14:04:03: event: submission ID found: submission_id: 1af1lu0
+INFO - time: 2024-02-15 14:04:03: event: submission ID found: submission_id: 1anw2in
+INFO - time: 2024-02-15 14:04:03: event: submission ID processing: submission_id: 1acz5ch: api_call_count: 237
+INFO - time: 2024-02-15 14:04:03: event: submission ID processing: submission_id: 1ag15ki: api_call_count: 239
+INFO - time: 2024-02-15 14:04:04: event: submission ID found: submission_id: 19bdm10
+INFO - time: 2024-02-15 14:04:04: event: submission ID processing: submission_id: 198kes4: api_call_count: 242
+INFO - time: 2024-02-15 14:04:05: event: submission ID found: submission_id: 19e8nhe
+INFO - time: 2024-02-15 14:04:05: event: submission ID found: submission_id: 1adcnl1
+INFO - time: 2024-02-15 14:04:05: event: submission ID found: submission_id: 19a04u2
+INFO - time: 2024-02-15 14:04:05: event: submission ID processing: submission_id: 1ac64kz: api_call_count: 247
+INFO - time: 2024-02-15 14:04:05: event: submission ID processing: submission_id: 19adw3q: api_call_count: 249
+INFO - time: 2024-02-15 14:04:06: event: submission ID processing: submission_id: 1ajtmlz: api_call_count: 251
+INFO - time: 2024-02-15 14:04:06: event: submission ID processing: submission_id: 1ab7atj: api_call_count: 253
+INFO - time: 2024-02-15 14:04:06: event: submission ID processing: submission_id: 1akgmt8: api_call_count: 255
+INFO - time: 2024-02-15 14:04:07: event: submission ID processing: submission_id: 1amwgav: api_call_count: 257
+INFO - time: 2024-02-15 14:04:07: event: submission ID found: submission_id: 1anwp3b
+INFO - time: 2024-02-15 14:04:07: event: submission ID processing: submission_id: 1adhsaj: api_call_count: 260
+INFO - time: 2024-02-15 14:04:08: event: submission ID found: submission_id: 1ani796
+INFO - time: 2024-02-15 14:04:08: event: submission ID processing: submission_id: 19f16b1: api_call_count: 263
+INFO - time: 2024-02-15 14:04:09: event: final data file append: last_written_index: 0: new_row_count: 85
+INFO - time: 2024-02-15 14:04:09: event: fetch complete
