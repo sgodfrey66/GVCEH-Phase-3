@@ -1,7 +1,14 @@
-
-import x_twitter_data_fetcher as xtdf
+# Core Python
 import os
+
+# Data tools
+import pandas as pd
+
+# Environment variables for API credential storage
 import dotenv
+
+# GVCEH objects
+import x_twitter_data_fetcher as xtdf
 
 
 if __name__ == "__main__":

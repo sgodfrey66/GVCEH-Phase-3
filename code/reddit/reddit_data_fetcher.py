@@ -82,12 +82,12 @@ class GVCEHReddit():
                   'title', 'selftext', 'url', 'num_comments']
 
     # Files with keywords used to search reddits
-    # keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
-    keywords_files = ['ac.csv']
+    keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
+    # keywords_files = ['ac.csv']
 
     # API Rate limits
     # api_call_limit = 880
-    api_call_limit = 500
+    api_call_limit = 440
     rate_limit_window = timedelta(minutes=10)
     search_time_filter = "month"
 
@@ -201,7 +201,7 @@ class GVCEHReddit():
                 seen_submission_ids = set()
 
                 # Initialize last written index
-                last_written_index = 0
+                last_written_index = -1
 
             # Now search for search terms
             for search_term in self.search_terms:
@@ -284,13 +284,14 @@ class GVCEHReddit():
                     if len(subreddit_df) >= last_written_index + self.file_update_trigger:
 
                         # Determine new rows to be added
-                        new_rows = subreddit_df.iloc[last_written_index:last_written_index + self.file_update_trigger]
+                        new_rows = subreddit_df.iloc[last_written_index + 1:
+                                                     last_written_index + self.file_update_trigger + 1]
 
                         # Add rows to history file
                         new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
                                         mode='a',
                                         index=False,
-                                        header=last_written_index == 0)
+                                        header=last_written_index == -1)
 
                         last_written_index += len(new_rows)  # Update the last written index
 
@@ -302,13 +303,13 @@ class GVCEHReddit():
             if len(subreddit_df) > last_written_index:
 
                 # Determine new rows to be added
-                new_rows = subreddit_df.iloc[last_written_index:]
+                new_rows = subreddit_df.iloc[last_written_index + 1:]
 
                 # Add rows to history file
                 new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
                                 mode='a',
                                 index=False,
-                                header=last_written_index == 0)
+                                header=last_written_index == -1)
 
                 # Log file update
                 self.log_event(msg_id=1, screen_print=False, event='final data file append',

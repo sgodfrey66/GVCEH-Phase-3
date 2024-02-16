@@ -1,8 +1,17 @@
-
-import asyncio
-import reddit_data_fetcher as rdf
+# Core Python
 import os
+
+# Data tools
+import pandas as pd
+
+# Environment variables for API credential storage
 import dotenv
+
+# Asynchronous work
+import asyncio
+
+# GVCEH objects
+import reddit_data_fetcher as rdf
 
 
 if __name__ == "__main__":
@@ -19,18 +28,24 @@ if __name__ == "__main__":
     # import out environment variables
     dotenv.load_dotenv('../../data/environment/.env')
 
-    # Initialize Reddit object
+    # Step 1: Initialize Reddit object
     data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
-                                  client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
-                                  user_agent=os.environ.get("REDDIT_USER_AGENT"))
+                                   client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
+                                   user_agent=os.environ.get("REDDIT_USER_AGENT"))
 
-    # subreddits = ['OakBayBritishColumbia', 'SaanichPeninsula', 'britishcolumbia',
-    #               'Sooke', 'Esquimalt', 'SidneyBC', 'saltspring',
-    #               'Metchosin', 'WestShoreBC', 'VancouverIsland', 'uvic']
+    # Subreddits to explore
+    subreddit_names = ['OakBayBritishColumbia', 'SaanichPeninsula', 'britishcolumbia',
+                       'Sooke', 'Esquimalt', 'SidneyBC', 'saltspring',
+                       'Metchosin', 'WestShoreBC', 'VancouverIsland', 'uvic']
 
-    subreddit_names = ['britishcolumbia', 'OakBayBritishColumbia',
-                       'SaanichPeninsula', 'Sooke']
+    subreddit_names = ['WestShoreBC', 'VancouverIsland', 'uvic']
 
-    # Fetch reddit data
+    # Location of post data
+    posts_file_path = "../../data/reddit/posts"
+
+    # Step 2: Fetch reddit data
     asyncio.run(data_fetcher.fetch_data(subreddit_names=subreddit_names))
+
+    # Step 3: Aggregate data into a single dataset
+
 
