@@ -12,6 +12,7 @@ import pandas as pd
 
 # Time
 from datetime import datetime, timedelta
+import time
 
 # Logging and monitoring
 import logging
@@ -35,17 +36,22 @@ class GVCEHReddit():
     The fetch_data method has an optional logging feature which can be turned on
     by setting the logging input parameter to True.
 
-    For Reddit API details and rate limit rules,
-    see https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki.
-    As of Feb 2024, 100 queries per minute over a 10-minute window.
+    References:
 
-    Although not used here, this might prove helpful: https://reddit-api.readthedocs.io/en/latest/#.
+        Async PRAW: https://asyncpraw.readthedocs.io/en/stable/
+
+        For Reddit API details and rate limit rules,
+        see https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki.
+        As of Feb 2024, 100 queries per minute over a 10-minute window.
+
+        Although not used here, this might prove helpful: https://reddit-api.readthedocs.io/en/latest/#.
 
     Inputs:
         __init__ :
             client_id: Reddit API ID
             client_secret: Reddit client secret
             user_agent: Reddit API user agent
+            fetch_type: Flag to indicate if data fetch should be a search or all new posts
             fetch_logging: True if logging should be one
 
     Outputs:
@@ -91,15 +97,23 @@ class GVCEHReddit():
     rate_limit_window = timedelta(minutes=10)
     search_time_filter = "month"
 
+    # Store timestamps of all API calls
+    api_call_times = deque()
+    pause_indexes = deque()
+
     # Max number of submissions to retrieve
-    # limit_num = 1000
     limit_num = 1000
+    
+    # New limit number - maximum posts to retrieve using fetch_new endpoint
+    new_limit_num = 125
 
     # Number of new rows triggering a file update
     file_update_trigger = 500
 
     # Logging flag
     fetch_logging = True
+
+
 
     def __init__(self,
                  client_id,
@@ -124,9 +138,6 @@ class GVCEHReddit():
         if fetch_logging != True:
             self.fetch_logging = False
 
-        # Get the search terms
-        self.get_search_terms()
-
     def get_search_terms(self):
         '''
         Get search terms from files with keywords
@@ -147,8 +158,8 @@ class GVCEHReddit():
         # Ensure keywords are strings and remove any duplicates
         self.search_terms = [k for k in set(keywords) if isinstance(k, str) and len(k) > 1]
 
-    async def fetch_data(self,
-                         subreddit_names: list):
+    async def fetch_search_data(self,
+                                subreddit_names: list):
 
         '''
         Function for retrieving Reddit data using the search method.
@@ -158,16 +169,13 @@ class GVCEHReddit():
 
         '''
 
-        # # Get start and end times from run object
-        # start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Get the search terms
+        self.get_search_terms()
 
         # Initialize a asyncpraw reddit object
         reddit = asyncpraw.Reddit(client_id=self.client_id,
                                   client_secret=self.client_secret,
                                   user_agent=self.user_agent)
-
-        # Store timestamps of the last API calls up to the API call limit
-        api_call_times = deque(maxlen=self.api_call_limit)
 
         # Search in each subreddit
         for subreddit_name in subreddit_names:
@@ -182,10 +190,7 @@ class GVCEHReddit():
             self.log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
 
             # Log fetch start
-            self.log_event(msg_id=1, screen_print=True, event='start fetch',
-                           subreddit_name=subreddit_name)
-
-
+            self.log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
 
             # Read files with previous Reddit data into a dataframe
             try:
@@ -206,56 +211,33 @@ class GVCEHReddit():
             # Now search for search terms
             for search_term in self.search_terms:
 
-                # Check rate limit before making a search
-                if api_call_times and len(api_call_times) == self.api_call_limit:
-                    wait_until = api_call_times[0] + self.rate_limit_window
-
-                    if datetime.now() < wait_until:
-
-                        wait_time = (wait_until - datetime.now()).total_seconds()
-
-                        # Log wait
-                        self.log_event(msg_id=1, screen_print=True, event='rate limit reached',
-                                       wait_time_sec=wait_time)
-
-                        await asyncio.sleep(wait_time)
-                        api_call_times.clear()
+                # Manage API call rate
+                self.__manage_api_call_rate()
 
                 async for submission in subreddit.search(search_term,
                                                          limit=self.limit_num,
                                                          time_filter=self.search_time_filter):
-                    # Record the API call time
-                    api_call_times.append(datetime.now())
 
-                    if len(api_call_times) == self.api_call_limit:
-                        wait_until = api_call_times[0] + self.rate_limit_window
-                        if datetime.now() < wait_until:
-                            wait_time = (wait_until - datetime.now()).total_seconds()
-
-                            # Log wait
-                            self.log_event(msg_id=1, screen_print=True, event='rate limit reached',
-                                           wait_time_sec=wait_time)
-
-                            await asyncio.sleep(wait_time)
-                            api_call_times.clear()
+                    # Manage API call rate
+                    self.__manage_api_call_rate()
 
                     # Check if we already have this submission in the dataset
                     if submission.id in seen_submission_ids:
 
                         # Log submission found
-                        self.log_event(msg_id=1, screen_print=False, event='submission ID found',
-                                       submission_id=submission.id)
+                        self.log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
 
                         continue
 
                     # Log submission processing
-                    self.log_event(msg_id=1, screen_print=False, event='submission ID processing',
-                                   submission_id=submission.id, api_call_count=len(api_call_times))
+                    self.log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
 
                     # Load data for this submission id
                     await submission.load()
                     seen_submission_ids.add(submission.id)
-                    api_call_times.append(datetime.now())
+
+                    # Manage API call rate
+                    self.__manage_api_call_rate()
 
                     # Dictionary to hold
                     sub_dict = {}
@@ -300,7 +282,151 @@ class GVCEHReddit():
                                        last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
             # Final append for any remaining rows after the last intermittent save
-            if len(subreddit_df) > last_written_index:
+            if len(subreddit_df) > last_written_index + 1:
+
+                # Determine new rows to be added
+                new_rows = subreddit_df.iloc[last_written_index + 1:]
+
+                # Add rows to history file
+                new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                                mode='a',
+                                index=False,
+                                header=last_written_index == -1)
+
+                # Log file update
+                self.log_event(msg_id=1, screen_print=False, event='final data file append',
+                               last_written_index=last_written_index, new_row_count=len(subreddit_df))
+
+        # Log file update - finished fetch
+        self.log_event(msg_id=1, screen_print=True, event='fetch complete')
+
+        # Close logging
+        self.log_event(msg_id=-1, screen_print=False)
+
+        # Close reddit object
+        await reddit.close()
+
+        # return subreddit_df
+
+
+    async def fetch_new_data(self,
+                             subreddit_names: list):
+
+        '''
+        Function for retrieving Reddit data using the new method.
+
+        This function needs to be called with await
+        # df = await test.fetch_data(subreddit_names)
+
+        '''
+
+        # Initialize a asyncpraw reddit object
+        reddit = asyncpraw.Reddit(client_id=self.client_id,
+                                  client_secret=self.client_secret,
+                                  user_agent=self.user_agent)
+
+        # Search in each subreddit
+        for subreddit_name in subreddit_names:
+
+            # Create a subreddit class
+            subreddit = await reddit.subreddit(subreddit_name)
+
+            # Get history file name, if it exists
+            history_file = f'{subreddit_name}_posts_data.csv'
+
+            # Start logger
+            self.log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
+
+            # Log fetch start
+            self.log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
+
+            # Read files with previous Reddit data into a dataframe
+            try:
+                subreddit_df = pd.read_csv(os.path.join(self.posts_file_path, history_file))
+                seen_submission_ids = set(subreddit_df['id'])
+
+                # Initialize last written index
+                last_written_index = subreddit_df.index.max()
+
+            except FileNotFoundError:
+                # Create a new dataframe
+                subreddit_df = pd.DataFrame(columns=self.df_columns)
+                seen_submission_ids = set()
+
+                # Initialize last written index
+                last_written_index = -1
+
+            # Manage API call rate
+            self.__manage_api_call_rate()
+
+            # async for submission in subreddit.new(limit=self.limit_num):
+            async for submission in subreddit.new(limit=self.new_limit_num):
+
+                # Manage API call rate
+                self.__manage_api_call_rate()
+
+                # Check if we already have this submission in the dataset
+                if submission.id in seen_submission_ids:
+
+                    # Log submission found
+                    self.log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
+
+                    continue
+
+                # Log submission processing
+                self.log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
+
+                # Load data for this submission id
+                await submission.load()
+                seen_submission_ids.add(submission.id)
+
+                # Manage API call rate
+                self.__manage_api_call_rate()
+
+                # Dictionary to hold
+                sub_dict = {}
+
+                # Collect data for this search term starting with search term
+                sub_dict['search_term'] = 'all_new_posts'
+
+                # Add submission to dictionary
+                for col in self.df_columns:
+
+                    if col == 'created_utc':
+                        sub_dict[col] = datetime.utcfromtimestamp(int(getattr(submission, col)))
+
+                    else:
+                        sub_dict[col] = [getattr(submission, col)]
+
+                # Create a dataframe
+                new_data = pd.DataFrame(sub_dict)
+
+                # Concatenate with previous data unless first entries
+                if len(subreddit_df) == 0:
+                    subreddit_df = new_data
+                else:
+                    subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
+
+                if len(subreddit_df) >= last_written_index + self.file_update_trigger:
+
+                    # Determine new rows to be added
+                    new_rows = subreddit_df.iloc[last_written_index + 1:
+                                                 last_written_index + self.file_update_trigger + 1]
+
+                    # Add rows to history file
+                    new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                                    mode='a',
+                                    index=False,
+                                    header=last_written_index == -1)
+
+                    last_written_index += len(new_rows)  # Update the last written index
+
+                    # Log file update
+                    self.log_event(msg_id=1, screen_print=False, event='append data to result file',
+                                   last_written_index=last_written_index, new_row_count=len(subreddit_df))
+
+            # Final append for any remaining rows after the last intermittent save
+            if len(subreddit_df) > last_written_index + 1:
 
                 # Determine new rows to be added
                 new_rows = subreddit_df.iloc[last_written_index + 1:]
@@ -362,6 +488,58 @@ class GVCEHReddit():
         text = text.strip()
 
         return text
+
+    # async def __manage_api_call_rate(self):
+    def __manage_api_call_rate(self):
+        '''
+        Method to pause fetch methods from calling the Reddit API to avoid rate limit exceptions.
+        Pauses are only needed if the program has made too many API calls within a specified window.
+        However. this method should be called after each API call since it also provides the
+        check determining if a pause is needed.
+
+        Key class parameters:
+            self.api_call_limit: The maximum number of API calls during a specified time window
+            self.rate_limit_window: The time window over which API calls are counted
+            self.api_call_times = deque(): A doubly ended queue store of timestamps for all API calls
+            self.pause_indexes = deque(): A doubly ended queue store of timestamps indexes during which the
+                fetch method was paused
+
+        '''
+
+        # Record the time this method was called which should correspond with an API call time
+        self.api_call_times.append(datetime.now())
+
+        # Check rate limit - if equal to a multiple of the rate limit then we need to pause
+        if len(self.api_call_times) == self.api_call_limit * (len(self.pause_indexes) + 1):
+
+            # Add this pause to the indexes of pauses
+            self.pause_indexes.append(len(self.api_call_times) - 1)
+
+            # If this is the first pause wait until time uses first API entry
+            if len(self.pause_indexes) == 0:
+
+                wait_until = self.api_call_times[0] + self.rate_limit_window
+
+            # otherwise use the time of the last pause
+            else:
+                wait_until = self.api_call_times[self.pause_indexes[-1]] + self.rate_limit_window
+
+            # Now wait by pausing the API
+            wait_time = (wait_until - datetime.now()).total_seconds()
+
+            #  Log the pause
+            self.log_event(msg_id=1, screen_print=True, event='rate limit reached',
+                           wait_time_sec=wait_time, api_call_count=len(self.api_call_times))
+
+            # await asyncio.sleep(wait_time)
+            time.sleep(wait_time)
+
+        else:
+
+            # Even if we're not at limit's wait a short time
+            wait_time = 0.05
+            # await asyncio.sleep(wait_time)
+            time.sleep(wait_time)
 
     def log_event(self,
                   msg_id: int,

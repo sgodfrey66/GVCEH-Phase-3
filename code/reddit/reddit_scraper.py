@@ -38,7 +38,7 @@ if __name__ == "__main__":
                        'Sooke', 'Esquimalt', 'SidneyBC', 'saltspring',
                        'Metchosin', 'WestShoreBC', 'VancouverIsland', 'uvic']
 
-    subreddit_names = ['WestShoreBC', 'VancouverIsland', 'uvic']
+    # subreddit_names = ['WestShoreBC', 'VancouverIsland', 'uvic']
 
     # Location of post data
     posts_file_path = "../../data/reddit/posts"
