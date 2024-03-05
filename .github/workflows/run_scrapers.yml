@@ -42,7 +42,7 @@ jobs:
           pip install setfit
           pip install asyncio
           pip install asyncpraw
-          python ../../code/test_ga.py
+          python code/test_ga.py
 #          python code/run_scrapers.py
 
 
