@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.8 #install the python needed
-      - name: execute scraper.py 
+      - name: execute scraper
         env: 
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
           TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
@@ -42,8 +42,7 @@ jobs:
           pip install setfit
           pip install asyncio
           pip install asyncpraw
-#          python code/run_scrapers.py
           python ../../code/test_ga.py
-
+#          python code/run_scrapers.py
 
 
