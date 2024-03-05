@@ -9,11 +9,11 @@ import os, sys
 # import asyncio
 #
 # GVCEH objects
-sys.path.insert(0, 'reddit/')
+sys.path.insert(0, 'code/reddit/')
 import reddit_data_fetcher as rdf
 
 # GVCEH objects
-sys.path.insert(0, 'xtwitter/')
+sys.path.insert(0, 'code/xtwitter/')
 import x_twitter_data_fetcher as xtdf
 
 if __name__ == "__main__":
