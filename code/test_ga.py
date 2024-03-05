@@ -8,13 +8,13 @@ import os, sys
 # # Asynchronous work
 # import asyncio
 #
-# # GVCEH objects
-# sys.path.insert(0, 'reddit/')
-# import reddit_data_fetcher as rdf
-#
-# # GVCEH objects
-# sys.path.insert(0, 'xtwitter/')
-# import x_twitter_data_fetcher as xtdf
+# GVCEH objects
+sys.path.insert(0, 'reddit/')
+import reddit_data_fetcher as rdf
+
+# GVCEH objects
+sys.path.insert(0, 'xtwitter/')
+import x_twitter_data_fetcher as xtdf
 
 if __name__ == "__main__":
     '''
@@ -28,5 +28,9 @@ if __name__ == "__main__":
 
     # print(os.listdir('../'))
     print(os.listdir('data/reddit/posts'))
+
+    data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
+                                   client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
+                                   user_agent=os.environ.get("REDDIT_USER_AGENT"))
 
     print('hello')
