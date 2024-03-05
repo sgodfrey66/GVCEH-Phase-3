@@ -1,9 +1,6 @@
 # Core Python
 import os
 
-# Data tools
-import pandas as pd
-
 # Environment variables for API credential storage
 import dotenv
 
@@ -26,7 +23,7 @@ if __name__ == "__main__":
     dotenv.load_dotenv('../../data/environment/.env')
 
 
-    # Initialize Reddit object
+    # Initialize GVCEHXTwitter object
     data_fetcher = xtdf.GVCEHXTwitter(bearer_token=os.environ.get("TWITTER_BEARER_TOKEN"),
                                       consumer_key=os.environ.get("TWITTER_CONSUMER_KEY"),
                                       consumer_secret=os.environ.get("TWITTER_CONSUMER_SECRET"),

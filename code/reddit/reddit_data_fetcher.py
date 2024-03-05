@@ -68,13 +68,16 @@ class GVCEHReddit():
         keywords_files:  Names of files with keywords
 
         api_call_limit: Maximum number of calls to the API within the rate limit time window
-        rate_limit_window: Time to wait after the maximum number of API calls before trying again
+        rate_limit_window: Time window over which API calls are counted
         search_time_filter:  The look-back period for the API search
         limit_num: Maximum number of submissions to retrieve in response to a search
         file_update_trigger:  Number of submissions to retrieve before updating output data
 
-        fetch_logging: Boolean to turn logging on and off
+        api_call_times: A doubly ended queue store of timestamps for all API calls
+        pause_indexes: A doubly ended queue store of timestamps indexes at which API fetching was paused
 
+        fetch_logging: Boolean to turn logging on and off
+        dtformat: String format for time values
 
     '''
 
@@ -84,22 +87,20 @@ class GVCEHReddit():
     keywords_file_path = "../../data/keywords"
 
     # Reddit submission attributes to retain
-    df_columns = ['id', 'created_utc', 'author', 'subreddit',
-                  'title', 'selftext', 'url', 'num_comments']
+    df_columns = ["id", "created_at", "scrape_time", "author", "subreddit", "title",
+                  "selftext", "url", "num_comments"]
 
     # Files with keywords used to search reddits
-    keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
-    # keywords_files = ['ac.csv']
+    # keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
+    keywords_files = ["keywords.csv", "hashtags_other.csv"]
 
     # API Rate limits
     # api_call_limit = 880
     api_call_limit = 440
     rate_limit_window = timedelta(minutes=10)
-    search_time_filter = "month"
 
-    # Store timestamps of all API calls
-    api_call_times = deque()
-    pause_indexes = deque()
+    # Sleep between API calls (seconds) if there's no pause
+    api_sleep_time = 0.05
 
     # Max number of submissions to retrieve
     limit_num = 1000
@@ -110,9 +111,18 @@ class GVCEHReddit():
     # Number of new rows triggering a file update
     file_update_trigger = 500
 
+    # Store timestamps of all API calls
+    api_call_times = deque()
+    pause_indexes = deque()
+
+    # Fetch search lookback window
+    search_time_filter = "month"
+
     # Logging flag
     fetch_logging = True
 
+    # Date format
+    dtformat = "%Y-%m-%d %H:%M:%S"
 
 
     def __init__(self,
@@ -138,7 +148,7 @@ class GVCEHReddit():
         if fetch_logging != True:
             self.fetch_logging = False
 
-    def get_search_terms(self):
+    def __get_search_terms(self):
         '''
         Get search terms from files with keywords
         '''
@@ -153,10 +163,11 @@ class GVCEHReddit():
             df_kw = pd.read_csv(os.path.join(self.keywords_file_path, kwf), index_col=0)
 
             # Get the cleaned keywords
-            keywords.extend([self.clean_keyword_text(k) for k in df_kw[df_kw.columns[0]].tolist()])
+            keywords.extend([self.__clean_keyword_text(k) for k in df_kw[df_kw.columns[0]].tolist()])
 
         # Ensure keywords are strings and remove any duplicates
         self.search_terms = [k for k in set(keywords) if isinstance(k, str) and len(k) > 1]
+
 
     async def fetch_search_data(self,
                                 subreddit_names: list):
@@ -170,7 +181,7 @@ class GVCEHReddit():
         '''
 
         # Get the search terms
-        self.get_search_terms()
+        self.__get_search_terms()
 
         # Initialize a asyncpraw reddit object
         reddit = asyncpraw.Reddit(client_id=self.client_id,
@@ -187,10 +198,10 @@ class GVCEHReddit():
             history_file = f'{subreddit_name}_posts_data.csv'
 
             # Start logger
-            self.log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
+            self.__log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
 
             # Log fetch start
-            self.log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
+            self.__log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
 
             # Read files with previous Reddit data into a dataframe
             try:
@@ -211,75 +222,86 @@ class GVCEHReddit():
             # Now search for search terms
             for search_term in self.search_terms:
 
-                # Manage API call rate
-                self.__manage_api_call_rate()
+                # Search Reddit for each search term
+                try:
 
-                async for submission in subreddit.search(search_term,
-                                                         limit=self.limit_num,
-                                                         time_filter=self.search_time_filter):
+                    async for submission in subreddit.search(search_term,
+                                                             limit=self.limit_num,
+                                                             time_filter=self.search_time_filter):
 
-                    # Manage API call rate
-                    self.__manage_api_call_rate()
+                        # Manage API call rate
+                        self.__manage_api_call_rate()
 
-                    # Check if we already have this submission in the dataset
-                    if submission.id in seen_submission_ids:
+                        # Check if we already have this submission in the dataset
+                        if submission.id in seen_submission_ids:
 
-                        # Log submission found
-                        self.log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
+                            # Log submission found
+                            self.__log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
 
-                        continue
+                            continue
 
-                    # Log submission processing
-                    self.log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
+                        # Log submission processing
+                        self.__log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
 
-                    # Load data for this submission id
-                    await submission.load()
-                    seen_submission_ids.add(submission.id)
+                        # Load data for this submission id
+                        await submission.load()
+                        seen_submission_ids.add(submission.id)
 
-                    # Manage API call rate
-                    self.__manage_api_call_rate()
+                        # Manage API call rate
+                        self.__manage_api_call_rate()
 
-                    # Dictionary to hold
-                    sub_dict = {}
+                        # Dictionary to hold
+                        sub_dict = {}
 
-                    # Collect data for this search term starting with search term
-                    sub_dict['search_term'] = search_term
+                        # Add submission to dictionary
+                        for col in self.df_columns:
 
-                    # Add submission to dictionary
-                    for col in self.df_columns:
+                            if col == "created_at":
+                                sub_dict[col] = datetime.utcfromtimestamp(int(getattr(submission, "created_utc")))
 
-                        if col == 'created_utc':
-                            sub_dict[col] = datetime.utcfromtimestamp(int(getattr(submission, col)))
+                            elif col == "scrape_time":
+                                sub_dict[col] =  datetime.now().strftime(self.dtformat)
 
+                            else:
+                                sub_dict[col] = [getattr(submission, col)]
+
+                        # Collect data for this search term starting with search term
+                        sub_dict["search_term"] = search_term
+
+                        # Create a dataframe
+                        new_data = pd.DataFrame(sub_dict)
+
+                        # Concatenate with previous data unless first entries
+                        if len(subreddit_df) == 0:
+                            subreddit_df = new_data
                         else:
-                            sub_dict[col] = [getattr(submission, col)]
+                            subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
 
-                    # Create a dataframe
-                    new_data = pd.DataFrame(sub_dict)
+                        if len(subreddit_df) >= last_written_index + self.file_update_trigger:
 
-                    # Concatenate with previous data unless first entries
-                    if len(subreddit_df) == 0:
-                        subreddit_df = new_data
-                    else:
-                        subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
+                            # Determine new rows to be added
+                            new_rows = subreddit_df.iloc[last_written_index + 1:
+                                                         last_written_index + self.file_update_trigger + 1]
 
-                    if len(subreddit_df) >= last_written_index + self.file_update_trigger:
+                            # Add rows to history file
+                            new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                                            mode='a',
+                                            index=False,
+                                            header=last_written_index == -1)
 
-                        # Determine new rows to be added
-                        new_rows = subreddit_df.iloc[last_written_index + 1:
-                                                     last_written_index + self.file_update_trigger + 1]
+                            last_written_index += len(new_rows)  # Update the last written index
 
-                        # Add rows to history file
-                        new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                        mode='a',
-                                        index=False,
-                                        header=last_written_index == -1)
+                            # Log file update
+                            self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
+                                             last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
-                        last_written_index += len(new_rows)  # Update the last written index
+                except Exception as e:
 
-                        # Log file update
-                        self.log_event(msg_id=1, screen_print=False, event='append data to result file',
-                                       last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                    # Log exception
+                    self.__log_event(msg_id=1, screen_print=True, event='fetch exception',
+                                     exception_info=str(e), query_num=len(self.api_call_times), search_term=search_term)
+
+                    raise RuntimeError(e)
 
             # Final append for any remaining rows after the last intermittent save
             if len(subreddit_df) > last_written_index + 1:
@@ -294,14 +316,17 @@ class GVCEHReddit():
                                 header=last_written_index == -1)
 
                 # Log file update
-                self.log_event(msg_id=1, screen_print=False, event='final data file append',
-                               last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                self.__log_event(msg_id=1, screen_print=False, event='final data file append',
+                                 last_written_index=last_written_index, new_row_count=len(subreddit_df))
+
+        # Write the combined file
+        self.__concat_posts_files(subreddit_names=subreddit_names)
 
         # Log file update - finished fetch
-        self.log_event(msg_id=1, screen_print=True, event='fetch complete')
+        self.__log_event(msg_id=1, screen_print=True, event='fetch complete')
 
         # Close logging
-        self.log_event(msg_id=-1, screen_print=False)
+        self.__log_event(msg_id=-1, screen_print=False)
 
         # Close reddit object
         await reddit.close()
@@ -335,10 +360,10 @@ class GVCEHReddit():
             history_file = f'{subreddit_name}_posts_data.csv'
 
             # Start logger
-            self.log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
+            self.__log_event(msg_id=0, screen_print=False, logfile_stub=subreddit_name)
 
             # Log fetch start
-            self.log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
+            self.__log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
 
             # Read files with previous Reddit data into a dataframe
             try:
@@ -359,71 +384,84 @@ class GVCEHReddit():
             # Manage API call rate
             self.__manage_api_call_rate()
 
-            # async for submission in subreddit.new(limit=self.limit_num):
-            async for submission in subreddit.new(limit=self.new_limit_num):
+            try:
 
-                # Manage API call rate
-                self.__manage_api_call_rate()
+                # async for submission in subreddit.new(limit=self.limit_num):
+                async for submission in subreddit.new(limit=self.new_limit_num):
 
-                # Check if we already have this submission in the dataset
-                if submission.id in seen_submission_ids:
+                    # Manage API call rate
+                    self.__manage_api_call_rate()
 
-                    # Log submission found
-                    self.log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
+                    # Check if we already have this submission in the dataset
+                    if submission.id in seen_submission_ids:
 
-                    continue
+                        # Log submission found
+                        self.__log_event(msg_id=1, screen_print=False, event='submission ID found', id=submission.id)
 
-                # Log submission processing
-                self.log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
+                        continue
 
-                # Load data for this submission id
-                await submission.load()
-                seen_submission_ids.add(submission.id)
+                    # Log submission processing
+                    self.__log_event(msg_id=1, screen_print=False, event='submission processing', id=submission.id)
 
-                # Manage API call rate
-                self.__manage_api_call_rate()
+                    # Load data for this submission id
+                    await submission.load()
+                    seen_submission_ids.add(submission.id)
 
-                # Dictionary to hold
-                sub_dict = {}
+                    # Manage API call rate
+                    self.__manage_api_call_rate()
 
-                # Collect data for this search term starting with search term
-                sub_dict['search_term'] = 'all_new_posts'
+                    # Dictionary to hold
+                    sub_dict = {}
 
-                # Add submission to dictionary
-                for col in self.df_columns:
+                    # Add submission to dictionary
+                    for col in self.df_columns:
 
-                    if col == 'created_utc':
-                        sub_dict[col] = datetime.utcfromtimestamp(int(getattr(submission, col)))
+                        if col == "created_at":
+                            sub_dict[col] = datetime.utcfromtimestamp(int(getattr(submission, "created_utc")))
 
+                        elif col == "scrape_time":
+                            sub_dict[col] = datetime.now().strftime(self.dtformat)
+
+                        else:
+                            sub_dict[col] = [getattr(submission, col)]
+
+                    # Collect data for this search term --- Since new posts fetch set to all_new_posts
+                    sub_dict["search_term"] = "all_new_posts"
+
+                    # Create a dataframe
+                    new_data = pd.DataFrame(sub_dict)
+
+                    # Concatenate with previous data unless first entries
+                    if len(subreddit_df) == 0:
+                        subreddit_df = new_data
                     else:
-                        sub_dict[col] = [getattr(submission, col)]
+                        subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
 
-                # Create a dataframe
-                new_data = pd.DataFrame(sub_dict)
+                    if len(subreddit_df) >= last_written_index + self.file_update_trigger:
 
-                # Concatenate with previous data unless first entries
-                if len(subreddit_df) == 0:
-                    subreddit_df = new_data
-                else:
-                    subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
+                        # Determine new rows to be added
+                        new_rows = subreddit_df.iloc[last_written_index + 1:
+                                                     last_written_index + self.file_update_trigger + 1]
 
-                if len(subreddit_df) >= last_written_index + self.file_update_trigger:
+                        # Add rows to history file
+                        new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                                        mode='a',
+                                        index=False,
+                                        header=last_written_index == -1)
 
-                    # Determine new rows to be added
-                    new_rows = subreddit_df.iloc[last_written_index + 1:
-                                                 last_written_index + self.file_update_trigger + 1]
+                        last_written_index += len(new_rows)  # Update the last written index
 
-                    # Add rows to history file
-                    new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                    mode='a',
-                                    index=False,
-                                    header=last_written_index == -1)
+                        # Log file update
+                        self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
+                                         last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
-                    last_written_index += len(new_rows)  # Update the last written index
+            except Exception as e:
 
-                    # Log file update
-                    self.log_event(msg_id=1, screen_print=False, event='append data to result file',
-                                   last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                # Log exception
+                self.__log_event(msg_id=1, screen_print=True, event='fetch exception',
+                                 exception_info=str(e), query_num=len(self.api_call_times), subreddit=subreddit_name)
+
+                raise RuntimeError(e)
 
             # Final append for any remaining rows after the last intermittent save
             if len(subreddit_df) > last_written_index + 1:
@@ -438,22 +476,74 @@ class GVCEHReddit():
                                 header=last_written_index == -1)
 
                 # Log file update
-                self.log_event(msg_id=1, screen_print=False, event='final data file append',
-                               last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                self.__log_event(msg_id=1, screen_print=False, event='final data file append',
+                                 last_written_index=last_written_index, new_row_count=len(subreddit_df))
+
+        # Write the combined file
+        self.__concat_posts_files(subreddit_names=subreddit_names)
 
         # Log file update - finished fetch
-        self.log_event(msg_id=1, screen_print=True, event='fetch complete')
+        self.__log_event(msg_id=1, screen_print=True, event='fetch complete')
 
         # Close logging
-        self.log_event(msg_id=-1, screen_print=False)
+        self.__log_event(msg_id=-1, screen_print=False)
 
         # Close reddit object
         await reddit.close()
 
-        # return subreddit_df
+
+    def __concat_posts_files(self,
+                             subreddit_names: list):
+        '''
+        Method to concatenate the posts into a single dataframe and file.
+
+        '''
+
+        # Name the file containing the combined reddit output
+        combined_file_stub = "reddit_posts"
+        combined_file_name = "{}.csv".format(combined_file_stub)
+
+        # Log beginning file concatenation process
+        self.__log_event(msg_id=0, screen_print=False, event='starting concatenation process',
+                         logfile_stub=combined_file_stub)
+
+        dfs = []
+        for subreddit_name in subreddit_names:
+
+            # Get the name of the history file
+            history_file = f'{subreddit_name}_posts_data.csv'
+
+            try:
+                # read the file
+                df = pd.read_csv(filepath_or_buffer=os.path.join(self.posts_file_path, history_file))
+
+                # Add to list
+                dfs.append(df)
+
+                # Log successful file read
+                self.__log_event(msg_id=1, screen_print=False, event='successful history file read',
+                                 file_name=history_file)
+
+            except:
+
+                # Log unsuccessful file read
+                self.__log_event(msg_id=1, screen_print=False, event='unsuccessful history file read',
+                                 file_name=history_file)
+
+        # Concatenate
+        df = pd.concat(objs=dfs)
+        df = df.reset_index(drop=True)
+
+        # Write combined file
+        df.to_csv(path_or_buf=os.path.join(self.posts_file_path, combined_file_name),
+                  index=False)
+
+        # Log successful file save
+        self.__log_event(msg_id=1, screen_print=False, event='successful history file save',
+                         file_name=combined_file_name)
 
 
-    def clean_keyword_text(self,
+    def __clean_keyword_text(self,
                            text):
         '''
         Method to clean Reddit and keyword texts in either the original post
@@ -489,7 +579,7 @@ class GVCEHReddit():
 
         return text
 
-    # async def __manage_api_call_rate(self):
+
     def __manage_api_call_rate(self):
         '''
         Method to pause fetch methods from calling the Reddit API to avoid rate limit exceptions.
@@ -501,8 +591,8 @@ class GVCEHReddit():
             self.api_call_limit: The maximum number of API calls during a specified time window
             self.rate_limit_window: The time window over which API calls are counted
             self.api_call_times = deque(): A doubly ended queue store of timestamps for all API calls
-            self.pause_indexes = deque(): A doubly ended queue store of timestamps indexes during which the
-                fetch method was paused
+            self.pause_indexes = deque(): A doubly ended queue store of timestamps indexes at which API fetching
+                    was paused
 
         '''
 
@@ -510,7 +600,7 @@ class GVCEHReddit():
         self.api_call_times.append(datetime.now())
 
         # Check rate limit - if equal to a multiple of the rate limit then we need to pause
-        if len(self.api_call_times) == self.api_call_limit * (len(self.pause_indexes) + 1):
+        if len(self.api_call_times) >= self.api_call_limit * (len(self.pause_indexes) + 1):
 
             # Add this pause to the indexes of pauses
             self.pause_indexes.append(len(self.api_call_times) - 1)
@@ -528,20 +618,19 @@ class GVCEHReddit():
             wait_time = (wait_until - datetime.now()).total_seconds()
 
             #  Log the pause
-            self.log_event(msg_id=1, screen_print=True, event='rate limit reached',
-                           wait_time_sec=wait_time, api_call_count=len(self.api_call_times))
+            self.__log_event(msg_id=1, screen_print=True, event='rate limit reached',
+                             wait_time_sec=wait_time, api_call_count=len(self.api_call_times))
 
-            # await asyncio.sleep(wait_time)
             time.sleep(wait_time)
 
         else:
 
             # Even if we're not at limit's wait a short time
-            wait_time = 0.05
-            # await asyncio.sleep(wait_time)
+            wait_time = self.api_sleep_time
             time.sleep(wait_time)
 
-    def log_event(self,
+
+    def __log_event(self,
                   msg_id: int,
                   screen_print: bool,
                   **kwargs):
@@ -564,8 +653,8 @@ class GVCEHReddit():
 
         '''
 
-        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+        # Get current time
+        current_time = datetime.now().strftime(self.dtformat)
 
         # msg_id = -1 - Close logger
         if self.fetch_logging and msg_id == -1:

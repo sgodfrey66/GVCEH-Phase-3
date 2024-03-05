@@ -1,5 +1,5 @@
-search_term,id,created_utc,author,subreddit,title,selftext,url,num_comments
-overdose,own79d,2021-08-02 20:33:09,RedditCareResources,u_RedditCareResources,Get support for yourself or other people,"If you’d like to talk to someone, confidential mental health support is free and available 24/7.
+id,created_at,scrape_time,author,subreddit,title,selftext,url,num_comments,search_term
+own79d,2021-08-02 20:33:09,2024-03-04 16:57:36,RedditCareResources,u_RedditCareResources,Get support for yourself or other people,"If you’d like to talk to someone, confidential mental health support is free and available 24/7.
 
 **Inside the U.S.**
 
@@ -22,4 +22,5 @@ overdose,own79d,2021-08-02 20:33:09,RedditCareResources,u_RedditCareResources,Ge
 
 &#x200B;
 
-https://preview.redd.it/6z44cj5bx6f71.png?width=558&format=png&auto=webp&s=951f1a6c6b3de5741768248c31125db2220fd968",https://www.reddit.com/r/u_RedditCareResources/comments/own79d/get_support_for_yourself_or_other_people/,2
+https://preview.redd.it/6z44cj5bx6f71.png?width=558&format=png&auto=webp&s=951f1a6c6b3de5741768248c31125db2220fd968",https://www.reddit.com/r/u_RedditCareResources/comments/own79d/get_support_for_yourself_or_other_people/,2,overdose
+1asvaz4,2024-02-17 06:25:44,2024-03-04 16:57:39,Shanamana,SidneyBC,Family Day Weekend LEGO Activities at the Sidney Museum!,If you or your kiddos like LEGO...check out the museum this weekend in Sidney.,https://i.redd.it/421xvweca3jc1.png,0,victoria bc

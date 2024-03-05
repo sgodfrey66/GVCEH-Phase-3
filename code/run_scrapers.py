@@ -1,5 +1,5 @@
 # Core Python
-import os
+import os, sys
 
 # Environment variables for API credential storage
 import dotenv
@@ -8,7 +8,13 @@ import dotenv
 import asyncio
 
 # GVCEH objects
+sys.path.insert(0, 'reddit/')
 import reddit_data_fetcher as rdf
+
+
+# GVCEH objects
+sys.path.insert(0, 'xtwitter/')
+import x_twitter_data_fetcher as xtdf
 
 
 if __name__ == "__main__":
@@ -23,7 +29,7 @@ if __name__ == "__main__":
     '''
 
     # import out environment variables
-    dotenv.load_dotenv('../../data/environment/.env')
+    # dotenv.load_dotenv('../../data/environment/.env')
 
     # Step 1: Initialize GVCEHReddit object
     data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
@@ -41,4 +47,15 @@ if __name__ == "__main__":
     # asyncio.run(data_fetcher.fetch_new_data(subreddit_names=subreddit_names))
 
 
+    # Step 3: Initialize GVCEHXTwitter object
+    data_fetcher = xtdf.GVCEHXTwitter(bearer_token=os.environ.get("TWITTER_BEARER_TOKEN"),
+                                      consumer_key=os.environ.get("TWITTER_CONSUMER_KEY"),
+                                      consumer_secret=os.environ.get("TWITTER_CONSUMER_SECRET"),
+                                      access_token=os.environ.get("TWITTER_ACCESS_TOKEN"),
+                                      access_token_secret=os.environ.get("TWITTER_ACCESS_TOKEN_SECRET"))
+
+    # Step 4: Fetch Twitter data
+    data_fetcher.batch_scrape()
+
+    print('Scrapers run complete')
 
