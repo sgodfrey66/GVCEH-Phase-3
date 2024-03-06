@@ -36,8 +36,8 @@ if __name__ == "__main__":
                                    client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
                                    user_agent=os.environ.get("REDDIT_USER_AGENT"),
                                    posts_file_path="data/reddit/posts",
-                                   logs_file_path = "data/reddit/logs",
-                                   keywords_file_path = "data/keywords")
+                                   logs_file_path="data/reddit/logs",
+                                   keywords_file_path="data/keywords")
 
     # Subreddits to explore
     subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
 
     # Step 2: Fetch reddit data
-    asyncio.run(data_fetcher.fetch_search_data(subreddit_names=subreddit_names))
+    # asyncio.run(data_fetcher.fetch_search_data(subreddit_names=subreddit_names))
     # asyncio.run(data_fetcher.fetch_new_data(subreddit_names=subreddit_names))
 
 
