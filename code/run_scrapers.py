@@ -8,12 +8,12 @@ import dotenv
 import asyncio
 
 # GVCEH objects
-sys.path.insert(0, "code/reddit/")
+sys.path.insert(0, "reddit/")
 import reddit_data_fetcher as rdf
 
 
-# GVCEH objects
-sys.path.insert(0, "code/xtwitter/")
+# GVCEH objectscl
+sys.path.insert(0, "xtwitter/")
 import x_twitter_data_fetcher as xtdf
 
 
