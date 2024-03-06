@@ -32,13 +32,16 @@ if __name__ == "__main__":
     # dotenv.load_dotenv('../../data/environment/.env')
 
     # Step 1: Initialize GVCEHReddit object
+    # data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
+    #                                client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
+    #                                user_agent=os.environ.get("REDDIT_USER_AGENT"),
+    #                                posts_file_path="data/reddit/posts",
+    #                                logs_file_path="data/reddit/logs",
+    #                                keywords_file_path="data/keywords")
+
     data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
                                    client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
-                                   user_agent=os.environ.get("REDDIT_USER_AGENT"),
-                                   posts_file_path="data/reddit/posts",
-                                   logs_file_path="data/reddit/logs",
-                                   keywords_file_path="data/keywords")
-
+                                   user_agent=os.environ.get("REDDIT_USER_AGENT"))
     # Subreddits to explore
     subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
                        "Sooke", "Esquimalt", "SidneyBC", "saltspring",
