@@ -42,6 +42,10 @@ if __name__ == "__main__":
     data_fetcher = rdf.GVCEHReddit(client_id=os.environ.get("REDDIT_CLIENT_ID"),
                                    client_secret=os.environ.get("REDDIT_CLIENT_SECRET"),
                                    user_agent=os.environ.get("REDDIT_USER_AGENT"))
+
+    print('Some variables')
+    print('reddit_id:{}'.format(os.environ.get("REDDIT_CLIENT_ID")))
+    
     # Subreddits to explore
     subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
                        "Sooke", "Esquimalt", "SidneyBC", "saltspring",
