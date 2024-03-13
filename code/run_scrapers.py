@@ -78,15 +78,13 @@ if __name__ == "__main__":
 
     data_fetcher = rdf.GVCEHReddit(client_id=get_gcpsecrets(project_id, "REDDIT_CLIENT_ID", version_id),
                                    client_secret=get_gcpsecrets(project_id, "REDDIT_CLIENT_SECRET", version_id),
-                                   user_agent=get_gcpsecrets(project_id, "REDDIT_USER_AGENT", version_id))
+                                   user_agent=get_gcpsecrets(project_id, "REDDIT_USER_AGENT", version_id),
+                                   data_path_root="../data/")
 
     # Subreddits to explore
     subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
                        "Sooke", "Esquimalt", "SidneyBC", "saltspring",
                        "Metchosin", "WestShoreBC", "VancouverIsland", "uvic"]
-
-    subreddit_names = ['britishcolumbia']
-
 
     # Step 2: Fetch reddit data
     asyncio.run(data_fetcher.fetch_search_data(subreddit_names=subreddit_names))
@@ -106,7 +104,8 @@ if __name__ == "__main__":
                                       consumer_key=get_gcpsecrets(project_id,"TWITTER_CONSUMER_KEY", version_id),
                                       consumer_secret=get_gcpsecrets(project_id,"TWITTER_CONSUMER_SECRET", version_id),
                                       access_token=get_gcpsecrets(project_id,"TWITTER_ACCESS_TOKEN", version_id),
-                                      access_token_secret=get_gcpsecrets(project_id,"TWITTER_ACCESS_TOKEN_SECRET", version_id))
+                                      access_token_secret=get_gcpsecrets(project_id,"TWITTER_ACCESS_TOKEN_SECRET", version_id),
+                                      data_path_root="../data/")
 
     # Step 4: Fetch Twitter data
     data_fetcher.batch_scrape()

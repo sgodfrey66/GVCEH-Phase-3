@@ -81,9 +81,10 @@ class GVCEHReddit():
     '''
 
     # Data files paths
-    posts_file_path = "../../data/reddit/posts"
-    logs_file_path = "../../data/reddit/logs"
-    keywords_file_path = "../../data/keywords"
+    data_path_root = "../../data/"
+    posts_file_path = "{}reddit/posts".format(data_path_root)
+    logs_file_path = "{}data/reddit/logs".format(data_path_root)
+    keywords_file_path = "{}data/keywords".format(data_path_root)
 
     # Reddit submission attributes to retain
     df_columns = ["id", "created_at", "scrape_time", "author", "subreddit", "title",

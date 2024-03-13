@@ -80,10 +80,11 @@ class GVCEHXTwitter():
     '''
 
     # Data files paths
-    query_file_path = "../../data/xtwitter/queries"
-    tweets_file_path = "../../data/xtwitter/tweets"
-    logs_file_path = "../../data/xtwitter/logs"
-    keywords_file_path = "../../data/keywords"
+    data_path_root = "../../data/"
+    query_file_path = "{}xtwitter/queries".format(data_path_root)
+    tweets_file_path = "{}xtwitter/tweets".format(data_path_root)
+    logs_file_path = "{}xtwitter/logs".format(data_path_root)
+    keywords_file_path = "{}data/keywords".format(data_path_root)
 
     # Input files
     hashtags_file_name = "hashtags_other.csv"
