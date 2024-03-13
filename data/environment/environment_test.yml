@@ -41,7 +41,7 @@ dependencies:
       - pandas
       - tweepy
       - requests
-      - PyGithub
+#      - PyGithub
       - tensorflow
       - transformers
       - setfit
