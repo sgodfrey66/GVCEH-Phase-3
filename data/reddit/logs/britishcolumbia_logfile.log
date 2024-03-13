@@ -1,412 +1,403 @@
-INFO - time: 2024-03-05 06:59:34: event: start fetch: subreddit_name: britishcolumbia
-INFO - time: 2024-03-05 06:59:34: event: submission ID found: id: 1aq7doz
-INFO - time: 2024-03-05 06:59:35: event: submission ID found: id: 1avztuc
-INFO - time: 2024-03-05 06:59:35: event: submission ID found: id: 1arnrc6
-INFO - time: 2024-03-05 06:59:35: event: submission ID found: id: 1aq4tew
-INFO - time: 2024-03-05 06:59:35: event: submission ID found: id: 1ake2pj
-INFO - time: 2024-03-05 06:59:36: event: submission ID found: id: 1arlltt
-INFO - time: 2024-03-05 06:59:36: event: submission ID found: id: 1aombx3
-INFO - time: 2024-03-05 06:59:36: event: submission processing: id: 1b76w3t
-INFO - time: 2024-03-05 06:59:36: event: submission ID found: id: 1aidz6k
-INFO - time: 2024-03-05 06:59:36: event: submission ID found: id: 1al4nms
-INFO - time: 2024-03-05 06:59:37: event: submission ID found: id: 1aqgxvx
-INFO - time: 2024-03-05 06:59:37: event: submission ID found: id: 1ai4t9t
-INFO - time: 2024-03-05 06:59:37: event: submission ID found: id: 1b4tkb7
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1awp59x
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1avp9z6
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1aq7doz
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1av9ceq
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1b1xy7t
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1ake2pj
-INFO - time: 2024-03-05 06:59:38: event: submission ID found: id: 1az2wjx
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1at7121
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1b1frjd
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1aidz6k
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1azygjx
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1axhv0l
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1at1191
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1ascmtz
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1b0nqxf
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1avqzcs
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1al7709
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1ayabf1
-INFO - time: 2024-03-05 06:59:39: event: submission ID found: id: 1b76w3t
-INFO - time: 2024-03-05 06:59:39: event: submission processing: id: 1b76bdl
-INFO - time: 2024-03-05 06:59:40: event: submission ID found: id: 1aho6cn
-INFO - time: 2024-03-05 06:59:40: event: submission ID found: id: 1alfz8a
-INFO - time: 2024-03-05 06:59:40: event: submission ID found: id: 1al4nms
-INFO - time: 2024-03-05 06:59:40: event: submission processing: id: 1b6xvl0
-INFO - time: 2024-03-05 06:59:40: event: submission ID found: id: 1b1n5qu
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1axnk9a
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1asaqqm
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1anifuo
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1amg4tt
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1b2810o
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1ajs8vt
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1akdp88
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1au2hpo
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1ay5n9l
-INFO - time: 2024-03-05 06:59:41: event: submission processing: id: 1b6jw8r
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1b3gt9t
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1at3wd9
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1aqgxvx
-INFO - time: 2024-03-05 06:59:41: event: submission ID found: id: 1b1quqj
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1atngpg
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1al7pmr
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1b2bulb
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1ar8i75
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1alo9co
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1aobvsw
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1asj9en
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1ai4t9t
-INFO - time: 2024-03-05 06:59:42: event: submission ID found: id: 1ayzr8f
-INFO - time: 2024-03-05 06:59:43: event: submission ID found: id: 1b299px
-INFO - time: 2024-03-05 06:59:43: event: submission ID found: id: 1b1xy7t
-INFO - time: 2024-03-05 06:59:43: event: submission ID found: id: 1aucj4k
-INFO - time: 2024-03-05 06:59:43: event: submission ID found: id: 1ai44is
-INFO - time: 2024-03-05 06:59:43: event: submission ID found: id: 1b2n7iy
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1axguxg
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1b4q7hw
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1b299px
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1aucj4k
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1ai44is
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1b1xy7t
-INFO - time: 2024-03-05 06:59:44: event: submission ID found: id: 1b2n7iy
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1ao317p
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1arwpb7
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1aqu0fq
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1ai44is
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1ay2erk
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1anqm09
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1asre9e
-INFO - time: 2024-03-05 06:59:45: event: submission ID found: id: 1aj0gii
-INFO - time: 2024-03-05 06:59:45: event: submission processing: id: 1b70syw
-INFO - time: 2024-03-05 06:59:46: event: submission ID found: id: 1b298g2
-INFO - time: 2024-03-05 06:59:46: event: submission ID found: id: 1b0y1hn
-INFO - time: 2024-03-05 06:59:46: event: submission ID found: id: 1ayy9u5
-INFO - time: 2024-03-05 06:59:46: event: submission ID found: id: 1b4t9og
-INFO - time: 2024-03-05 06:59:46: event: submission ID found: id: 1atfjis
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1aw874u
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1av31m3
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1b4bp9w
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1b29f9z
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1b2klzp
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1b06w25
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1apm3yy
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1as0wer
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1akt40h
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1b6fvvi
-INFO - time: 2024-03-05 06:59:47: event: submission ID found: id: 1aq4tew
-INFO - time: 2024-03-05 06:59:48: event: submission ID found: id: 1am351b
-INFO - time: 2024-03-05 06:59:48: event: submission ID found: id: 1ar4i9y
-INFO - time: 2024-03-05 06:59:48: event: submission ID found: id: 1ary7wa
-INFO - time: 2024-03-05 06:59:48: event: submission ID found: id: 1avy26a
-INFO - time: 2024-03-05 06:59:48: event: submission ID found: id: 1ai44is
-INFO - time: 2024-03-05 06:59:49: event: submission ID found: id: 1b5vfq5
-INFO - time: 2024-03-05 06:59:49: event: submission ID found: id: 1asaqqm
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1ani796
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1ahy017
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1b65iwa
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1b0c8jx
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1aui3al
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1apoc24
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1b5d4zw
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1b4q7hw
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1aywmll
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1awglox
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1b5wzob
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1axoo4j
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1aq47n7
-INFO - time: 2024-03-05 06:59:51: event: submission ID found: id: 1asj9en
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b3baj8
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1at3wd9
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b0miy0
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1ay6le0
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1ay27d4
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1am0smy
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b2mcnf
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b3o08e
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1awet40
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b6d7zm
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1b49ak1
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1alpjyq
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1am0zk3
-INFO - time: 2024-03-05 06:59:52: event: submission ID found: id: 1akpq29
-INFO - time: 2024-03-05 06:59:52: event: submission processing: id: 1b75m9m
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1am0fab
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1aydhwj
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1aphtsi
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1aq4pib
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1airttk
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1ankyuz
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1b6s0sy
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1ak8638
-INFO - time: 2024-03-05 06:59:53: event: submission processing: id: 1b6xvsv
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1avqzcs
-INFO - time: 2024-03-05 06:59:53: event: submission ID found: id: 1artsn5
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1b29m4a
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1b6g4ck
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1ay7bv6
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1athkr3
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1b22t48
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1ake2pj
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1ap8g1g
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1arm9e4
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1akqh8m
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1b0yidc
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1arzu7h
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1b5vfq5
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1apgmwr
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1av5745
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1asj51g
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1aq1ktb
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1awun68
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1awr9h0
-INFO - time: 2024-03-05 06:59:54: event: submission ID found: id: 1ayflgw
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1ahmwuo
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1axf17r
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1aq7j0k
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1auskhx
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1b1nt5w
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1ann5y4
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1b76w3t
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1b6iu8h
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1b4cf65
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1amnju3
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1at35wz
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1akqgl3
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1ars39t
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1alm71v
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1apk836
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1ajpiaf
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1apjs90
-INFO - time: 2024-03-05 06:59:55: event: submission ID found: id: 1apf3c7
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1al7709
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1axhv0l
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1arbnhg
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1b349h2
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1alfz8a
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1ahihx5
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1b1i4gl
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1aksurz
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1apc9ab
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1b0urwx
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1alhhyk
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1aots0c
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1ahnam1
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1awp59x
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1ar39j5
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1anpk2q
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1axauik
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1b0qni3
-INFO - time: 2024-03-05 06:59:56: event: submission ID found: id: 1azupl5
-INFO - time: 2024-03-05 06:59:57: event: submission ID found: id: 1b6j1sv
-INFO - time: 2024-03-05 06:59:57: event: submission ID found: id: 1arnu3t
-INFO - time: 2024-03-05 06:59:57: event: submission ID found: id: 1ar2hky
-INFO - time: 2024-03-05 06:59:57: event: submission ID found: id: 1b299px
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1avp9z6
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1an0mwa
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1b2nku1
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1am629p
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1asw35s
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1aixscq
-INFO - time: 2024-03-05 06:59:58: event: submission ID found: id: 1b1slu4
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1aqg2u0
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1ake11d
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1anqm09
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1ayy9u5
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b6fomm
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1am351b
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1asrx7y
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1asvtgg
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1ald73e
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1axn9r9
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1as75as
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b3i5n4
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b0y1hn
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1amtmp8
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b4bev8
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b32inz
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1b4t9og
-INFO - time: 2024-03-05 06:59:59: event: submission ID found: id: 1am1adi
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1ant74y
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b34eaj
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1aud3aw
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1azwkq9
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b5wfox
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b3wwo6
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1aq12w7
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1avltwo
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1aryh24
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1ajmivc
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b48jg9
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1al5c49
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1aqt7re
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b2fx8s
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1aypba0
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1avy26a
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1ak155p
-INFO - time: 2024-03-05 07:00:00: event: submission ID found: id: 1b5n4lm
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1am5xqz
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b4733u
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1al4nms
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b1kol1
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1atzu1b
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b460d8
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b4tkb7
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1askkyv
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1aykohu
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b0gblz
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1anv24g
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1akjd19
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1b5vbfc
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1asahd0
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1al6q8k
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1arnbk4
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1artb0l
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1amxg9k
-INFO - time: 2024-03-05 07:00:01: event: submission ID found: id: 1aq7doz
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1atad2d
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1ap3hvc
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1avq643
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1aq0fcx
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1aogjvp
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1asaqqm
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1b5tz4g
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1atzmvs
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1b1frjd
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1ak6nl2
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1alguc8
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1aydjrm
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1b5z035
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1anwp3b
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1b401ql
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1aucj4k
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1aw3d2r
-INFO - time: 2024-03-05 07:00:02: event: submission ID found: id: 1am0hyk
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1b0ow1y
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1aqgxvx
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1axba70
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1b0mylg
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1arutwb
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1ay2erk
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1b2lrcd
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1amg4tt
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1an135x
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1aw1aky
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1az2xrs
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1axipyz
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1awb5ho
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1asj7hm
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1ajr94t
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1aw874u
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1ay4d5x
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1at7121
-INFO - time: 2024-03-05 07:00:03: event: submission ID found: id: 1aldd8e
-INFO - time: 2024-03-05 07:00:04: event: submission ID found: id: 1az2q5d
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1apagfy
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aozux1
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aya3f2
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1b2810o
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1anoghk
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1ajhp08
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1ai6e5z
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1b0mc6a
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1ait4dx
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aopwz1
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aomb3d
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1b4gnkq
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1axed28
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aq0pv6
-INFO - time: 2024-03-05 07:00:05: event: submission ID found: id: 1aoe11j
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1ald96m
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1aistun
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1au8asv
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1av7oug
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1av9ceq
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1ao317p
-INFO - time: 2024-03-05 07:00:06: event: submission ID found: id: 1b0nh2t
-INFO - time: 2024-03-05 07:00:06: event: submission processing: id: 1b6lwcb
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1anifuo
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1az9qaa
-INFO - time: 2024-03-05 07:00:07: event: submission processing: id: 1b6sle3
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1atfjis
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1ashgr0
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1b2pfxz
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1ai3vs6
-INFO - time: 2024-03-05 07:00:07: event: submission ID found: id: 1b35rtq
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1ant5tn
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1ai431r
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1aqpen3
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1amcncf
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1apbt8z
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1amoolq
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1anirzn
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1an15cq
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1asgtpd
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1ay6k7u
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1at1191
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1anxvvf
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1av0va8
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1aurun1
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1ai1awt
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1alkl16
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1arq90j
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1auejad
-INFO - time: 2024-03-05 07:00:08: event: submission ID found: id: 1arktps
-INFO - time: 2024-03-05 07:00:09: event: submission ID found: id: 1aqt7re
-INFO - time: 2024-03-05 07:00:09: event: submission ID found: id: 1alfz8a
-INFO - time: 2024-03-05 07:00:09: event: submission ID found: id: 1aw874u
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1an15cq
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1am6teu
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1b76w3t
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1aq12w7
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1b1iwee
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1al4nms
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1aidz6k
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1aqgxvx
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1as0wer
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1b659dg
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1ayma4v
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1ai4t9t
-INFO - time: 2024-03-05 07:00:10: event: submission ID found: id: 1b6jw8r
-INFO - time: 2024-03-05 07:00:11: event: submission ID found: id: 1b4q7hw
-INFO - time: 2024-03-05 07:00:11: event: submission ID found: id: 1ashgr0
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1aq12w7
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1b1iwee
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1ask7gw
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1aksvbd
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1asgtpd
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1axed28
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1b49bhk
-INFO - time: 2024-03-05 07:00:12: event: submission ID found: id: 1arhhtq
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1b4q7hw
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1au2hpo
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1amdaql
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1an5tm9
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1axauik
-INFO - time: 2024-03-05 07:00:13: event: submission ID found: id: 1ai431r
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1apmem1
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1ayolrf
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1b49bhk
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1b6sle3
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1aqpen3
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1arng9n
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1b0ow1y
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1b4tkb7
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1an7weu
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1asgtpd
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1aw874u
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1an5ird
-INFO - time: 2024-03-05 07:00:14: event: submission ID found: id: 1b6fvvi
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1ai44is
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1arwpb7
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1aqu0fq
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1ay2erk
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1anqm09
-INFO - time: 2024-03-05 07:00:17: event: submission ID found: id: 1aj0gii
-INFO - time: 2024-03-05 07:00:18: event: submission ID found: id: 1asre9e
-INFO - time: 2024-03-05 07:00:18: event: submission ID found: id: 1b298g2
-INFO - time: 2024-03-05 07:00:18: event: submission ID found: id: 1b70syw
-INFO - time: 2024-03-05 07:00:18: event: submission ID found: id: own79d
-INFO - time: 2024-03-05 07:00:18: event: final data file append: last_written_index: 317: new_row_count: 327
+INFO - time: 2024-03-13 18:45:30: event: start fetch: subreddit_name: britishcolumbia
+INFO - time: 2024-03-13 18:45:31: event: submission ID found: id: 1avy26a
+INFO - time: 2024-03-13 18:45:31: event: submission ID found: id: 1b5vfq5
+INFO - time: 2024-03-13 18:45:31: event: submission ID found: id: 1asaqqm
+INFO - time: 2024-03-13 18:45:31: event: submission ID found: id: 1axguxg
+INFO - time: 2024-03-13 18:45:31: event: submission ID found: id: 1b0y1hn
+INFO - time: 2024-03-13 18:45:31: event: submission processing: id: 1b7gj36
+INFO - time: 2024-03-13 18:45:32: event: submission ID found: id: 1ayy9u5
+INFO - time: 2024-03-13 18:45:32: event: submission ID found: id: 1b4t9og
+INFO - time: 2024-03-13 18:45:32: event: submission processing: id: 1b88oxj
+INFO - time: 2024-03-13 18:45:32: event: submission ID found: id: 1atfjis
+INFO - time: 2024-03-13 18:45:32: event: submission ID found: id: 1aw874u
+INFO - time: 2024-03-13 18:45:33: event: submission ID found: id: 1av31m3
+INFO - time: 2024-03-13 18:45:33: event: submission ID found: id: 1b4bp9w
+INFO - time: 2024-03-13 18:45:33: event: submission ID found: id: 1b29f9z
+INFO - time: 2024-03-13 18:45:33: event: submission ID found: id: 1b2klzp
+INFO - time: 2024-03-13 18:45:33: event: submission ID found: id: 1apm3yy
+INFO - time: 2024-03-13 18:45:33: event: submission processing: id: 1b86udu
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1axauik
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1apmem1
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1b6sle3
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1b49bhk
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1ayolrf
+INFO - time: 2024-03-13 18:45:34: event: submission ID found: id: 1aqpen3
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1arng9n
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1b0ow1y
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1b4tkb7
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1asgtpd
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1aw874u
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1b6fvvi
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1b4tkb7
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1avztuc
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1arnrc6
+INFO - time: 2024-03-13 18:45:35: event: submission ID found: id: 1aq4tew
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1aq7doz
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1aq12w7
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1b1iwee
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1b299px
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1aucj4k
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1b1xy7t
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1b2n7iy
+INFO - time: 2024-03-13 18:45:36: event: submission ID found: id: 1ar4i9y
+INFO - time: 2024-03-13 18:45:37: event: submission ID found: id: 1ary7wa
+INFO - time: 2024-03-13 18:45:37: event: submission ID found: id: own79d
+INFO - time: 2024-03-13 18:45:37: event: submission ID found: id: 1b4q7hw
+INFO - time: 2024-03-13 18:45:38: event: submission processing: id: 1b8vxr8
+INFO - time: 2024-03-13 18:45:38: event: submission ID found: id: 1b4q7hw
+INFO - time: 2024-03-13 18:45:39: event: submission ID found: id: 1awp59x
+INFO - time: 2024-03-13 18:45:39: event: submission processing: id: 1b790q7
+INFO - time: 2024-03-13 18:45:40: event: submission ID found: id: 1avp9z6
+INFO - time: 2024-03-13 18:45:40: event: submission processing: id: 1baob0y
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1aq7doz
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1av9ceq
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1b1xy7t
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1az2wjx
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1at7121
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1b1frjd
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1azygjx
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1axhv0l
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1at1191
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1b0nqxf
+INFO - time: 2024-03-13 18:45:41: event: submission ID found: id: 1ascmtz
+INFO - time: 2024-03-13 18:45:42: event: submission processing: id: 1bc4dbw
+INFO - time: 2024-03-13 18:45:43: event: submission ID found: id: 1avqzcs
+INFO - time: 2024-03-13 18:45:43: event: submission ID found: id: 1b76bdl
+INFO - time: 2024-03-13 18:45:43: event: submission processing: id: 1bdijvm
+INFO - time: 2024-03-13 18:45:43: event: submission ID found: id: 1ayabf1
+INFO - time: 2024-03-13 18:45:43: event: submission processing: id: 1b9i5l8
+INFO - time: 2024-03-13 18:45:44: event: submission ID found: id: 1b6xvl0
+INFO - time: 2024-03-13 18:45:44: event: submission processing: id: 1bck71q
+INFO - time: 2024-03-13 18:45:45: event: submission ID found: id: 1b1n5qu
+INFO - time: 2024-03-13 18:45:45: event: submission ID found: id: 1axnk9a
+INFO - time: 2024-03-13 18:45:45: event: submission ID found: id: 1asaqqm
+INFO - time: 2024-03-13 18:45:45: event: submission processing: id: 1bbe26e
+INFO - time: 2024-03-13 18:45:46: event: submission processing: id: 1b9xz95
+INFO - time: 2024-03-13 18:45:47: event: submission processing: id: 1bdviy2
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1b2810o
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1au2hpo
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1ay5n9l
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1b6jw8r
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1at3wd9
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1b1quqj
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1atngpg
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1aqgxvx
+INFO - time: 2024-03-13 18:45:47: event: submission ID found: id: 1b2bulb
+INFO - time: 2024-03-13 18:45:48: event: submission ID found: id: 1ar8i75
+INFO - time: 2024-03-13 18:45:48: event: submission ID found: id: 1asj9en
+INFO - time: 2024-03-13 18:45:48: event: submission ID found: id: 1aobvsw
+INFO - time: 2024-03-13 18:45:48: event: submission processing: id: 1b7llzx
+INFO - time: 2024-03-13 18:45:48: event: submission ID found: id: 1ayzr8f
+INFO - time: 2024-03-13 18:45:48: event: submission processing: id: 1b9cg0n
+INFO - time: 2024-03-13 18:45:49: event: submission processing: id: 1b7pj4a
+INFO - time: 2024-03-13 18:45:49: event: submission ID found: id: 1ask7gw
+INFO - time: 2024-03-13 18:45:49: event: submission processing: id: 1bczsbt
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1asgtpd
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1axed28
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1b49bhk
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1arhhtq
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1b790q7
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1aw874u
+INFO - time: 2024-03-13 18:45:50: event: submission processing: id: 1b8x8ps
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1aq12w7
+INFO - time: 2024-03-13 18:45:50: event: submission ID found: id: 1b1iwee
+INFO - time: 2024-03-13 18:45:51: event: submission processing: id: 1bcexud
+INFO - time: 2024-03-13 18:45:51: event: submission ID found: id: 1aqgxvx
+INFO - time: 2024-03-13 18:45:51: event: submission ID found: id: 1as0wer
+INFO - time: 2024-03-13 18:45:51: event: submission ID found: id: 1b659dg
+INFO - time: 2024-03-13 18:45:51: event: submission ID found: id: 1ayma4v
+INFO - time: 2024-03-13 18:45:51: event: submission ID found: id: 1b6jw8r
+INFO - time: 2024-03-13 18:45:51: event: submission processing: id: 1bb0ac0
+INFO - time: 2024-03-13 18:45:52: event: submission ID found: id: 1b4q7hw
+INFO - time: 2024-03-13 18:45:52: event: submission processing: id: 1b84bhz
+INFO - time: 2024-03-13 18:45:52: event: submission processing: id: 1b7adt8
+INFO - time: 2024-03-13 18:45:52: event: submission ID found: id: 1au2hpo
+INFO - time: 2024-03-13 18:45:52: event: submission processing: id: 1bcq162
+INFO - time: 2024-03-13 18:45:53: event: submission processing: id: 1bciadl
+INFO - time: 2024-03-13 18:45:53: event: submission processing: id: 1b9x1w8
+INFO - time: 2024-03-13 18:45:53: event: submission ID found: id: 1arwpb7
+INFO - time: 2024-03-13 18:45:53: event: submission ID found: id: 1aqu0fq
+INFO - time: 2024-03-13 18:45:53: event: submission processing: id: 1bcpdby
+INFO - time: 2024-03-13 18:45:54: event: submission processing: id: 1bbkw0u
+INFO - time: 2024-03-13 18:45:54: event: submission ID found: id: 1ay2erk
+INFO - time: 2024-03-13 18:45:54: event: submission ID found: id: 1asre9e
+INFO - time: 2024-03-13 18:45:54: event: submission processing: id: 1bc7yid
+INFO - time: 2024-03-13 18:45:54: event: submission ID found: id: 1b298g2
+INFO - time: 2024-03-13 18:45:54: event: submission ID found: id: 1bcq162
+INFO - time: 2024-03-13 18:45:55: event: submission ID found: id: 1as0wer
+INFO - time: 2024-03-13 18:45:55: event: submission processing: id: 1b8k5d8
+INFO - time: 2024-03-13 18:45:56: event: submission ID found: id: 1b6fvvi
+INFO - time: 2024-03-13 18:45:56: event: submission ID found: id: 1aq4tew
+INFO - time: 2024-03-13 18:45:56: event: submission processing: id: 1ba77v8
+INFO - time: 2024-03-13 18:45:56: event: submission ID found: id: 1ao317p
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1aqt7re
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1b9x1w8
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1arwpb7
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1aqu0fq
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1bcpdby
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1bbkw0u
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1ay2erk
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1bc7yid
+INFO - time: 2024-03-13 18:45:57: event: submission ID found: id: 1asre9e
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1b298g2
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1bcq162
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1arlltt
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1aombx3
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1b299px
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1b1xy7t
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1aucj4k
+INFO - time: 2024-03-13 18:45:58: event: submission ID found: id: 1b2n7iy
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1b0c8jx
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1b65iwa
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1aui3al
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1apoc24
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1b5d4zw
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1b4q7hw
+INFO - time: 2024-03-13 18:46:00: event: submission processing: id: 1bdk7xi
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1asj9en
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1aywmll
+INFO - time: 2024-03-13 18:46:00: event: submission processing: id: 1bc9w7f
+INFO - time: 2024-03-13 18:46:00: event: submission ID found: id: 1axoo4j
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1awglox
+INFO - time: 2024-03-13 18:46:01: event: submission processing: id: 1bcmanl
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1aq47n7
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1ay6le0
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1b3baj8
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1at3wd9
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1ay7bv6
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1b75m9m
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1b0miy0
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1ay27d4
+INFO - time: 2024-03-13 18:46:01: event: submission ID found: id: 1b6s0sy
+INFO - time: 2024-03-13 18:46:01: event: submission processing: id: 1b9bpi2
+INFO - time: 2024-03-13 18:46:02: event: submission processing: id: 1bdewbn
+INFO - time: 2024-03-13 18:46:02: event: submission processing: id: 1bdy1rp
+INFO - time: 2024-03-13 18:46:02: event: submission processing: id: 1bchaip
+INFO - time: 2024-03-13 18:46:02: event: submission processing: id: 1bbh9pq
+INFO - time: 2024-03-13 18:46:03: event: submission processing: id: 1bd1sa4
+INFO - time: 2024-03-13 18:46:03: event: submission processing: id: 1bdyzks
+INFO - time: 2024-03-13 18:46:03: event: submission ID found: id: 1b3o08e
+INFO - time: 2024-03-13 18:46:03: event: submission processing: id: 1bdcz8c
+INFO - time: 2024-03-13 18:46:03: event: submission processing: id: 1b7m4om
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b6g4ck
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b6d7zm
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1awet40
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b49ak1
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b4cf65
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1aq4pib
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1aphtsi
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b2mcnf
+INFO - time: 2024-03-13 18:46:04: event: submission processing: id: 1bdwrse
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1athkr3
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b22t48
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1arm9e4
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b0yidc
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1b29m4a
+INFO - time: 2024-03-13 18:46:04: event: submission ID found: id: 1artsn5
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1awr9h0
+INFO - time: 2024-03-13 18:46:05: event: submission processing: id: 1bdeu8y
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1aydhwj
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1ayflgw
+INFO - time: 2024-03-13 18:46:05: event: submission processing: id: 1bd0p9m
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1avqzcs
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1aq7j0k
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1b5vfq5
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1asj51g
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1awun68
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1av5745
+INFO - time: 2024-03-13 18:46:05: event: submission ID found: id: 1auskhx
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1ap8g1g
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1axf17r
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1b6iu8h
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1aq1ktb
+INFO - time: 2024-03-13 18:46:06: event: submission processing: id: 1baier8
+INFO - time: 2024-03-13 18:46:06: event: submission processing: id: 1bdhm18
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1bcexud
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1b1nt5w
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1arzu7h
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1apgmwr
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1ars39t
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1apk836
+INFO - time: 2024-03-13 18:46:06: event: submission ID found: id: 1at35wz
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1apjs90
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1apf3c7
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1arbnhg
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1axhv0l
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1b349h2
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1b1i4gl
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1apc9ab
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1b0urwx
+INFO - time: 2024-03-13 18:46:07: event: submission ID found: id: 1bck71q
+INFO - time: 2024-03-13 18:46:07: event: submission processing: id: 1bc5ksx
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1aots0c
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1b790q7
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1b6j1sv
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1awp59x
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1ar39j5
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1axauik
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1azupl5
+INFO - time: 2024-03-13 18:46:08: event: submission ID found: id: 1b0qni3
+INFO - time: 2024-03-13 18:46:09: event: submission ID found: id: 1bc4dbw
+INFO - time: 2024-03-13 18:46:09: event: submission ID found: id: 1arnu3t
+INFO - time: 2024-03-13 18:46:09: event: submission ID found: id: 1b299px
+INFO - time: 2024-03-13 18:46:09: event: submission ID found: id: 1ar2hky
+INFO - time: 2024-03-13 18:46:09: event: submission ID found: id: 1avp9z6
+INFO - time: 2024-03-13 18:46:09: event: submission processing: id: 1baoebw
+INFO - time: 2024-03-13 18:46:10: event: submission ID found: id: 1b2nku1
+INFO - time: 2024-03-13 18:46:10: event: submission processing: id: 1bccmu7
+INFO - time: 2024-03-13 18:46:12: event: submission ID found: id: 1asw35s
+INFO - time: 2024-03-13 18:46:12: event: submission ID found: id: 1b6fomm
+INFO - time: 2024-03-13 18:46:13: event: submission ID found: id: 1b1slu4
+INFO - time: 2024-03-13 18:46:14: event: submission ID found: id: 1aqg2u0
+INFO - time: 2024-03-13 18:46:14: event: submission ID found: id: 1ayy9u5
+INFO - time: 2024-03-13 18:46:14: event: submission processing: id: 1b913bj
+INFO - time: 2024-03-13 18:46:15: event: submission ID found: id: 1asrx7y
+INFO - time: 2024-03-13 18:46:15: event: submission processing: id: 1b7odpg
+INFO - time: 2024-03-13 18:46:15: event: submission processing: id: 1bcxhf0
+INFO - time: 2024-03-13 18:46:17: event: submission processing: id: 1b7st48
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1baob0y
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1asvtgg
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1axn9r9
+INFO - time: 2024-03-13 18:46:18: event: submission processing: id: 1b87d4s
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1as75as
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1b3i5n4
+INFO - time: 2024-03-13 18:46:18: event: submission ID found: id: 1b32inz
+INFO - time: 2024-03-13 18:46:19: event: submission processing: id: 1b8dbgi
+INFO - time: 2024-03-13 18:46:20: event: submission ID found: id: 1b0y1hn
+INFO - time: 2024-03-13 18:46:20: event: submission processing: id: 1bc8p9b
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1b4t9og
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1b34eaj
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1b4bev8
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1b5wfox
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1aud3aw
+INFO - time: 2024-03-13 18:46:21: event: submission ID found: id: 1azwkq9
+INFO - time: 2024-03-13 18:46:21: event: submission processing: id: 1baozty
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1b3wwo6
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1aq12w7
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1aryh24
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1avltwo
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1b86udu
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1b48jg9
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1aqt7re
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1b2fx8s
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1aypba0
+INFO - time: 2024-03-13 18:46:22: event: submission ID found: id: 1avy26a
+INFO - time: 2024-03-13 18:46:22: event: submission processing: id: 1bb16dh
+INFO - time: 2024-03-13 18:46:23: event: submission processing: id: 1b98ljp
+INFO - time: 2024-03-13 18:46:24: event: submission ID found: id: 1b5n4lm
+INFO - time: 2024-03-13 18:46:25: event: submission ID found: id: 1bbe26e
+INFO - time: 2024-03-13 18:46:25: event: submission ID found: id: 1b4733u
+INFO - time: 2024-03-13 18:46:25: event: submission ID found: id: 1ba77v8
+INFO - time: 2024-03-13 18:46:25: event: submission ID found: id: 1atzu1b
+INFO - time: 2024-03-13 18:46:25: event: submission processing: id: 1b7hfnr
+INFO - time: 2024-03-13 18:46:25: event: submission ID found: id: 1b1kol1
+INFO - time: 2024-03-13 18:46:25: event: submission processing: id: 1b84fdm
+INFO - time: 2024-03-13 18:46:26: event: submission ID found: id: 1askkyv
+INFO - time: 2024-03-13 18:46:26: event: submission ID found: id: 1b4tkb7
+INFO - time: 2024-03-13 18:46:26: event: submission processing: id: 1b9stva
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1b460d8
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1aykohu
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1b5vbfc
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1b0gblz
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1anv24g
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1asahd0
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1arnbk4
+INFO - time: 2024-03-13 18:46:27: event: submission ID found: id: 1artb0l
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1aq7doz
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1ap3hvc
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1atad2d
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1b88oxj
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1avq643
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1b5tz4g
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1aq0fcx
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1aogjvp
+INFO - time: 2024-03-13 18:46:28: event: submission ID found: id: 1b9cg0n
+INFO - time: 2024-03-13 18:46:28: event: submission processing: id: 1bckluc
+INFO - time: 2024-03-13 18:46:29: event: submission ID found: id: 1b9xz95
+INFO - time: 2024-03-13 18:46:29: event: submission processing: id: 1bbbr34
+INFO - time: 2024-03-13 18:46:30: event: submission ID found: id: 1asaqqm
+INFO - time: 2024-03-13 18:46:30: event: submission ID found: id: 1b1frjd
+INFO - time: 2024-03-13 18:46:30: event: submission processing: id: 1bdex8t
+INFO - time: 2024-03-13 18:46:30: event: submission ID found: id: 1atzmvs
+INFO - time: 2024-03-13 18:46:30: event: submission processing: id: 1b9xthw
+INFO - time: 2024-03-13 18:46:31: event: submission ID found: id: 1anwp3b
+INFO - time: 2024-03-13 18:46:31: event: submission ID found: id: 1b5z035
+INFO - time: 2024-03-13 18:46:31: event: submission processing: id: 1b9d4oo
+INFO - time: 2024-03-13 18:46:31: event: submission ID found: id: 1aucj4k
+INFO - time: 2024-03-13 18:46:31: event: submission ID found: id: 1b401ql
+INFO - time: 2024-03-13 18:46:31: event: submission processing: id: 1bcibdr
+INFO - time: 2024-03-13 18:46:32: event: submission ID found: id: 1b0mylg
+INFO - time: 2024-03-13 18:46:32: event: submission ID found: id: 1aydjrm
+INFO - time: 2024-03-13 18:46:32: event: submission ID found: id: 1aw3d2r
+INFO - time: 2024-03-13 18:46:32: event: submission ID found: id: 1axba70
+INFO - time: 2024-03-13 18:46:32: event: submission ID found: id: 1b0ow1y
+INFO - time: 2024-03-13 18:46:32: event: submission processing: id: 1b8hkb7
+INFO - time: 2024-03-13 18:46:33: event: submission ID found: id: 1arutwb
+INFO - time: 2024-03-13 18:46:33: event: submission ID found: id: 1aqgxvx
+INFO - time: 2024-03-13 18:46:33: event: submission ID found: id: 1ay2erk
+INFO - time: 2024-03-13 18:46:33: event: submission ID found: id: 1b2lrcd
+INFO - time: 2024-03-13 18:46:33: event: submission processing: id: 1b90cka
+INFO - time: 2024-03-13 18:46:33: event: submission ID found: id: 1az2xrs
+INFO - time: 2024-03-13 18:46:34: event: submission ID found: id: 1aw1aky
+INFO - time: 2024-03-13 18:46:34: event: submission ID found: id: 1axipyz
+INFO - time: 2024-03-13 18:46:34: event: submission ID found: id: 1aw874u
+INFO - time: 2024-03-13 18:46:34: event: submission ID found: id: 1awb5ho
+INFO - time: 2024-03-13 18:46:34: event: submission ID found: id: 1asj7hm
+INFO - time: 2024-03-13 18:46:34: event: submission processing: id: 1b78vlw
+INFO - time: 2024-03-13 18:46:34: event: submission processing: id: 1b7oi5r
+INFO - time: 2024-03-13 18:46:35: event: submission processing: id: 1bdb6b6
+INFO - time: 2024-03-13 18:46:35: event: submission ID found: id: 1at7121
+INFO - time: 2024-03-13 18:46:36: event: submission ID found: id: 1ay4d5x
+INFO - time: 2024-03-13 18:46:36: event: submission ID found: id: 1b6sle3
+INFO - time: 2024-03-13 18:46:36: event: submission processing: id: 1b6tqx7
+INFO - time: 2024-03-13 18:46:37: event: submission ID found: id: 1az2q5d
+INFO - time: 2024-03-13 18:46:37: event: submission ID found: id: 1aya3f2
+INFO - time: 2024-03-13 18:46:37: event: submission ID found: id: 1aozux1
+INFO - time: 2024-03-13 18:46:37: event: submission ID found: id: 1b6lwcb
+INFO - time: 2024-03-13 18:46:37: event: submission processing: id: 1bdckgs
+INFO - time: 2024-03-13 18:46:37: event: submission processing: id: 1b9045c
+INFO - time: 2024-03-13 18:46:38: event: submission ID found: id: 1apagfy
+INFO - time: 2024-03-13 18:46:38: event: submission processing: id: 1bcdpcq
+INFO - time: 2024-03-13 18:46:38: event: rate limit reached: wait_time_sec: 599.999982: api_call_count: 440
+INFO - time: 2024-03-13 18:56:38: event: submission ID found: id: 1b2810o
+INFO - time: 2024-03-13 18:56:38: event: submission ID found: id: 1b0mc6a
+INFO - time: 2024-03-13 18:56:38: event: submission ID found: id: 1aomb3d
+INFO - time: 2024-03-13 18:56:38: event: submission ID found: id: 1aopwz1
+INFO - time: 2024-03-13 18:56:38: event: submission processing: id: 1bbs9xw
+INFO - time: 2024-03-13 18:56:39: event: submission ID found: id: 1b4gnkq
+INFO - time: 2024-03-13 18:56:39: event: submission ID found: id: 1axed28
+INFO - time: 2024-03-13 18:56:39: event: submission ID found: id: 1aoe11j
+INFO - time: 2024-03-13 18:56:39: event: submission ID found: id: 1aq0pv6
+INFO - time: 2024-03-13 18:56:39: event: submission processing: id: 1b8pzpd
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1av7oug
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1au8asv
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1av9ceq
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1b0nh2t
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1az9qaa
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1ao317p
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1atfjis
+INFO - time: 2024-03-13 18:56:40: event: submission ID found: id: 1b35rtq
+INFO - time: 2024-03-13 18:56:40: event: submission processing: id: 1b6l4ye
+INFO - time: 2024-03-13 18:56:41: event: submission processing: id: 1baxdmx
+INFO - time: 2024-03-13 18:56:41: event: submission processing: id: 1bbd3uq
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1b2pfxz
+INFO - time: 2024-03-13 18:56:42: event: submission processing: id: 1bdczu0
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1b8x8ps
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1aqpen3
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1apbt8z
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1asgtpd
+INFO - time: 2024-03-13 18:56:42: event: submission ID found: id: 1anxvvf
+INFO - time: 2024-03-13 18:56:42: event: submission processing: id: 1b995l0
+INFO - time: 2024-03-13 18:56:43: event: submission processing: id: 1bcyu30
+INFO - time: 2024-03-13 18:56:43: event: submission ID found: id: 1av0va8
+INFO - time: 2024-03-13 18:56:43: event: submission ID found: id: 1aurun1
+INFO - time: 2024-03-13 18:56:43: event: submission processing: id: 1ba34br
+INFO - time: 2024-03-13 18:56:44: event: submission ID found: id: 1at1191
+INFO - time: 2024-03-13 18:56:44: event: submission processing: id: 1b9sjt2
+INFO - time: 2024-03-13 18:56:44: event: submission ID found: id: 1ay6k7u
+INFO - time: 2024-03-13 18:56:44: event: submission processing: id: 1b8xj3n
+INFO - time: 2024-03-13 18:56:45: event: submission ID found: id: 1arq90j
+INFO - time: 2024-03-13 18:56:45: event: submission ID found: id: 1arktps
+INFO - time: 2024-03-13 18:56:45: event: submission ID found: id: 1b790q7
+INFO - time: 2024-03-13 18:56:45: event: submission ID found: id: 1aqgxvx
+INFO - time: 2024-03-13 18:56:45: event: final data file append: last_written_index: 326: new_row_count: 416

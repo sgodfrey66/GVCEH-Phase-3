@@ -1,15 +1,15 @@
-INFO - time: 2024-03-05 08:49:13: event: start fetch: source: xtwitter
-INFO - time: 2024-03-05 08:49:13: event: query cache created: query_cnt: 9
-INFO - time: 2024-03-05 08:49:13: event: No history file found: history_row_cnt: 0
-INFO - time: 2024-03-05 08:49:16: event: fetch success: query_num: 1: len_responses: 22: query: #victoriabc
-INFO - time: 2024-03-05 08:49:21: event: fetch success: query_num: 3: len_responses: 38: query: #britishcolumbia
-INFO - time: 2024-03-05 08:49:37: event: fetch success: query_num: 9: len_responses: 66: query: #yyj
-INFO - time: 2024-03-05 08:49:43: event: fetch success: query_num: 11: len_responses: 75: query: #yyjpoli
-INFO - time: 2024-03-05 08:49:46: event: fetch no data: query: #victoriabuzz
-INFO - time: 2024-03-05 08:49:52: event: rate limit reached: wait_time_sec: 899.999972: api_call_count: 15
-INFO - time: 2024-03-05 09:05:28: event: rate limit reached: wait_time_sec: 899.999966: api_call_count: 30
-INFO - time: 2024-03-05 09:20:34: event: fetch success: query_num: 32: len_responses: 144: query: #bcpoli
-INFO - time: 2024-03-05 09:20:39: event: fetch success: query_num: 34: len_responses: 156: query: #vicpol
-INFO - time: 2024-03-05 09:20:45: event: fetch success: query_num: 36: len_responses: 187: query: victoria bc
-INFO - time: 2024-03-05 09:20:47: event: fetch no data: query: alliance to end homelessness in the capital region
-INFO - time: 2024-03-05 09:20:47: event: fetch complete
+INFO - time: 2024-03-13 18:57:41: event: start fetch: source: xtwitter
+INFO - time: 2024-03-13 18:57:41: event: query cache created: query_cnt: 9
+INFO - time: 2024-03-13 18:57:41: event: history file loaded: history_row_cnt: 156
+INFO - time: 2024-03-13 18:57:46: event: fetch success: query_num: 2: len_responses: 18: query: #victoriabc
+INFO - time: 2024-03-13 18:57:52: event: fetch success: query_num: 4: len_responses: 33: query: #britishcolumbia
+INFO - time: 2024-03-13 18:58:05: event: fetch success: query_num: 9: len_responses: 54: query: #yyj
+INFO - time: 2024-03-13 18:58:18: event: fetch success: query_num: 14: len_responses: 61: query: #yyjpoli
+INFO - time: 2024-03-13 18:58:19: event: rate limit reached: wait_time_sec: 899.999968: api_call_count: 15
+INFO - time: 2024-03-13 19:13:19: event: fetch no data: query: #victoriabuzz
+INFO - time: 2024-03-13 19:13:56: event: fetch success: query_num: 29: len_responses: 120: query: #bcpoli
+INFO - time: 2024-03-13 19:13:56: event: rate limit reached: wait_time_sec: 899.999982: api_call_count: 30
+INFO - time: 2024-03-13 19:28:56: event: fetch success: query_num: 30: len_responses: 129: query: #vicpol
+INFO - time: 2024-03-13 19:29:20: event: fetch success: query_num: 39: len_responses: 200: query: victoria bc
+INFO - time: 2024-03-13 19:29:23: event: fetch no data: query: alliance to end homelessness in the capital region
+INFO - time: 2024-03-13 19:29:23: event: fetch complete

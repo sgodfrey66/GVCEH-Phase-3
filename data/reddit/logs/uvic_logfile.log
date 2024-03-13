@@ -1,34 +1,24 @@
-INFO - time: 2024-03-05 07:14:50: event: start fetch: subreddit_name: uvic
-INFO - time: 2024-03-05 07:14:50: event: submission ID found: id: 1anuzd4
-INFO - time: 2024-03-05 07:14:50: event: submission ID found: id: 1akpijy
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajn9mk
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1akpijy
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajny86
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1akxc2y
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ana9ri
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajytjl
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajr5nw
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1aut1sr
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajllel
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1aonh5e
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1ajlwgq
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1avaejy
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1anuzd4
-INFO - time: 2024-03-05 07:14:52: event: submission ID found: id: 1axqr9j
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1b474mb
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1aui1jh
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1b146ch
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1ao18r8
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1am2y80
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1aljzq4
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1alyfip
-INFO - time: 2024-03-05 07:14:53: event: submission ID found: id: 1b50pq3
-INFO - time: 2024-03-05 07:14:55: event: submission ID found: id: 1b50pq3
-INFO - time: 2024-03-05 07:14:55: event: submission ID found: id: 1am1za4
-INFO - time: 2024-03-05 07:14:55: event: submission ID found: id: 1b6omyl
-INFO - time: 2024-03-05 07:14:55: event: submission ID found: id: 1aw61ad
-INFO - time: 2024-03-05 07:14:57: event: submission ID found: id: 1aq8mgf
-INFO - time: 2024-03-05 07:14:58: event: submission ID found: id: 1b2s3zp
-INFO - time: 2024-03-05 07:14:59: event: submission ID found: id: 1ajr5nw
-INFO - time: 2024-03-05 07:15:00: event: submission ID found: id: 1am1za4
-INFO - time: 2024-03-05 07:15:00: event: submission ID found: id: own79d
+INFO - time: 2024-03-13 18:57:33: event: start fetch: subreddit_name: uvic
+INFO - time: 2024-03-13 18:57:33: event: submission ID found: id: 1b6omyl
+INFO - time: 2024-03-13 18:57:33: event: submission ID found: id: 1aw61ad
+INFO - time: 2024-03-13 18:57:33: event: submission processing: id: 1b8ee7p
+INFO - time: 2024-03-13 18:57:34: event: submission ID found: id: 1b50pq3
+INFO - time: 2024-03-13 18:57:35: event: submission ID found: id: own79d
+INFO - time: 2024-03-13 18:57:36: event: submission processing: id: 1badhzj
+INFO - time: 2024-03-13 18:57:36: event: submission ID found: id: 1aut1sr
+INFO - time: 2024-03-13 18:57:36: event: submission ID found: id: 1aonh5e
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1avaejy
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1anuzd4
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1axqr9j
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1b474mb
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1aui1jh
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1b146ch
+INFO - time: 2024-03-13 18:57:37: event: submission processing: id: 1bbgvsu
+INFO - time: 2024-03-13 18:57:37: event: submission ID found: id: 1ao18r8
+INFO - time: 2024-03-13 18:57:37: event: submission processing: id: 1bazfyj
+INFO - time: 2024-03-13 18:57:38: event: submission processing: id: 1bckeb3
+INFO - time: 2024-03-13 18:57:38: event: submission ID found: id: 1b2s3zp
+INFO - time: 2024-03-13 18:57:38: event: submission ID found: id: 1aq8mgf
+INFO - time: 2024-03-13 18:57:40: event: submission ID found: id: 1b50pq3
+INFO - time: 2024-03-13 18:57:40: event: submission ID found: id: 1anuzd4
+INFO - time: 2024-03-13 18:57:40: event: final data file append: last_written_index: 27: new_row_count: 33

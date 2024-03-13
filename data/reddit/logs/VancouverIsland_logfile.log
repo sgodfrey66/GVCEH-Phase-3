@@ -1,38 +1,49 @@
-INFO - time: 2024-03-05 07:04:25: event: start fetch: subreddit_name: VancouverIsland
-INFO - time: 2024-03-05 07:04:25: event: submission ID found: id: 1azhg65
-INFO - time: 2024-03-05 07:04:29: event: submission ID found: id: 1aq02p8
-INFO - time: 2024-03-05 07:04:29: event: submission ID found: id: 1b2sc0m
-INFO - time: 2024-03-05 07:04:31: event: submission ID found: id: 1aq02p8
-INFO - time: 2024-03-05 07:04:32: event: submission ID found: id: 1ahj8mo
-INFO - time: 2024-03-05 07:04:34: event: submission ID found: id: 1b44xtj
-INFO - time: 2024-03-05 07:04:34: event: submission ID found: id: 1aq02p8
-INFO - time: 2024-03-05 07:04:34: event: submission ID found: id: 1b6nuhk
-INFO - time: 2024-03-05 07:04:34: event: submission ID found: id: 1b2sc0m
-INFO - time: 2024-03-05 07:04:37: event: submission ID found: id: 1avnt5q
-INFO - time: 2024-03-05 07:04:41: event: submission ID found: id: 1avnt5q
-INFO - time: 2024-03-05 07:04:43: event: rate limit reached: wait_time_sec: 599.999959: api_call_count: 440
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1aj2jf1
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1b5bgzn
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1arl91p
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1b0ih3l
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1ai4k2p
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1av94mm
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1b6lkab
-INFO - time: 2024-03-05 07:14:43: event: submission ID found: id: 1asx2j3
-INFO - time: 2024-03-05 07:14:44: event: submission ID found: id: 1ayhc19
-INFO - time: 2024-03-05 07:14:46: event: submission ID found: id: 1aq02p8
-INFO - time: 2024-03-05 07:14:46: event: submission ID found: id: 1b1qak4
-INFO - time: 2024-03-05 07:14:46: event: submission ID found: id: 1b3vspq
-INFO - time: 2024-03-05 07:14:47: event: submission ID found: id: 1avnt5q
-INFO - time: 2024-03-05 07:14:47: event: submission ID found: id: 1aj2jf1
-INFO - time: 2024-03-05 07:14:47: event: submission ID found: id: 1apa5zy
-INFO - time: 2024-03-05 07:14:48: event: submission ID found: id: 1athw2s
-INFO - time: 2024-03-05 07:14:48: event: submission ID found: id: 1ahj8mo
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1aj2jf1
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1b5bgzn
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1arl91p
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1b0ih3l
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1ai4k2p
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1av94mm
-INFO - time: 2024-03-05 07:14:49: event: submission ID found: id: 1b6lkab
-INFO - time: 2024-03-05 07:14:50: event: submission ID found: id: own79d
+INFO - time: 2024-03-13 18:57:20: event: start fetch: subreddit_name: VancouverIsland
+INFO - time: 2024-03-13 18:57:21: event: submission ID found: id: 1asx2j3
+INFO - time: 2024-03-13 18:57:21: event: submission processing: id: 1b9t9fd
+INFO - time: 2024-03-13 18:57:22: event: submission processing: id: 1b7lczr
+INFO - time: 2024-03-13 18:57:22: event: submission processing: id: 1b9zs42
+INFO - time: 2024-03-13 18:57:23: event: submission processing: id: 1b97def
+INFO - time: 2024-03-13 18:57:23: event: submission ID found: id: 1b7lczr
+INFO - time: 2024-03-13 18:57:23: event: submission ID found: id: 1azhg65
+INFO - time: 2024-03-13 18:57:24: event: submission processing: id: 1bcutpi
+INFO - time: 2024-03-13 18:57:24: event: submission ID found: id: 1apa5zy
+INFO - time: 2024-03-13 18:57:24: event: submission processing: id: 1bct1d1
+INFO - time: 2024-03-13 18:57:25: event: submission ID found: id: 1avnt5q
+INFO - time: 2024-03-13 18:57:25: event: submission ID found: id: 1ayhc19
+INFO - time: 2024-03-13 18:57:26: event: submission ID found: id: 1avnt5q
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1b44xtj
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1aq02p8
+INFO - time: 2024-03-13 18:57:27: event: submission processing: id: 1bd7c5p
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1b6nuhk
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1b9zs42
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1aq02p8
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1b1qak4
+INFO - time: 2024-03-13 18:57:27: event: submission ID found: id: 1b3vspq
+INFO - time: 2024-03-13 18:57:28: event: submission processing: id: 1b87da1
+INFO - time: 2024-03-13 18:57:28: event: submission processing: id: 1bax3jr
+INFO - time: 2024-03-13 18:57:28: event: submission ID found: id: 1athw2s
+INFO - time: 2024-03-13 18:57:28: event: submission ID found: id: 1bcutpi
+INFO - time: 2024-03-13 18:57:28: event: submission ID found: id: 1b5bgzn
+INFO - time: 2024-03-13 18:57:29: event: submission ID found: id: 1arl91p
+INFO - time: 2024-03-13 18:57:29: event: submission processing: id: 1bbf1vz
+INFO - time: 2024-03-13 18:57:29: event: submission ID found: id: 1b0ih3l
+INFO - time: 2024-03-13 18:57:29: event: submission processing: id: 1b8ko27
+INFO - time: 2024-03-13 18:57:30: event: submission processing: id: 1bcfmx0
+INFO - time: 2024-03-13 18:57:30: event: submission ID found: id: 1av94mm
+INFO - time: 2024-03-13 18:57:30: event: submission ID found: id: 1b6lkab
+INFO - time: 2024-03-13 18:57:30: event: submission ID found: id: 1b7lczr
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1bcutpi
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1b5bgzn
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1arl91p
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1bbf1vz
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1b0ih3l
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1b8ko27
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1bcfmx0
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1av94mm
+INFO - time: 2024-03-13 18:57:31: event: submission ID found: id: 1b6lkab
+INFO - time: 2024-03-13 18:57:32: event: submission ID found: id: 1bct1d1
+INFO - time: 2024-03-13 18:57:32: event: submission ID found: id: 1avnt5q
+INFO - time: 2024-03-13 18:57:32: event: submission ID found: id: 1aq02p8
+INFO - time: 2024-03-13 18:57:32: event: submission ID found: id: 1aq02p8
+INFO - time: 2024-03-13 18:57:33: event: final data file append: last_written_index: 20: new_row_count: 33
