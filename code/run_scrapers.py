@@ -79,7 +79,9 @@ if __name__ == "__main__":
     data_fetcher = rdf.GVCEHReddit(client_id=get_gcpsecrets(project_id, "REDDIT_CLIENT_ID", version_id),
                                    client_secret=get_gcpsecrets(project_id, "REDDIT_CLIENT_SECRET", version_id),
                                    user_agent=get_gcpsecrets(project_id, "REDDIT_USER_AGENT", version_id),
-                                   data_path_root="../data/")
+                                   posts_file_path="../data/reddit/posts",
+                                   logs_file_path="../data/reddit/logs",
+                                   keywords_file_path="../data/keywords")
 
     # Subreddits to explore
     subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
@@ -105,7 +107,10 @@ if __name__ == "__main__":
                                       consumer_secret=get_gcpsecrets(project_id,"TWITTER_CONSUMER_SECRET", version_id),
                                       access_token=get_gcpsecrets(project_id,"TWITTER_ACCESS_TOKEN", version_id),
                                       access_token_secret=get_gcpsecrets(project_id,"TWITTER_ACCESS_TOKEN_SECRET", version_id),
-                                      data_path_root="../data/")
+                                      query_file_path="../data/xtwitter/queries",
+                                      tweets_file_path="../data/xtwitter/tweets",
+                                      logs_file_path="../data/xtwitter/logs",
+                                      keywords_file_path="../data/keywords")
 
     # Step 4: Fetch Twitter data
     data_fetcher.batch_scrape()
