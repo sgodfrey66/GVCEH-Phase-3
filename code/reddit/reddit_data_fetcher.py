@@ -5,7 +5,6 @@ from collections import deque
 
 # import praw
 import asyncpraw
-import asyncio
 
 # Data
 import pandas as pd
