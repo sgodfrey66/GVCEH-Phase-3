@@ -138,6 +138,8 @@ if __name__ == "__main__":
                        "Sooke", "Esquimalt", "SidneyBC", "saltspring",
                        "Metchosin", "WestShoreBC", "VancouverIsland", "uvic"]
 
+    subreddit_names = ["britishcolumbia"]
+
     # Step 3: Fetch reddit data
     asyncio.run(data_fetcher.fetch_search_data(subreddit_names=subreddit_names))
     # asyncio.run(data_fetcher.fetch_new_data(subreddit_names=subreddit_names))
