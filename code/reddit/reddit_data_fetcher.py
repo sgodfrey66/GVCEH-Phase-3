@@ -671,6 +671,8 @@ class GVCEHReddit():
             log_file = f"{kwargs['logfile_stub']}_logfile.log"
 
             # Configure the logging system
+            print('log_path: {}'.format(self.logs_file_path))
+            print('log_file_path: {}'.format(os.path.join(self.logs_file_path, log_file)))
             logging.basicConfig(filename=os.path.join(self.logs_file_path, log_file),
                                 filemode='w',
                                 format='%(levelname)s - %(message)s',
