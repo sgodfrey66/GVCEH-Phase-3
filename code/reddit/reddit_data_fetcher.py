@@ -207,6 +207,15 @@ class GVCEHReddit():
                 subreddit_df = pd.read_csv(os.path.join(self.posts_file_path, history_file))
                 seen_submission_ids = set(subreddit_df['id'])
 
+                # check if history columns match expected
+                if subreddit_df.columns != self.df_columns:
+
+                    # Log submission processing
+                    msg = ("History file appears corrupted")
+                    self.__log_event(msg_id=1, screen_print=True, event='processing error', error_msg=msg)
+
+                    raise RuntimeError(msg)
+
                 # Initialize last written index
                 last_written_index = subreddit_df.index.max()
 
@@ -368,6 +377,14 @@ class GVCEHReddit():
             try:
                 subreddit_df = pd.read_csv(os.path.join(self.posts_file_path, history_file))
                 seen_submission_ids = set(subreddit_df['id'])
+
+                # check if history columns match expected
+                if subreddit_df.columns != self.df_columns:
+                    # Log submission processing
+                    msg = ("History file appears corrupted")
+                    self.__log_event(msg_id=1, screen_print=True, event='processing error', error_msg=msg)
+
+                    raise RuntimeError(msg)
 
                 # Initialize last written index
                 last_written_index = subreddit_df.index.max()
@@ -671,8 +688,8 @@ class GVCEHReddit():
             log_file = f"{kwargs['logfile_stub']}_logfile.log"
 
             # Configure the logging system
-            print('log_path: {}'.format(self.logs_file_path))
-            print('log_file_path: {}'.format(os.path.join(self.logs_file_path, log_file)))
+            # print('log_path: {}'.format(self.logs_file_path))
+            # print('log_file_path: {}'.format(os.path.join(self.logs_file_path, log_file)))
             logging.basicConfig(filename=os.path.join(self.logs_file_path, log_file),
                                 filemode='w',
                                 format='%(levelname)s - %(message)s',
