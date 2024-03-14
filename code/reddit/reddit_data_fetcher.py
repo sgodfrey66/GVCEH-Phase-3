@@ -87,7 +87,7 @@ class GVCEHReddit():
 
     # Reddit submission attributes to retain
     df_columns = ["id", "created_at", "scrape_time", "author", "subreddit", "title",
-                  "selftext", "url", "num_comments"]
+                  "selftext", "url", "num_comments", "search_term"]
 
     # Files with keywords used to search reddits
     # keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
@@ -270,11 +270,12 @@ class GVCEHReddit():
                             elif col == "scrape_time":
                                 sub_dict[col] =  datetime.now().strftime(self.dtformat)
 
+                            elif col == "search_term":
+                                sub_dict[col] = search_term
+
                             else:
                                 sub_dict[col] = [getattr(submission, col)]
 
-                        # Collect data for this search term starting with search term
-                        sub_dict["search_term"] = search_term
 
                         # Create a dataframe
                         new_data = pd.DataFrame(sub_dict)
@@ -438,11 +439,12 @@ class GVCEHReddit():
                         elif col == "scrape_time":
                             sub_dict[col] = datetime.now().strftime(self.dtformat)
 
+                        elif col == "search_term":
+                            # Collect data for this search term --- Since new posts fetch set to all_new_posts
+                            sub_dict[col] = "all_new_posts"
+
                         else:
                             sub_dict[col] = [getattr(submission, col)]
-
-                    # Collect data for this search term --- Since new posts fetch set to all_new_posts
-                    sub_dict["search_term"] = "all_new_posts"
 
                     # Create a dataframe
                     new_data = pd.DataFrame(sub_dict)
