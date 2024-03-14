@@ -47,7 +47,6 @@ class GVCEHXTwitter():
             Log files found in the logs_file_path
 
     Attributes:
-        query_file_path: Path to the queries file
         tweets_file_path: Path to the retrieved posts or submissions
         logs_file_path: Path to the logs captured during retrieval
         keywords_file_path: Path to the CSV files with keyword search terms
@@ -80,7 +79,6 @@ class GVCEHXTwitter():
     '''
 
     # Data files paths
-    query_file_path = "../../data/xtwitter/queries"
     tweets_file_path = "../../data/xtwitter/tweets"
     logs_file_path = "../../data/xtwitter/logs"
     keywords_file_path = "../../data/keywords"
@@ -405,8 +403,6 @@ class GVCEHXTwitter():
         '''
         Method to run a batch of API queries calling the query_twitter method
         each time.
-
-        Queries are loaded from the query_cache_file found at the query_file_path.
 
         '''
 

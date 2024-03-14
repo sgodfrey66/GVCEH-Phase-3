@@ -48,5 +48,8 @@ dependencies:
       - tqdm
       - asyncio
       - asyncpraw
+      - google-cloud-secret-manager
+      - google-cloud-storage
+      - gcsfs
 
 prefix: /Users/stephengodfrey/anaconda3

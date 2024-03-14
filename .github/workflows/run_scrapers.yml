@@ -2,7 +2,8 @@
 
 name: Daily cron job
 
-on: [push]
+#on: [push]
+on:
   # Triggers the workflow every day at 11am PCT (1900 UTC)
 #  schedule:
 #    - cron: "15 20 * * *"
