@@ -208,7 +208,8 @@ class GVCEHReddit():
                 seen_submission_ids = set(subreddit_df['id'])
 
                 # check if history columns match expected
-                if subreddit_df.columns != self.df_columns:
+                if (len(subreddit_df.columns) != len(self.df_columns)) or \
+                            ((subreddit_df.columns == self.df_columns).any() == False):
 
                     # Log submission processing
                     msg = ("History file appears corrupted")
@@ -380,7 +381,9 @@ class GVCEHReddit():
                 seen_submission_ids = set(subreddit_df['id'])
 
                 # check if history columns match expected
-                if subreddit_df.columns != self.df_columns:
+                if (len(subreddit_df.columns) != len(self.df_columns)) or \
+                            ((subreddit_df.columns == self.df_columns).any() == False):
+
                     # Log submission processing
                     msg = ("History file appears corrupted")
                     self.__log_event(msg_id=1, screen_print=True, event='processing error', error_msg=msg)
