@@ -113,8 +113,12 @@ if __name__ == "__main__":
         bucket_path = "gs://{}".format(bucket_name)
         reddit_posts_file_path = "{}/reddit/posts".format(bucket_path)
         reddit_logs_file_path = "{}/reddit/logs".format(bucket_path)
+        ###########
+        reddit_logs_file_path = "../data/reddit/logs"
         xtwitter_tweets_file_path = "{}/xtwitter/tweets".format(bucket_path)
         xtwitter_logs_file_path = "{}/xtwitter/logs".format(bucket_path)
+        ###########
+        xtwitter_logs_file_path = "../data/xtwitter/logs"
 
         keywords_file_path = "{}/keywords".format(bucket_path)
 
