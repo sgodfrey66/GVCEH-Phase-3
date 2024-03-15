@@ -217,16 +217,19 @@ class GVCEHReddit():
 
                     raise RuntimeError(msg)
 
-                # Initialize last written index
-                last_written_index = subreddit_df.index.max()
+                # # Initialize last written index
+                # last_written_index = subreddit_df.index.max()
 
             except FileNotFoundError:
                 # Create a new dataframe
                 subreddit_df = pd.DataFrame(columns=self.df_columns)
                 seen_submission_ids = set()
 
-                # Initialize last written index
-                last_written_index = -1
+                # # Initialize last written index
+                # last_written_index = -1
+
+            # List to hold dictionaries of new posts
+            subreddit_data = []
 
             # Now search for search terms
             for search_term in self.search_terms:
@@ -277,33 +280,36 @@ class GVCEHReddit():
                             else:
                                 sub_dict[col] = [getattr(submission, col)]
 
+                        # Add this to the list of dictionaries
+                        subreddit_data.append(sub_dict)
 
-                        # Create a dataframe
-                        new_data = pd.DataFrame(sub_dict)
 
-                        # Concatenate with previous data unless first entries
-                        if len(subreddit_df) == 0:
-                            subreddit_df = new_data
-                        else:
-                            subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
-
-                        if len(subreddit_df) >= last_written_index + self.file_update_trigger:
-
-                            # Determine new rows to be added
-                            new_rows = subreddit_df.iloc[last_written_index + 1:
-                                                         last_written_index + self.file_update_trigger + 1]
-
-                            # Add rows to history file
-                            new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                            mode='a',
-                                            index=False,
-                                            header=last_written_index == -1)
-
-                            last_written_index += len(new_rows)  # Update the last written index
-
-                            # Log file update
-                            self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
-                                             last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                        # # Create a dataframe
+                        # new_data = pd.DataFrame(sub_dict)
+                        #
+                        # # Concatenate with previous data unless first entries
+                        # if len(subreddit_df) == 0:
+                        #     subreddit_df = new_data
+                        # else:
+                        #     subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
+                        #
+                        # if len(subreddit_df) >= last_written_index + self.file_update_trigger:
+                        #
+                        #     # Determine new rows to be added
+                        #     new_rows = subreddit_df.iloc[last_written_index + 1:
+                        #                                  last_written_index + self.file_update_trigger + 1]
+                        #
+                        #     # Add rows to history file
+                        #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                        #                     mode='a',
+                        #                     index=False,
+                        #                     header=last_written_index == -1)
+                        #
+                        #     last_written_index += len(new_rows)  # Update the last written index
+                        #
+                        #     # Log file update
+                        #     self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
+                        #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
                 except Exception as e:
 
@@ -313,21 +319,41 @@ class GVCEHReddit():
 
                     raise RuntimeError(e)
 
-            # Final append for any remaining rows after the last intermittent save
-            if len(subreddit_df) > last_written_index + 1:
+           # Construct a new dataframe with history and new posts
+           if len(subreddit_data) > 0:
 
-                # Determine new rows to be added
-                new_rows = subreddit_df.iloc[last_written_index + 1:]
+               # Combine new posts with history
+                new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
-                # Add rows to history file
-                new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                mode='a',
-                                index=False,
-                                header=last_written_index == -1)
+                # Drop duplicates
+                new_data_df = new_data_df.drop_duplicates(subset=["id"])
+
+                # Save the file
+                new_data_df.to_csv(path_or_buf=os.path.join(self.posts_file_path, history_file), index=False)
 
                 # Log file update
-                self.__log_event(msg_id=1, screen_print=False, event='final data file append',
-                                 last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
+
+            else:
+                self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
+
+
+
+            #
+            #
+            # # Final append for any remaining rows after the last intermittent save
+            # if len(subreddit_df) > last_written_index + 1:
+            #
+            #     # Determine new rows to be added
+            #     new_rows = subreddit_df.iloc[last_written_index + 1:]
+            #
+            #     # Add rows to history file
+            #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+            #                     mode='a',
+            #                     index=False,
+            #                     header=last_written_index == -1)
+
+
 
         # Write the combined file
         self.__concat_posts_files(subreddit_names=subreddit_names)
@@ -390,21 +416,24 @@ class GVCEHReddit():
 
                     raise RuntimeError(msg)
 
-                # Initialize last written index
-                last_written_index = subreddit_df.index.max()
+                # # Initialize last written index
+                # last_written_index = subreddit_df.index.max()
 
             except FileNotFoundError:
                 # Create a new dataframe
                 subreddit_df = pd.DataFrame(columns=self.df_columns)
                 seen_submission_ids = set()
-
-                # Initialize last written index
-                last_written_index = -1
+                #
+                # # Initialize last written index
+                # last_written_index = -1
 
             # Manage API call rate
             self.__manage_api_call_rate()
 
             try:
+
+                # List to hold dictionaries of new posts
+                subreddit_data = []
 
                 # async for submission in subreddit.new(limit=self.limit_num):
                 async for submission in subreddit.new(limit=self.new_limit_num):
@@ -449,32 +478,35 @@ class GVCEHReddit():
                         else:
                             sub_dict[col] = [getattr(submission, col)]
 
-                    # Create a dataframe
-                    new_data = pd.DataFrame(sub_dict)
+                    # Add this to the list of dictionaries
+                    subreddit_data.append(sub_dict)
 
-                    # Concatenate with previous data unless first entries
-                    if len(subreddit_df) == 0:
-                        subreddit_df = new_data
-                    else:
-                        subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
-
-                    if len(subreddit_df) >= last_written_index + self.file_update_trigger:
-
-                        # Determine new rows to be added
-                        new_rows = subreddit_df.iloc[last_written_index + 1:
-                                                     last_written_index + self.file_update_trigger + 1]
-
-                        # Add rows to history file
-                        new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                        mode='a',
-                                        index=False,
-                                        header=last_written_index == -1)
-
-                        last_written_index += len(new_rows)  # Update the last written index
-
-                        # Log file update
-                        self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
-                                         last_written_index=last_written_index, new_row_count=len(subreddit_df))
+                    # # Create a dataframe
+                    # new_data = pd.DataFrame(sub_dict)
+                    #
+                    # # Concatenate with previous data unless first entries
+                    # if len(subreddit_df) == 0:
+                    #     subreddit_df = new_data
+                    # else:
+                    #     subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
+                    #
+                    # if len(subreddit_df) >= last_written_index + self.file_update_trigger:
+                    #
+                    #     # Determine new rows to be added
+                    #     new_rows = subreddit_df.iloc[last_written_index + 1:
+                    #                                  last_written_index + self.file_update_trigger + 1]
+                    #
+                    #     # Add rows to history file
+                    #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+                    #                     mode='a',
+                    #                     index=False,
+                    #                     header=last_written_index == -1)
+                    #
+                    #     last_written_index += len(new_rows)  # Update the last written index
+                    #
+                    #     # Log file update
+                    #     self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
+                    #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
             except Exception as e:
 
@@ -484,21 +516,40 @@ class GVCEHReddit():
 
                 raise RuntimeError(e)
 
-            # Final append for any remaining rows after the last intermittent save
-            if len(subreddit_df) > last_written_index + 1:
+            # # Final append for any remaining rows after the last intermittent save
+            # if len(subreddit_df) > last_written_index + 1:
+            #
+            #     # Determine new rows to be added
+            #     new_rows = subreddit_df.iloc[last_written_index + 1:]
+            #
+            #     # Add rows to history file
+            #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
+            #                     mode='a',
+            #                     index=False,
+            #                     header=last_written_index == -1)
+            #
+            #     # Log file update
+            #     self.__log_event(msg_id=1, screen_print=False, event='final data file append',
+            #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
-                # Determine new rows to be added
-                new_rows = subreddit_df.iloc[last_written_index + 1:]
+            # Construct a new dataframe with history and new posts
+        if len(subreddit_data) > 0:
 
-                # Add rows to history file
-                new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                                mode='a',
-                                index=False,
-                                header=last_written_index == -1)
+            # Combine new posts with history
+            new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
-                # Log file update
-                self.__log_event(msg_id=1, screen_print=False, event='final data file append',
-                                 last_written_index=last_written_index, new_row_count=len(subreddit_df))
+            # Drop duplicates
+            new_data_df = new_data_df.drop_duplicates(subset=["id"])
+
+            # Save the file
+            new_data_df.to_csv(path_or_buf=os.path.join(self.posts_file_path, history_file), index=False)
+
+            # Log file update
+            self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
+
+        else:
+            self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
+
 
         # Write the combined file
         self.__concat_posts_files(subreddit_names=subreddit_names)

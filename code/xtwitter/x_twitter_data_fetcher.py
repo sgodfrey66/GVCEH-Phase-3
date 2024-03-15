@@ -499,7 +499,7 @@ class GVCEHXTwitter():
                 # Try to continue
                 continue
 
-        # Write new file
+        # Construct a new dataframe with history and new tweets
         if type(history_df) != type(None):
             new_data_df = pd.concat(objs=[history_df, final_results])
 
@@ -510,7 +510,7 @@ class GVCEHXTwitter():
             self.__log_event(msg_id=1, screen_print=False, event='no results found')
 
         # Drop duplicates
-        new_data_df = new_data_df.drop_duplicates(subset=['tweet_id'])
+        new_data_df = new_data_df.drop_duplicates(subset=["tweet_id"])
 
         # Save the file
         new_data_df.to_csv(path_or_buf=os.path.join(self.tweets_file_path, history_file),
