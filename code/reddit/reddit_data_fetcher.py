@@ -319,8 +319,8 @@ class GVCEHReddit():
 
                     raise RuntimeError(e)
 
-           # Construct a new dataframe with history and new posts
-           if len(subreddit_data) > 0:
+            # Construct a new dataframe with history and new posts
+            if len(subreddit_data) > 0:
 
                 # Combine new posts with history
                 new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
@@ -334,7 +334,7 @@ class GVCEHReddit():
                 # Log file update
                 self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
 
-           else:
+            else:
                 self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
 
 
@@ -401,6 +401,9 @@ class GVCEHReddit():
             # Log fetch start
             self.__log_event(msg_id=1, screen_print=True, event='start fetch', subreddit_name=subreddit_name)
 
+            # List to hold dictionaries of new posts
+            subreddit_data = []
+
             # Read files with previous Reddit data into a dataframe
             try:
                 subreddit_df = pd.read_csv(os.path.join(self.posts_file_path, history_file))
@@ -431,9 +434,6 @@ class GVCEHReddit():
             self.__manage_api_call_rate()
 
             try:
-
-                # List to hold dictionaries of new posts
-                subreddit_data = []
 
                 # async for submission in subreddit.new(limit=self.limit_num):
                 async for submission in subreddit.new(limit=self.new_limit_num):
@@ -532,23 +532,23 @@ class GVCEHReddit():
             #     self.__log_event(msg_id=1, screen_print=False, event='final data file append',
             #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
-        # Construct a new dataframe with history and new posts
-        if len(subreddit_data) > 0:
+            # Construct a new dataframe with history and new posts
+            if len(subreddit_data) > 0:
 
-            # Combine new posts with history
-            new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
+                # Combine new posts with history
+                new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
-            # Drop duplicates
-            new_data_df = new_data_df.drop_duplicates(subset=["id"])
+                # Drop duplicates
+                new_data_df = new_data_df.drop_duplicates(subset=["id"])
 
-            # Save the file
-            new_data_df.to_csv(path_or_buf=os.path.join(self.posts_file_path, history_file), index=False)
+                # Save the file
+                new_data_df.to_csv(path_or_buf=os.path.join(self.posts_file_path, history_file), index=False)
 
-            # Log file update
-            self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
+                # Log file update
+                self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
 
-        else:
-            self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
+            else:
+                self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
 
 
         # Write the combined file
