@@ -196,6 +196,9 @@ class GVCEHReddit():
         # Get the search terms
         self.__get_search_terms()
 
+        # Get subreddit names
+        self.__get_subreddit_names()
+
         # Initialize a asyncpraw reddit object
         reddit = asyncpraw.Reddit(client_id=self.client_id,
                                   client_secret=self.client_secret,
@@ -343,6 +346,9 @@ class GVCEHReddit():
         # df = await test.fetch_data()
 
         '''
+
+        # Get subreddit names
+        self.__get_subreddit_names()
 
         # Initialize a asyncpraw reddit object
         reddit = asyncpraw.Reddit(client_id=self.client_id,
