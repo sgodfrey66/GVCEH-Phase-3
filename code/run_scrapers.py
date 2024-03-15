@@ -152,7 +152,7 @@ if __name__ == "__main__":
 
 
     # Step 5: Fetch Twitter data
-    # data_fetcher.batch_scrape()
+    data_fetcher.batch_scrape()
 
     print('Scrapers run complete')
 
