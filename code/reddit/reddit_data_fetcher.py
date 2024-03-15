@@ -325,7 +325,7 @@ class GVCEHReddit():
                 self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
 
         # Write the combined file
-        self.__concat_posts_files(self.subreddit_names)
+        self.__concat_posts_files()
 
         # Log file update - finished fetch
         self.__log_event(msg_id=1, screen_print=True, event='fetch complete')
