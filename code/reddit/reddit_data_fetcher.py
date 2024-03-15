@@ -65,6 +65,7 @@ class GVCEHReddit():
 
         df_columns: Columns of the retrieved submissions data
         keywords_files:  Names of files with keywords
+        subreddits_file: Name of file with subreddits from which to pull data
 
         api_call_limit: Maximum number of calls to the API within the rate limit time window
         rate_limit_window: Time window over which API calls are counted
@@ -90,8 +91,10 @@ class GVCEHReddit():
                   "selftext", "url", "num_comments", "search_term"]
 
     # Files with keywords used to search reddits
-    # keywords_files = ['ac.csv', 'ad.csv', 'ae.csv']
     keywords_files = ["keywords.csv", "hashtags_other.csv"]
+
+    # File with list of subreddit from which to pull data
+    subreddits_file = "subreddits.csv"
 
     # API Rate limits
     # api_call_limit = 880
@@ -147,6 +150,18 @@ class GVCEHReddit():
         if fetch_logging != True:
             self.fetch_logging = False
 
+    def __get_subreddit_names(self):
+        '''
+        Get subreddit names from a file
+        '''
+
+        # Read the files into a dataframe
+        df_kw = pd.read_csv(os.path.join(self.keywords_file_path, self.subreddits_file), index_col=0)
+
+        # Ensure keywords are strings and remove any duplicates
+        self.subreddit_names = df_kw["subreddit_names"].unique().tolist()
+
+
     def __get_search_terms(self):
         '''
         Get search terms from files with keywords
@@ -168,14 +183,13 @@ class GVCEHReddit():
         self.search_terms = [k for k in set(keywords) if isinstance(k, str) and len(k) > 1]
 
 
-    async def fetch_search_data(self,
-                                subreddit_names: list):
+    async def fetch_search_data(self):
 
         '''
         Function for retrieving Reddit data using the search method.
 
         This function needs to be called with await
-        # df = await test.fetch_data(subreddit_names)
+        # df = await test.fetch_data()
 
         '''
 
@@ -188,7 +202,7 @@ class GVCEHReddit():
                                   user_agent=self.user_agent)
 
         # Search in each subreddit
-        for subreddit_name in subreddit_names:
+        for subreddit_name in self.subreddit_names:
 
             # Create a subreddit class
             subreddit = await reddit.subreddit(subreddit_name)
@@ -217,18 +231,10 @@ class GVCEHReddit():
 
                     raise RuntimeError(msg)
 
-                # # Initialize last written index
-                # last_written_index = subreddit_df.index.max()
-
             except FileNotFoundError:
                 # Create a new dataframe
-                # subreddit_df = pd.DataFrame(columns=self.df_columns)
                 subreddit_df = None
                 seen_submission_ids = set()
-
-
-                # # Initialize last written index
-                # last_written_index = -1
 
             # List to hold dictionaries of new posts
             subreddit_data = []
@@ -280,38 +286,10 @@ class GVCEHReddit():
                                 sub_dict[col] = search_term
 
                             else:
-                                sub_dict[col] = [getattr(submission, col)]
+                                sub_dict[col] = getattr(submission, col)
 
                         # Add this to the list of dictionaries
                         subreddit_data.append(sub_dict)
-
-
-                        # # Create a dataframe
-                        # new_data = pd.DataFrame(sub_dict)
-                        #
-                        # # Concatenate with previous data unless first entries
-                        # if len(subreddit_df) == 0:
-                        #     subreddit_df = new_data
-                        # else:
-                        #     subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
-                        #
-                        # if len(subreddit_df) >= last_written_index + self.file_update_trigger:
-                        #
-                        #     # Determine new rows to be added
-                        #     new_rows = subreddit_df.iloc[last_written_index + 1:
-                        #                                  last_written_index + self.file_update_trigger + 1]
-                        #
-                        #     # Add rows to history file
-                        #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                        #                     mode='a',
-                        #                     index=False,
-                        #                     header=last_written_index == -1)
-                        #
-                        #     last_written_index += len(new_rows)  # Update the last written index
-                        #
-                        #     # Log file update
-                        #     self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
-                        #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
                 except Exception as e:
 
@@ -343,26 +321,8 @@ class GVCEHReddit():
             else:
                 self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
 
-
-
-            #
-            #
-            # # Final append for any remaining rows after the last intermittent save
-            # if len(subreddit_df) > last_written_index + 1:
-            #
-            #     # Determine new rows to be added
-            #     new_rows = subreddit_df.iloc[last_written_index + 1:]
-            #
-            #     # Add rows to history file
-            #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-            #                     mode='a',
-            #                     index=False,
-            #                     header=last_written_index == -1)
-
-
-
         # Write the combined file
-        self.__concat_posts_files(subreddit_names=subreddit_names)
+        self.__concat_posts_files(self.subreddit_names)
 
         # Log file update - finished fetch
         self.__log_event(msg_id=1, screen_print=True, event='fetch complete')
@@ -373,17 +333,14 @@ class GVCEHReddit():
         # Close reddit object
         await reddit.close()
 
-        # return subreddit_df
 
-
-    async def fetch_new_data(self,
-                             subreddit_names: list):
+    async def fetch_new_data(self):
 
         '''
         Function for retrieving Reddit data using the new method.
 
         This function needs to be called with await
-        # df = await test.fetch_data(subreddit_names)
+        # df = await test.fetch_data()
 
         '''
 
@@ -393,7 +350,7 @@ class GVCEHReddit():
                                   user_agent=self.user_agent)
 
         # Search in each subreddit
-        for subreddit_name in subreddit_names:
+        for subreddit_name in self.subreddit_names:
 
             # Create a subreddit class
             subreddit = await reddit.subreddit(subreddit_name)
@@ -425,17 +382,10 @@ class GVCEHReddit():
 
                     raise RuntimeError(msg)
 
-                # # Initialize last written index
-                # last_written_index = subreddit_df.index.max()
-
             except FileNotFoundError:
                 # Create a new dataframe
-                # subreddit_df = pd.DataFrame(columns=self.df_columns)
                 subreddit_df = None
                 seen_submission_ids = set()
-                #
-                # # Initialize last written index
-                # last_written_index = -1
 
             # Manage API call rate
             self.__manage_api_call_rate()
@@ -483,37 +433,10 @@ class GVCEHReddit():
                             sub_dict[col] = "all_new_posts"
 
                         else:
-                            sub_dict[col] = [getattr(submission, col)]
+                            sub_dict[col] = getattr(submission, col)
 
                     # Add this to the list of dictionaries
                     subreddit_data.append(sub_dict)
-
-                    # # Create a dataframe
-                    # new_data = pd.DataFrame(sub_dict)
-                    #
-                    # # Concatenate with previous data unless first entries
-                    # if len(subreddit_df) == 0:
-                    #     subreddit_df = new_data
-                    # else:
-                    #     subreddit_df = pd.concat([subreddit_df, new_data], ignore_index=True)
-                    #
-                    # if len(subreddit_df) >= last_written_index + self.file_update_trigger:
-                    #
-                    #     # Determine new rows to be added
-                    #     new_rows = subreddit_df.iloc[last_written_index + 1:
-                    #                                  last_written_index + self.file_update_trigger + 1]
-                    #
-                    #     # Add rows to history file
-                    #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-                    #                     mode='a',
-                    #                     index=False,
-                    #                     header=last_written_index == -1)
-                    #
-                    #     last_written_index += len(new_rows)  # Update the last written index
-                    #
-                    #     # Log file update
-                    #     self.__log_event(msg_id=1, screen_print=False, event='append data to result file',
-                    #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
             except Exception as e:
 
@@ -523,21 +446,6 @@ class GVCEHReddit():
 
                 raise RuntimeError(e)
 
-            # # Final append for any remaining rows after the last intermittent save
-            # if len(subreddit_df) > last_written_index + 1:
-            #
-            #     # Determine new rows to be added
-            #     new_rows = subreddit_df.iloc[last_written_index + 1:]
-            #
-            #     # Add rows to history file
-            #     new_rows.to_csv(os.path.join(self.posts_file_path, history_file),
-            #                     mode='a',
-            #                     index=False,
-            #                     header=last_written_index == -1)
-            #
-            #     # Log file update
-            #     self.__log_event(msg_id=1, screen_print=False, event='final data file append',
-            #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
             # Construct a new dataframe with history and new posts
             if len(subreddit_data) > 0:
@@ -563,7 +471,7 @@ class GVCEHReddit():
 
 
         # Write the combined file
-        self.__concat_posts_files(subreddit_names=subreddit_names)
+        self.__concat_posts_files()
 
         # Log file update - finished fetch
         self.__log_event(msg_id=1, screen_print=True, event='fetch complete')
@@ -575,8 +483,7 @@ class GVCEHReddit():
         await reddit.close()
 
 
-    def __concat_posts_files(self,
-                             subreddit_names: list):
+    def __concat_posts_files(self):
         '''
         Method to concatenate the posts into a single dataframe and file.
 
@@ -591,7 +498,7 @@ class GVCEHReddit():
                          logfile_stub=combined_file_stub)
 
         dfs = []
-        for subreddit_name in subreddit_names:
+        for subreddit_name in self.subreddit_names:
 
             # Get the name of the history file
             history_file = f'{subreddit_name}_posts_data.csv'
@@ -627,7 +534,7 @@ class GVCEHReddit():
 
 
     def __clean_keyword_text(self,
-                           text):
+                             text):
         '''
         Method to clean Reddit and keyword texts in either the original post
         or associated comments.

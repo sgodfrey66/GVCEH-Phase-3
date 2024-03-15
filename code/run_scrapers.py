@@ -133,16 +133,9 @@ if __name__ == "__main__":
                                    logs_file_path=reddit_logs_file_path,
                                    keywords_file_path=keywords_file_path)
 
-    # Subreddits to explore
-    subreddit_names = ["OakBayBritishColumbia", "SaanichPeninsula", "britishcolumbia",
-                       "Sooke", "Esquimalt", "SidneyBC", "saltspring",
-                       "Metchosin", "WestShoreBC", "VancouverIsland", "uvic"]
-
-    subreddit_names = ["britishcolumbia"]
-
     # Step 3: Fetch reddit data
-    asyncio.run(data_fetcher.fetch_search_data(subreddit_names=subreddit_names))
-    # asyncio.run(data_fetcher.fetch_new_data(subreddit_names=subreddit_names))
+    asyncio.run(data_fetcher.fetch_search_data())
+    # asyncio.run(data_fetcher.fetch_new_data())
 
     # Update user
     print('Collecting X (Twitter) data ')
