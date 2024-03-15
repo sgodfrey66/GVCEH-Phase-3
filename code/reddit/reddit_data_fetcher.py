@@ -306,7 +306,7 @@ class GVCEHReddit():
             if len(subreddit_data) > 0:
 
                 # Combine new posts with history
-                if subreddit_df == None:
+                if type(subreddit_df) == type(None):
                     new_data_df = pd.DataFrame(data=subreddit_data)
 
                 else:
@@ -457,7 +457,7 @@ class GVCEHReddit():
             if len(subreddit_data) > 0:
 
                 # Combine new posts with history
-                if subreddit_df == None:
+                if type(subreddit_df) == type(None):
                     new_data_df = pd.DataFrame(data=subreddit_data)
 
                 else:
