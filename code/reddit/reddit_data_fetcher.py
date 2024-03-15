@@ -222,8 +222,10 @@ class GVCEHReddit():
 
             except FileNotFoundError:
                 # Create a new dataframe
-                subreddit_df = pd.DataFrame(columns=self.df_columns)
+                # subreddit_df = pd.DataFrame(columns=self.df_columns)
+                subreddit_df = None
                 seen_submission_ids = set()
+
 
                 # # Initialize last written index
                 # last_written_index = -1
@@ -323,7 +325,11 @@ class GVCEHReddit():
             if len(subreddit_data) > 0:
 
                 # Combine new posts with history
-                new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
+                if subreddit_df == None:
+                    new_data_df = pd.DataFrame(data=subreddit_data)
+
+                else:
+                    new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
                 # Drop duplicates
                 new_data_df = new_data_df.drop_duplicates(subset=["id"])
@@ -424,7 +430,8 @@ class GVCEHReddit():
 
             except FileNotFoundError:
                 # Create a new dataframe
-                subreddit_df = pd.DataFrame(columns=self.df_columns)
+                # subreddit_df = pd.DataFrame(columns=self.df_columns)
+                subreddit_df = None
                 seen_submission_ids = set()
                 #
                 # # Initialize last written index
@@ -536,7 +543,11 @@ class GVCEHReddit():
             if len(subreddit_data) > 0:
 
                 # Combine new posts with history
-                new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
+                if subreddit_df == None:
+                    new_data_df = pd.DataFrame(data=subreddit_data)
+
+                else:
+                    new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
                 # Drop duplicates
                 new_data_df = new_data_df.drop_duplicates(subset=["id"])
