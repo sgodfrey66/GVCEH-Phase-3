@@ -322,7 +322,7 @@ class GVCEHReddit():
            # Construct a new dataframe with history and new posts
            if len(subreddit_data) > 0:
 
-               # Combine new posts with history
+                # Combine new posts with history
                 new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
                 # Drop duplicates
@@ -334,7 +334,7 @@ class GVCEHReddit():
                 # Log file update
                 self.__log_event(msg_id=1, screen_print=False, event='saving final data', new_row_count=len(subreddit_data))
 
-            else:
+           else:
                 self.__log_event(msg_id=1, screen_print=False, event='no new post results found')
 
 
@@ -532,7 +532,7 @@ class GVCEHReddit():
             #     self.__log_event(msg_id=1, screen_print=False, event='final data file append',
             #                      last_written_index=last_written_index, new_row_count=len(subreddit_df))
 
-            # Construct a new dataframe with history and new posts
+        # Construct a new dataframe with history and new posts
         if len(subreddit_data) > 0:
 
             # Combine new posts with history
