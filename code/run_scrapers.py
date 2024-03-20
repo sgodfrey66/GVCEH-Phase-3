@@ -1,3 +1,10 @@
+##############
+# File to run the Reddit and X scrapers
+# and then score tweets/posts for relevance and sentiment
+# Steve Godfrey
+# Mar 2024
+##############
+
 # Core Python
 import os, sys
 
