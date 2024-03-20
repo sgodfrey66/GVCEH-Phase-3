@@ -42,7 +42,7 @@ dependencies:
       - tweepy
       - requests
 #      - PyGithub
-      - tensorflow
+#      - tensorflow
       - transformers
       - setfit
       - tqdm
