@@ -61,11 +61,12 @@ class GVCEHReddit():
     Attributes:
         posts_file_path: Path to the retrieved posts or submissions
         logs_file_path: Path to the logs captured during retrieval
-        keywords_file_path: Path to the CSV files with keyword search terms
 
-        df_columns: Columns of the retrieved submissions data
+        keywords_file_path: Path to the CSV files with keyword search terms
         keywords_files:  Names of files with keywords
         subreddits_file: Name of file with subreddits from which to pull data
+
+        df_columns: Columns of the retrieved submissions data
 
         api_call_limit: Maximum number of calls to the API within the rate limit time window
         rate_limit_window: Time window over which API calls are counted

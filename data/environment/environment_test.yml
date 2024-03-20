@@ -51,5 +51,7 @@ dependencies:
       - google-cloud-secret-manager
       - google-cloud-storage
       - gcsfs
+      - top2vec
+      - joblib
 
 prefix: /Users/stephengodfrey/anaconda3

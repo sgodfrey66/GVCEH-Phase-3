@@ -18,6 +18,7 @@ import reddit_data_fetcher as rdf
 # GVCEH objectscl
 sys.path.insert(0, "xtwitter/")
 import x_twitter_data_fetcher as xtdf
+import x_twitter_scorer as xts
 
 
 
@@ -81,7 +82,7 @@ if __name__ == "__main__":
         # File locations
         reddit_posts_file_path = "../data/reddit/posts"
         reddit_logs_file_path = "../data/reddit/logs"
-        xtwitter_tweets_file_path = "../data/xtwitter/tweets",
+        xtwitter_tweets_file_path = "../data/xtwitter/tweets"
         xtwitter_logs_file_path = "../data/xtwitter/logs"
 
         keywords_file_path = "../data/keywords"
@@ -111,13 +112,13 @@ if __name__ == "__main__":
         # File locations
         bucket_name = "gvceh-03a-storage"
         bucket_path = "gs://{}".format(bucket_name)
+
         reddit_posts_file_path = "{}/reddit/posts".format(bucket_path)
         reddit_logs_file_path = "{}/reddit/logs".format(bucket_path)
-        ###########
         reddit_logs_file_path = "../data/reddit/logs"
+
         xtwitter_tweets_file_path = "{}/xtwitter/tweets".format(bucket_path)
         xtwitter_logs_file_path = "{}/xtwitter/logs".format(bucket_path)
-        ###########
         xtwitter_logs_file_path = "../data/xtwitter/logs"
 
         keywords_file_path = "{}/keywords".format(bucket_path)
@@ -134,7 +135,8 @@ if __name__ == "__main__":
                                    keywords_file_path=keywords_file_path)
 
     # Step 3: Fetch reddit data
-    asyncio.run(data_fetcher.fetch_search_data())
+    ##############################
+    # asyncio.run(data_fetcher.fetch_search_data())
     # asyncio.run(data_fetcher.fetch_new_data())
 
     # Update user
@@ -152,7 +154,12 @@ if __name__ == "__main__":
 
 
     # Step 5: Fetch Twitter data
-    data_fetcher.batch_scrape()
+    #################################
+    # data_fetcher.batch_scrape()
+
+    # Step 6. Score tweets
+    xts.ScoreTweets(tweets_file_path=xtwitter_tweets_file_path,
+                    logs_file_path=xtwitter_logs_file_path)
 
     print('Scrapers run complete')
 
