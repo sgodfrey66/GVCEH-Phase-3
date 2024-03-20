@@ -43,7 +43,7 @@ dependencies:
       - requests
 #      - PyGithub
 #      - tensorflow
-      - transformers
+#      - transformers
       - setfit
       - tqdm
       - asyncio
