@@ -142,8 +142,7 @@ if __name__ == "__main__":
                                    keywords_file_path=keywords_file_path)
 
     # Step 3: Fetch reddit data
-    ##############################
-    # asyncio.run(data_fetcher.fetch_search_data())
+    asyncio.run(data_fetcher.fetch_search_data())
     # asyncio.run(data_fetcher.fetch_new_data())
 
     # Update user
@@ -161,8 +160,7 @@ if __name__ == "__main__":
 
 
     # Step 5: Fetch Twitter data
-    #################################
-    # data_fetcher.batch_scrape()
+    data_fetcher.batch_scrape()
 
     # Step 6. Score tweets
     xts.ScoreTweets(tweets_file_path=xtwitter_tweets_file_path,
