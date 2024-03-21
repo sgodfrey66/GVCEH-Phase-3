@@ -51,7 +51,7 @@ dependencies:
       - google-cloud-secret-manager
       - google-cloud-storage
       - gcsfs
-      - top2vec
+#      - top2vec
 #      - joblib
 #      - tf-keras
 
