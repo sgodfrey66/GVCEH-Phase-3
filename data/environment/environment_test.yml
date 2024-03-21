@@ -52,7 +52,7 @@ dependencies:
       - google-cloud-storage
       - gcsfs
       - top2vec
-      - joblib
+#      - joblib
 #      - tf-keras
 
 prefix: /Users/stephengodfrey/anaconda3
