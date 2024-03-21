@@ -42,8 +42,8 @@ dependencies:
       - tweepy
       - requests
 #      - PyGithub
-#      - tensorflow
-#      - transformers
+      - tensorflow
+      - transformers
       - setfit
       - tqdm
       - asyncio
@@ -52,7 +52,7 @@ dependencies:
       - google-cloud-storage
       - gcsfs
 #      - top2vec
-#      - joblib
-#      - tf-keras
+      - joblib
+      - tf-keras
 
 prefix: /Users/stephengodfrey/anaconda3
