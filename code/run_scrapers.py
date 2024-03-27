@@ -20,6 +20,7 @@ from google.cloud import secretmanager
 # GVCEH objects
 sys.path.insert(0, "reddit/")
 import reddit_data_fetcher as rdf
+import reddit_scorer as rds
 
 
 # GVCEH objectscl
@@ -89,6 +90,7 @@ if __name__ == "__main__":
         # File locations
         reddit_posts_file_path = "../data/reddit/posts"
         reddit_logs_file_path = "../data/reddit/logs"
+        reddit_models_file_path ="../data/models/reddit"
         xtwitter_tweets_file_path = "../data/xtwitter/tweets"
         xtwitter_logs_file_path = "../data/xtwitter/logs"
 
@@ -121,11 +123,13 @@ if __name__ == "__main__":
         bucket_path = "gs://{}".format(bucket_name)
 
         reddit_posts_file_path = "{}/reddit/posts".format(bucket_path)
-        reddit_logs_file_path = "{}/reddit/logs".format(bucket_path)
+        # reddit_logs_file_path = "{}/reddit/logs".format(bucket_path)
+        # reddit_models_file_path ="../data/models/reddit"
+        reddit_models_file_path = "{}/reddit/models".format(bucket_path)
         reddit_logs_file_path = "../data/reddit/logs"
 
         xtwitter_tweets_file_path = "{}/xtwitter/tweets".format(bucket_path)
-        xtwitter_logs_file_path = "{}/xtwitter/logs".format(bucket_path)
+        # xtwitter_logs_file_path = "{}/xtwitter/logs".format(bucket_path)
         xtwitter_logs_file_path = "../data/xtwitter/logs"
 
         keywords_file_path = "{}/keywords".format(bucket_path)
@@ -143,12 +147,16 @@ if __name__ == "__main__":
 
     # Step 3: Fetch reddit data
     asyncio.run(data_fetcher.fetch_search_data())
-    # asyncio.run(data_fetcher.fetch_new_data())
+
+    # Step 4. Score posts
+    rds.ScorePosts(posts_file_path=reddit_posts_file_path,
+                   logs_file_path=reddit_logs_file_path,
+                   relevance_model_path=reddit_models_file_path)
 
     # Update user
     print('Collecting X (Twitter) data ')
 
-    # Step 4: Initialize GVCEHXTwitter object
+    # Step 5: Initialize GVCEHXTwitter object
     data_fetcher = xtdf.GVCEHXTwitter(bearer_token=TWITTER_BEARER_TOKEN,
                                       consumer_key=TWITTER_CONSUMER_KEY,
                                       consumer_secret=TWITTER_CONSUMER_SECRET,
@@ -158,11 +166,10 @@ if __name__ == "__main__":
                                       logs_file_path=xtwitter_logs_file_path,
                                       keywords_file_path=keywords_file_path)
 
-
-    # Step 5: Fetch Twitter data
+    # Step 6: Fetch Twitter data
     data_fetcher.batch_scrape()
 
-    # Step 6. Score tweets
+    # Step 7. Score tweets
     xts.ScoreTweets(tweets_file_path=xtwitter_tweets_file_path,
                     logs_file_path=xtwitter_logs_file_path)
 

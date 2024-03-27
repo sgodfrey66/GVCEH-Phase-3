@@ -1,4 +1,4 @@
-# Functions to score tweets for relevance and sentiment
+# Functions to score X tweets for relevance and sentiment
 import os, sys
 import pandas as pd
 
@@ -11,19 +11,20 @@ from transformers import pipeline
 from setfit import SetFitModel
 
 
-
-
 class ScoreTweets():
     '''
     Class to score tweets for relevance and sentiment.  These relevance and sentiment models
     were created in Phase 2 of the SWB-GVCEH project.  However, this class and its use in this
     pipeline was added during Phase 3
 
-    Atrtributes:
+    Attributes:
         tweets_file_path: Path to the retrieved posts or submissions
         logs_file_path: Path to the logs captured during retrieval
         new_input_file_name: Filename for new tweets that need to be scored
         scored_input_file_name: Filename for tweets that have been previously scored
+
+        relevance_model_hf_location: Hugging Face location for relevance model
+        sentiment_model_hf_location: Hugging Face location for sentiment model
 
         df: pandas dataframe containing a column with tweet text ("text")
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
@@ -32,13 +33,7 @@ class ScoreTweets():
         fetch_logging: Boolean to turn logging on and off
         dtformat: String format for time values
 
-    Attributes:
 
-
-        keywords_file_path: Path to the CSV files with keyword search terms
-
-        hashtags_file_name: File containing hashtag or other key search terms
-        keywords_file_name: File containing keywords
 
     '''
 
@@ -49,6 +44,10 @@ class ScoreTweets():
     # Input files
     new_input_file_name = "xtwitter_tweets.csv"
     scored_input_file_name = "xtwitter_tweets_scored.csv"
+
+    # Model parameters
+    relevance_model_hf_location = "sheilaflood/gvceh-setfit-rel-model2"
+    sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
     # Flag indicating if old scores should be overwritten
     update_scores = False
@@ -110,7 +109,7 @@ class ScoreTweets():
         self.__log_event(msg_id=1, screen_print=True, event='start relevance scoring', source='xtwitter')
 
         # create the model
-        model = SetFitModel.from_pretrained("sheilaflood/gvceh-setfit-rel-model2")
+        model = SetFitModel.from_pretrained(self.relevance_model_hf_location)
 
         # Put the text columns into a list
         all_text = self.df_new['text'].tolist()
@@ -141,10 +140,9 @@ class ScoreTweets():
         self.__log_event(msg_id=1, screen_print=True, event='start sentiment scoring', source='xtwitter')
 
         # create the model ( #-1 = cpu, 0 = gpu )
-        model = pipeline("sentiment-analysis",
-                         model='cardiffnlp/twitter-roberta-base-sentiment-latest',
-                         device=-1
-                         )
+        model = pipeline(task="sentiment-analysis",
+                         model=self.sentiment_model_hf_location,
+                         device=-1)
         model.tokenizer.model_max_length = 512
 
 
