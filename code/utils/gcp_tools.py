@@ -1,3 +1,6 @@
+# GCP
+from google.cloud import secretmanager
+
 def get_gcpsecrets(project_id,
                    secret_id,
                    version_id="latest"):

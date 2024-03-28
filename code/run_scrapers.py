@@ -15,8 +15,7 @@ import dotenv
 # Asynchronous work
 import asyncio
 
-# GCP
-from google.cloud import secretmanager
+
 
 # GVCEH objects
 sys.path.insert(0, "reddit/")
@@ -47,6 +46,15 @@ if __name__ == "__main__":
     # Default setting is cloud run meaning use GCP for environmental variables
     # And save to GCP storage - otherwise run locally and get environmental
     # variables from .env using dotenv and save locally
+
+    # GCP project
+    # project_num = "597122211821"
+    project_id = "npaicivitas"
+
+    # Version of GCP secret
+    version_id = "1"
+
+
     if len(sys.argv) > 1 and sys.argv[1].lower() == "local":
         # Reddit credentials
         REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID")
@@ -70,13 +78,6 @@ if __name__ == "__main__":
         keywords_file_path = "../data/keywords"
 
     else:
-
-        # GCP project
-        # project_num = "597122211821"
-        project_id = "npaicivitas"
-
-        # Version of secret
-        version_id = "1"
 
         # Reddit credentials
         REDDIT_CLIENT_ID = gt.get_gcpsecrets(project_id, "REDDIT_CLIENT_ID", version_id)
