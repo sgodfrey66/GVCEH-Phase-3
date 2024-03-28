@@ -11,6 +11,9 @@ from transformers import pipeline
 import joblib
 # from setfit import SetFitModel
 
+from tempfile import TemporaryFile
+from google.cloud import storage
+
 
 
 
@@ -27,8 +30,10 @@ class ScorePosts():
         scored_input_file_name: Filename for posts that have been previously scored
 
         relevance_model_path: Path to the location for a locally stored relevance model
-        relevance_model_filename: Filename for the posts relevance model
+        relevance_model1_filename: Filename for the posts relevance model
         sentiment_model_hf_location: Hugging Face location for sentiment model
+
+        gcp_project_id: GCP Project ID
 
         df: pandas dataframe containing a column with tweet text ("text")
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
@@ -49,8 +54,11 @@ class ScorePosts():
 
     # Model parameters
     relevance_model_path = "../data/models"
-    relevance_model_filename = "reddit-setfit-model.joblib"
+    relevance_model1_filename = "reddit-setfit-model.joblib"
     sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+
+    # GCP Project ID
+    gcp_project_id = ""
 
     # Flag indicating if old scores should be overwritten
     update_scores = False
@@ -110,9 +118,37 @@ class ScorePosts():
         # Log relevance score start
         self.__log_event(msg_id=1, screen_print=True, event='start relevance scoring', source='reddit')
 
-        # create the mode
-        model1 = joblib.load(os.path.join(self.relevance_model_path,
-                                          self.relevance_model_filename))
+        # create the model
+        prefix = "gs://"
+        # If on GCP need some code to open the file
+        if relevance_model_path.find(prefix) >= 0:
+
+            # Get bucket name and model_bucket from model path
+            prefix_len = len(prefix)
+            bucket_name = self.relevance_model_path[prefix_len: self.relevance_model_path[5:].find("/") + prefix_len]
+            model_bucket = self.relevance_model_path[prefix_len:]
+            model_bucket = "{}/{}".format(model_bucket[model_bucket.find("/") + 1:],
+                                          self.relevance_model1_filename)
+
+            # # Set up GCP storage client
+            storage_client = storage.Client(project=self.gcp_project_id)
+
+            # Create GCP buckets
+            bucket = storage_client.get_bucket(bucket_name)
+            blob = bucket.blob(model_bucket)
+
+            # Download model to temporary file
+            with TemporaryFile() as temp_file:
+                # download blob into temp file
+                blob.download_to_file(temp_file)
+                temp_file.seek(0)
+                # load into joblib
+                model1 = joblib.load(temp_file)
+
+        # Otherwise we can load locally
+        else:
+            model1 = joblib.load(os.path.join(self.relevance_model_path,
+                                              self.relevance_model1_filename))
 
         # Replace NA values with blanks
         for col in ['selftext', 'title']:
@@ -220,7 +256,7 @@ class ScorePosts():
 
             # Log submission processing
             msg = ("New posts file not found: name: {}").format(os.path.join(self.posts_file_path,
-                                                                              self.new_input_file_name))
+                                                                             self.new_input_file_name))
             self.__log_event(msg_id=1, screen_print=True, event='processing error', error_msg=msg)
 
             raise RuntimeError(msg)

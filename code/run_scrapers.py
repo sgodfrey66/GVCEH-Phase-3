@@ -23,7 +23,6 @@ sys.path.insert(0, "reddit/")
 import reddit_data_fetcher as rdf
 import reddit_scorer as rds
 
-
 # GVCEH objectscl
 sys.path.insert(0, "xtwitter/")
 import x_twitter_data_fetcher as xtdf
@@ -100,7 +99,9 @@ if __name__ == "__main__":
     else:
 
         # GCP project
-        project_id = "597122211821"
+        # project_num = "597122211821"
+        project_id = "npaicivitas"
+
         # Version of secret
         version_id = "1"
 
@@ -152,7 +153,8 @@ if __name__ == "__main__":
     # Step 4. Score posts
     rds.ScorePosts(posts_file_path=reddit_posts_file_path,
                    logs_file_path=reddit_logs_file_path,
-                   relevance_model_path=reddit_models_file_path)
+                   relevance_model_path=reddit_models_file_path,
+                   gcp_project_id=project_id)
 
     # Update user
     print('Collecting X (Twitter) data ')
@@ -172,7 +174,8 @@ if __name__ == "__main__":
 
     # Step 7. Score tweets
     xts.ScoreTweets(tweets_file_path=xtwitter_tweets_file_path,
-                    logs_file_path=xtwitter_logs_file_path)
+                    logs_file_path=xtwitter_logs_file_path,
+                    gcp_project_id=project_id)
 
     print('Scrapers run complete')
 

@@ -26,14 +26,14 @@ class ScoreTweets():
         relevance_model_hf_location: Hugging Face location for relevance model
         sentiment_model_hf_location: Hugging Face location for sentiment model
 
+        gcp_project_id: GCP Project ID
+
         df: pandas dataframe containing a column with tweet text ("text")
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
                         or only new scores should be added for not scored tweets
 
         fetch_logging: Boolean to turn logging on and off
         dtformat: String format for time values
-
-
 
     '''
 
@@ -48,6 +48,9 @@ class ScoreTweets():
     # Model parameters
     relevance_model_hf_location = "sheilaflood/gvceh-setfit-rel-model2"
     sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
+
+    # GCP Project ID
+    gcp_project_id = ""
 
     # Flag indicating if old scores should be overwritten
     update_scores = False
