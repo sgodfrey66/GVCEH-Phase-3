@@ -14,6 +14,9 @@ import joblib
 from tempfile import TemporaryFile
 from google.cloud import storage
 
+# GVCEH objectscl
+sys.path.insert(0, "../utils/")
+import gcp_tools as gt
 
 
 
@@ -93,6 +96,9 @@ class ScorePosts():
 
         # Log score start
         self.__log_event(msg_id=1, screen_print=True, event='start score', source='reddit')
+
+        # Google cloud storage credentials
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS", version_id)
 
         # Read tweet data
         self.read_posts_file()

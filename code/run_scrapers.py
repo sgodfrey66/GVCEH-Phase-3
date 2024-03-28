@@ -28,36 +28,9 @@ sys.path.insert(0, "xtwitter/")
 import x_twitter_data_fetcher as xtdf
 import x_twitter_scorer as xts
 
-
-
-def get_gcpsecrets(project_id,
-                   secret_id,
-                   version_id="latest"):
-    """
-    Access a secret version in Google Cloud Secret Manager.
-
-    Args:
-        project_id: GCP project ID.
-        secret_id: ID of the secret you want to access.
-        version_id: Version of the secret (defaults to "latest").
-
-    Returns:
-        The secret value as a string.
-    """
-    # Create the Secret Manager client
-    client = secretmanager.SecretManagerServiceClient()
-
-    # Build the resource name of the secret version
-    name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
-
-    # Access the secret version
-    response = client.access_secret_version(request={"name": name})
-
-    # Return the payload as a string
-    # Note: response.payload.data is a bytes object, decode it to a string
-    return response.payload.data.decode("UTF-8")
-
-
+# GVCEH objectscl
+sys.path.insert(0, "utils/")
+import gcp_tools as gt
 
 if __name__ == "__main__":
 
@@ -106,19 +79,19 @@ if __name__ == "__main__":
         version_id = "1"
 
         # Reddit credentials
-        REDDIT_CLIENT_ID = get_gcpsecrets(project_id, "REDDIT_CLIENT_ID", version_id)
-        REDDIT_CLIENT_SECRET = get_gcpsecrets(project_id, "REDDIT_CLIENT_SECRET", version_id)
-        REDDIT_USER_AGENT = get_gcpsecrets(project_id, "REDDIT_USER_AGENT", version_id)
+        REDDIT_CLIENT_ID = gt.get_gcpsecrets(project_id, "REDDIT_CLIENT_ID", version_id)
+        REDDIT_CLIENT_SECRET = gt.get_gcpsecrets(project_id, "REDDIT_CLIENT_SECRET", version_id)
+        REDDIT_USER_AGENT = gt.get_gcpsecrets(project_id, "REDDIT_USER_AGENT", version_id)
 
         # XTwitter credentials
-        TWITTER_BEARER_TOKEN = get_gcpsecrets(project_id, "TWITTER_BEARER_TOKEN", version_id)
-        TWITTER_CONSUMER_KEY = get_gcpsecrets(project_id, "TWITTER_CONSUMER_KEY", version_id)
-        TWITTER_CONSUMER_SECRET = get_gcpsecrets(project_id, "TWITTER_CONSUMER_SECRET", version_id)
-        TWITTER_ACCESS_TOKEN = get_gcpsecrets(project_id, "TWITTER_ACCESS_TOKEN", version_id)
-        TWITTER_ACCESS_TOKEN_SECRET = get_gcpsecrets(project_id, "TWITTER_ACCESS_TOKEN_SECRET", version_id)
+        TWITTER_BEARER_TOKEN = gt.get_gcpsecrets(project_id, "TWITTER_BEARER_TOKEN", version_id)
+        TWITTER_CONSUMER_KEY = gt.get_gcpsecrets(project_id, "TWITTER_CONSUMER_KEY", version_id)
+        TWITTER_CONSUMER_SECRET = gt.get_gcpsecrets(project_id, "TWITTER_CONSUMER_SECRET", version_id)
+        TWITTER_ACCESS_TOKEN = gt.get_gcpsecrets(project_id, "TWITTER_ACCESS_TOKEN", version_id)
+        TWITTER_ACCESS_TOKEN_SECRET = gt.get_gcpsecrets(project_id, "TWITTER_ACCESS_TOKEN_SECRET", version_id)
 
         # Google cloud storage credentials
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS", version_id)
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS", version_id)
 
         # File locations
         bucket_name = "gvceh-03a-storage"
