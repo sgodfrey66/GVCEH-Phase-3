@@ -121,7 +121,7 @@ class ScorePosts():
         # create the model
         prefix = "gs://"
         # If on GCP need some code to open the file
-        if relevance_model_path.find(prefix) >= 0:
+        if self.relevance_model_path.find(prefix) >= 0:
 
             # Get bucket name and model_bucket from model path
             prefix_len = len(prefix)
