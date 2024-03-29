@@ -70,4 +70,6 @@ if __name__ == "__main__":
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = get_gcpsecrets("npaicivitas", "GOOGLE_APPLICATION_CREDENTIALS",
                                                                      "1")
 
+    print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+
     authenticate_implicit_with_adc()
