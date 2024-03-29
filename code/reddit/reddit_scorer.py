@@ -1,5 +1,7 @@
 # Functions to score Reddit posts for relevance and sentiment
 import os, sys
+import json
+
 import pandas as pd
 
 from datetime import datetime
@@ -12,7 +14,11 @@ import joblib
 # from setfit import SetFitModel
 
 from tempfile import TemporaryFile
+
+# GCP
 from google.cloud import storage
+from google.oauth2 import service_account
+
 
 # GVCEH objectscl
 sys.path.insert(0, "utils/")
@@ -36,7 +42,7 @@ class ScorePosts():
         relevance_model1_filename: Filename for the posts relevance model
         sentiment_model_hf_location: Hugging Face location for sentiment model
 
-        gcp_project_id: GCP Project ID
+        ggcp_credentials: GCP project credentials used to interface with GCP storage
 
         df: pandas dataframe containing a column with tweet text ("text")
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
@@ -59,9 +65,6 @@ class ScorePosts():
     relevance_model_path = "../data/models"
     relevance_model1_filename = "reddit-setfit-model.joblib"
     sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-
-    # GCP Project ID
-    gcp_project_id = ""
 
     # GCP Credentials
     gcp_credentials = ""
@@ -102,22 +105,6 @@ class ScorePosts():
         # Log score start
         self.__log_event(msg_id=1, screen_print=True, event='start score', source='reddit')
 
-        # Google cloud storage credentials
-
-        print('Starting to look for creds')
-        print("credentials passed")
-        print(self.gcp_credentials)
-        print('environ variable before setting')
-        print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
-
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.gcp_credentials
-
-
-        # version_id = 1
-        # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(self.gcp_project_id,
-        #                                                                  "GOOGLE_APPLICATION_CREDENTIALS",
-        #                                                                  version_id)
-
         # Read tweet data
         self.read_posts_file()
 
@@ -155,8 +142,9 @@ class ScorePosts():
                                           self.relevance_model1_filename)
 
             # # Set up GCP storage client
-            storage_client = storage.Client(project=self.gcp_project_id,
-                                            credentials=self.gcp_credentials)
+            json_acct_info = json.loads(self.gcp_credentials)
+            credentials = service_account.Credentials.from_service_account_info(json_acct_info)
+            storage_client = storage.Client(credentials=credentials, project=json_acct_info["project_id"])
 
             # Create GCP buckets
             bucket = storage_client.get_bucket(bucket_name)

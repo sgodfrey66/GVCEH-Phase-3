@@ -46,7 +46,6 @@ if __name__ == "__main__":
     # variables from .env using dotenv and save locally
 
     # GCP project
-    # project_num = "597122211821"
     project_id = "npaicivitas"
 
     # Version of GCP secret
@@ -91,7 +90,6 @@ if __name__ == "__main__":
 
         # Google cloud storage credentials
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS", version_id)
-        print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
         # File locations
         bucket_name = "gvceh-03a-storage"
@@ -127,7 +125,6 @@ if __name__ == "__main__":
     rds.ScorePosts(posts_file_path=reddit_posts_file_path,
                    logs_file_path=reddit_logs_file_path,
                    relevance_model_path=reddit_models_file_path,
-                   gcp_project_id=project_id,
                    gcp_credentials=os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
     # Update user
