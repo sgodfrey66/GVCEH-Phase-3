@@ -162,6 +162,8 @@ class GVCEHReddit():
         # Ensure keywords are strings and remove any duplicates
         self.subreddit_names = df_kw["subreddit_names"].unique().tolist()
 
+        self.subreddit_names = ['Sooke']
+
 
     def __get_search_terms(self):
         '''
