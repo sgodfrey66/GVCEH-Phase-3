@@ -15,8 +15,6 @@ import dotenv
 # Asynchronous work
 import asyncio
 
-
-
 # GVCEH objects
 sys.path.insert(0, "reddit/")
 import reddit_data_fetcher as rdf
