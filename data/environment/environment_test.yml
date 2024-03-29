@@ -50,6 +50,7 @@ dependencies:
       - asyncpraw
       - google-cloud-secret-manager
       - google-cloud-storage
+      - google.auth
       - gcsfs
 #      - top2vec
       - joblib
