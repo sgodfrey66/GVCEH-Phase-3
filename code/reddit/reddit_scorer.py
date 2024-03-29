@@ -155,7 +155,8 @@ class ScorePosts():
                                           self.relevance_model1_filename)
 
             # # Set up GCP storage client
-            storage_client = storage.Client(project=self.gcp_project_id)
+            storage_client = storage.Client(project=self.gcp_project_id,
+                                            credentials=self.gcp_credentials)
 
             # Create GCP buckets
             bucket = storage_client.get_bucket(bucket_name)
