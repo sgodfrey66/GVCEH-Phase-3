@@ -63,6 +63,9 @@ class ScorePosts():
     # GCP Project ID
     gcp_project_id = ""
 
+    # GCP Credentials
+    gcp_credentials = ""
+
     # Flag indicating if old scores should be overwritten
     update_scores = False
 
@@ -98,6 +101,16 @@ class ScorePosts():
         self.__log_event(msg_id=1, screen_print=True, event='start score', source='reddit')
 
         # Google cloud storage credentials
+
+        print('Starting to look for creds')
+        print("credentials passed")
+        print(self.gcp_credentials)
+        print('environ variable before setting')
+        print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.gcp_credentials
+
+
         version_id = 1
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(self.gcp_project_id,
                                                                          "GOOGLE_APPLICATION_CREDENTIALS",

@@ -127,7 +127,8 @@ if __name__ == "__main__":
     rds.ScorePosts(posts_file_path=reddit_posts_file_path,
                    logs_file_path=reddit_logs_file_path,
                    relevance_model_path=reddit_models_file_path,
-                   gcp_project_id=project_id)
+                   gcp_project_id=project_id,
+                   gcp_credentials=os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
     # Update user
     print('Collecting X (Twitter) data ')
