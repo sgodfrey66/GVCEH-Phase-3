@@ -84,6 +84,8 @@ class ScorePosts():
         Initialize the ScoreTweets class.
         '''
 
+        print('Okay we are here')
+
         # Update any key word args
         self.__dict__.update(kwargs)
 
