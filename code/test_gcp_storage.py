@@ -39,7 +39,7 @@ def get_gcpsecrets(project_id,
     return response.payload.data.decode("UTF-8")
 
 
-def authenticate_implicit_with_adc(project_id="npaicivitas", creds_json):
+def authenticate_implicit_with_adc(project_id, creds_json):
     """
     When interacting with Google Cloud Client libraries, the library can auto-detect the
     credentials to use.
@@ -79,4 +79,4 @@ if __name__ == "__main__":
 
     print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
-    authenticate_implicit_with_adc(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+    authenticate_implicit_with_adc(project_id="test", creds_json=os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
