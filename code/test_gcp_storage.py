@@ -77,7 +77,9 @@ def authenticate_implicit_with_adc(project_id, creds_json):
     # credentials = service_account.Credentials.from_service_account_file(
     #     '/path/to/key.json')
 
-    storage_client = storage.Client(credentials=credentials, project=creds_dict["project_id"])
+
+
+    storage_client = storage.Client(credentials=credentials, project=json_acct_info["project_id"])
 
 
     # storage_client = storage.Client(project=project_id)
