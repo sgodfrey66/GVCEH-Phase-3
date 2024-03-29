@@ -39,7 +39,7 @@ def get_gcpsecrets(project_id,
     return response.payload.data.decode("UTF-8")
 
 
-def authenticate_implicit_with_adc(project_id="npaicivitas"):
+def authenticate_implicit_with_adc(project_id="npaicivitas", creds_json):
     """
     When interacting with Google Cloud Client libraries, the library can auto-detect the
     credentials to use.
@@ -58,7 +58,14 @@ def authenticate_implicit_with_adc(project_id="npaicivitas"):
     # *NOTE*: Replace the client created below with the client required for your application.
     # Note that the credentials are not specified when constructing the client.
     # Hence, the client library will look for credentials using ADC.
-    storage_client = storage.Client(project=project_id)
+
+    creds_dict = json.loads(creds_json)
+    credentials = storage.Client.from_service_account_info(creds_dict)
+
+    storage_client = storage.Client(credentials=credentials, project=creds_dict["project_id"])
+
+
+    # storage_client = storage.Client(project=project_id)
     buckets = storage_client.list_buckets()
     print("Buckets:")
     for bucket in buckets:
@@ -72,4 +79,4 @@ if __name__ == "__main__":
 
     print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
-    authenticate_implicit_with_adc()
+    authenticate_implicit_with_adc(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
