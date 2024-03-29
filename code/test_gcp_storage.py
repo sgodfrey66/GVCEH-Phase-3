@@ -4,14 +4,17 @@ import os, sys
 
 import json
 
+# GCP
 from google.cloud import storage
+from google.cloud import secretmanager
+from google.oauth2 import service_account
 
 # GVCEH objectscl
 sys.path.insert(0, "utils/")
 import gcp_tools as gt
 
-# GCP
-from google.cloud import secretmanager
+
+
 
 def get_gcpsecrets(project_id,
                    secret_id,
@@ -61,8 +64,18 @@ def authenticate_implicit_with_adc(project_id, creds_json):
     # Note that the credentials are not specified when constructing the client.
     # Hence, the client library will look for credentials using ADC.
 
-    creds_dict = json.loads(creds_json)
-    credentials = storage.Client.from_service_account_info(creds_dict)
+
+
+
+
+    json_acct_info = json.loads(creds_json)
+    credentials = service_account.Credentials.from_service_account_info(
+        json_acct_info)
+
+
+
+    # credentials = service_account.Credentials.from_service_account_file(
+    #     '/path/to/key.json')
 
     storage_client = storage.Client(credentials=credentials, project=creds_dict["project_id"])
 
@@ -79,6 +92,6 @@ if __name__ == "__main__":
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = get_gcpsecrets("npaicivitas", "GOOGLE_APPLICATION_CREDENTIALS",
                                                                      "1")
 
-    print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+    # print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
     authenticate_implicit_with_adc(project_id="test", creds_json=os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
