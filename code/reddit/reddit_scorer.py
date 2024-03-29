@@ -111,10 +111,10 @@ class ScorePosts():
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.gcp_credentials
 
 
-        version_id = 1
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(self.gcp_project_id,
-                                                                         "GOOGLE_APPLICATION_CREDENTIALS",
-                                                                         version_id)
+        # version_id = 1
+        # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(self.gcp_project_id,
+        #                                                                  "GOOGLE_APPLICATION_CREDENTIALS",
+        #                                                                  version_id)
 
         # Read tweet data
         self.read_posts_file()
