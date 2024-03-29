@@ -36,7 +36,7 @@ def authenticate_implicit_with_adc(project_id="npaicivitas"):
 
 
 if __name__ == "__main__":
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS",
-                                                                     version_id)
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets("npaicivitas", "GOOGLE_APPLICATION_CREDENTIALS",
+                                                                     "1")
 
     authenticate_implicit_with_adc()
