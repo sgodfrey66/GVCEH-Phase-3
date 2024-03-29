@@ -91,6 +91,7 @@ if __name__ == "__main__":
 
         # Google cloud storage credentials
         os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets(project_id, "GOOGLE_APPLICATION_CREDENTIALS", version_id)
+        print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
         # File locations
         bucket_name = "gvceh-03a-storage"
