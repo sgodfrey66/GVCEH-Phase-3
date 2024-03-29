@@ -8,6 +8,37 @@ from google.cloud import storage
 sys.path.insert(0, "utils/")
 import gcp_tools as gt
 
+# GCP
+from google.cloud import secretmanager
+
+def get_gcpsecrets(project_id,
+                   secret_id,
+                   version_id="latest"):
+    """
+    Access a secret version in Google Cloud Secret Manager.
+
+    Args:
+        project_id: GCP project ID.
+        secret_id: ID of the secret you want to access.
+        version_id: Version of the secret (defaults to "latest").
+
+    Returns:
+        The secret value as a string.
+    """
+    # Create the Secret Manager client
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the secret version
+    name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+
+    # Access the secret version
+    response = client.access_secret_version(request={"name": name})
+
+    # Return the payload as a string
+    # Note: response.payload.data is a bytes object, decode it to a string
+    return response.payload.data.decode("UTF-8")
+
+
 def authenticate_implicit_with_adc(project_id="npaicivitas"):
     """
     When interacting with Google Cloud Client libraries, the library can auto-detect the
@@ -36,7 +67,7 @@ def authenticate_implicit_with_adc(project_id="npaicivitas"):
 
 
 if __name__ == "__main__":
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = gt.get_gcpsecrets("npaicivitas", "GOOGLE_APPLICATION_CREDENTIALS",
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = get_gcpsecrets("npaicivitas", "GOOGLE_APPLICATION_CREDENTIALS",
                                                                      "1")
 
     authenticate_implicit_with_adc()
