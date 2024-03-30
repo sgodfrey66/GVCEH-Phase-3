@@ -1,4 +1,4 @@
-# Functions to score Reddit posts for relevance and sentiment
+# Class to score Reddit posts for relevance and sentiment
 import os, sys
 import json
 
@@ -59,7 +59,7 @@ class ScorePosts():
 
     # Input files
     new_input_file_name = "reddit_posts.csv"
-    scored_input_file_name = "reddit_posts.csv"
+    scored_input_file_name = "reddit_posts_scored.csv"
 
     # Model parameters
     relevance_model_path = "../data/models"

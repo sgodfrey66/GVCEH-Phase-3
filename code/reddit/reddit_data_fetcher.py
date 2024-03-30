@@ -77,6 +77,8 @@ class GVCEHReddit():
         api_call_times: A doubly ended queue store of timestamps for all API calls
         pause_indexes: A doubly ended queue store of timestamps indexes at which API fetching was paused
 
+        dup_cols: Columns to use in determining duplicates (which are dropped before saving)
+
         fetch_logging: Boolean to turn logging on and off
         dtformat: String format for time values
 
@@ -120,6 +122,9 @@ class GVCEHReddit():
 
     # Fetch search lookback window
     search_time_filter = "month"
+
+    # Dup columns
+    dup_cols = ["id", "title", "selftext"]
 
     # Logging flag
     fetch_logging = True
@@ -313,7 +318,7 @@ class GVCEHReddit():
                     new_data_df = pd.concat(objs=[subreddit_df, pd.DataFrame(data=subreddit_data)])
 
                 # Drop duplicates
-                new_data_df = new_data_df.drop_duplicates(subset=["id"])
+                new_data_df = new_data_df.drop_duplicates(subset=self.dup_cols)
 
                 # Save the file
                 new_data_df.to_csv(path_or_buf=os.path.join(self.posts_file_path, history_file), index=False)
@@ -529,6 +534,9 @@ class GVCEHReddit():
         # Concatenate
         df = pd.concat(objs=dfs)
         df = df.reset_index(drop=True)
+
+        # Drop duplicates
+        df = df.drop_duplicates(subset=self.dup_cols)
 
         # Write combined file
         df.to_csv(path_or_buf=os.path.join(self.posts_file_path, combined_file_name),

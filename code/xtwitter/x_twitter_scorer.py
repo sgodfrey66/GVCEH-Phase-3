@@ -1,4 +1,4 @@
-# Functions to score X tweets for relevance and sentiment
+# Class to score X tweets for relevance and sentiment
 import os, sys
 import pandas as pd
 

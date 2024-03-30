@@ -71,6 +71,8 @@ class GVCEHXTwitter():
         place_fields: Place fields to return from API calls
         expansions: Expanded fields to return from API calls (beyond standard API response)
 
+        dup_cols: Columns to use in determining duplicates (which are dropped before saving)
+
         fetch_logging: Boolean to turn logging on and off
         dtformat: String format for time values
 
@@ -116,6 +118,8 @@ class GVCEHXTwitter():
                    "public_metrics",]
     place_fields = ["country", "geo", "name", "place_type"]
     expansions = ["author_id", "geo.place_id", "referenced_tweets.id"]
+
+    dup_cols = ["tweet_id", "created_at", "text"]
 
     # Logging flag
     fetch_logging = True
@@ -510,7 +514,7 @@ class GVCEHXTwitter():
             self.__log_event(msg_id=1, screen_print=False, event='no results found')
 
         # Drop duplicates
-        new_data_df = new_data_df.drop_duplicates(subset=["tweet_id"])
+        new_data_df = new_data_df.drop_duplicates(subset=self.dup_cols)
 
         # Save the file
         new_data_df.to_csv(path_or_buf=os.path.join(self.tweets_file_path, history_file),

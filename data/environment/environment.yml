@@ -55,5 +55,7 @@ dependencies:
       - top2vec
       - joblib
       - tf-keras
+      - streamlit
+      - watchdog
 
 prefix: /Users/stephengodfrey/anaconda3
