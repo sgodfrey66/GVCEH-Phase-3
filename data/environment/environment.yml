@@ -57,5 +57,8 @@ dependencies:
       - tf-keras
       - streamlit
       - watchdog
+      - spacy
+      - scikit-learn
+      - sentence-transformers
 
 prefix: /Users/stephengodfrey/anaconda3
