@@ -24,6 +24,10 @@ This platform's primary functional components are to:
 - Assess those tweets and posts for sentiment resulting in a multi-classification of positive, neutral or negative
 - Present these findings on a dashboard
 
+### Dashboard:
+
+Pipeline output can be view at this Streamlit dashboard: [GVCEH-Phase-3](https://gvceh-phase-3-dashboard.streamlit.app/).  The code to generate the Streamlit application can be found at [code/dashboard](code/dashboard).
+
 ### Workflow:
 
 This code is designed to be run either locally or on the Google Cloud Platform ([GCP](https://cloud.google.com/?hl=en)). 

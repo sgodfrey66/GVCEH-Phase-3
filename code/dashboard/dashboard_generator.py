@@ -30,7 +30,7 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 # Get images
-images_path = "../../data/images"
+images_path = "images"
 gvceh_logo = Image.open(os.path.join(images_path,
 									 "branding.png"))
 
