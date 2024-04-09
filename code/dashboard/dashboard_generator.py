@@ -1,6 +1,7 @@
 import os, sys
 
 import streamlit as st
+from st_files_connection import FilesConnection
 
 import gvceh3_utilities
 from PIL import Image
