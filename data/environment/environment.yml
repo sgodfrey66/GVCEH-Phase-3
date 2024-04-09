@@ -60,5 +60,6 @@ dependencies:
       - spacy
       - scikit-learn
       - sentence-transformers
+      - fsspec
 
 prefix: /Users/stephengodfrey/anaconda3
