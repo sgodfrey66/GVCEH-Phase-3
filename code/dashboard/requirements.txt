@@ -3,3 +3,5 @@ pandas
 numpy
 fsspec
 gcsfs
+google-cloud-storage
+google.auth
