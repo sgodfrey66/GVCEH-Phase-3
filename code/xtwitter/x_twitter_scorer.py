@@ -29,6 +29,9 @@ class ScoreTweets():
         gcp_project_id: GCP Project ID
 
         df: pandas dataframe containing a column with tweet text ("text")
+
+        dup_cols: Columns to use in determining duplicates (which are dropped before saving)
+
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
                         or only new scores should be added for not scored tweets
 
@@ -49,11 +52,14 @@ class ScoreTweets():
     relevance_model_hf_location = "sheilaflood/gvceh-setfit-rel-model2"
     sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
+    # Dup columns
+    dup_cols = ["tweet_id", "created_at", "text"]
+
     # GCP Project ID
     gcp_project_id = ""
 
     # Flag indicating if old scores should be overwritten
-    update_scores = False
+    update_scores = True
 
     # Logging flag
     score_logging = True
@@ -222,6 +228,9 @@ class ScoreTweets():
         if not self.update_scores and self.scored_file_found:
 
             self.df_new = pd.concat(objs=[self.df_new, self.df_scored])
+
+        # Drop duplicates
+        self.df_new = self.df_new.drop_duplicates(subset=self.dup_cols)
 
         # Save everything
         self.df_new.to_csv(path_or_buf=os.path.join(self.tweets_file_path,

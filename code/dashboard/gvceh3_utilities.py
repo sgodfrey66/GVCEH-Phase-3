@@ -114,15 +114,17 @@ class DashboardData:
         #### Calculate Reddit stats
 
         # Get activity statistics
+        self.reddit_post_cnt = self.df_r["id"].nunique()
+
         maskr1 = self.df_r["is_relevant"] == 1
-        self.reddit_post_cnt = self.df_r[maskr1]["id"].nunique()
+        self.reddit_rel_post_cnt = self.df_r[maskr1]["id"].nunique()
         self.reddit_user_cnt = self.df_r[maskr1]["author"].nunique()
         self.reddit_subreddit_cnt = self.df_r[maskr1]["subreddit"].nunique()
 
         r_sent_val_cnts = self.df_r[maskr1]["sentiment"].value_counts()
-        self.reddit_pos_rate = r_sent_val_cnts["positive"] / self.reddit_post_cnt
-        self.reddit_neg_rate = r_sent_val_cnts["negative"] / self.reddit_post_cnt
-        self.reddit_neu_rate = r_sent_val_cnts["neutral"] / self.reddit_post_cnt
+        self.reddit_pos_rate = r_sent_val_cnts["positive"] / self.reddit_rel_post_cnt
+        self.reddit_neg_rate = r_sent_val_cnts["negative"] / self.reddit_rel_post_cnt
+        self.reddit_neu_rate = r_sent_val_cnts["neutral"] / self.reddit_rel_post_cnt
 
         # Convert string column to dates
         reddit_times = pd.to_datetime(self.df_r["created_at"])
@@ -134,16 +136,18 @@ class DashboardData:
         #### Calculate Twitter stats
 
         # Get activity statistics
+        self.xtwitter_tweet_cnt = self.df_x["tweet_id"].nunique()
+
         maskx1 = self.df_x["is_relevant"] == 1
-        self.xtwitter_tweet_cnt = self.df_x[maskx1]["tweet_id"].nunique()
+        self.xtwitter_rel_tweet_cnt = self.df_x[maskx1]["tweet_id"].nunique()
         self.xtwitter_user_cnt = self.df_x[maskx1]["username"].nunique()
         self.xtwitter_location_cnt = self.df_x[maskx1]["user_location"].nunique()
 
         # Get sentiment rates
         x_sent_val_cnts = self.df_x[maskx1]["sentiment"].value_counts()
-        self.xtwitter_pos_rate = x_sent_val_cnts["positive"] / self.xtwitter_tweet_cnt
-        self.xtwitter_neg_rate = x_sent_val_cnts["negative"] / self.xtwitter_tweet_cnt
-        self.xtwitter_neu_rate = x_sent_val_cnts["neutral"] / self.xtwitter_tweet_cnt
+        self.xtwitter_pos_rate = x_sent_val_cnts["positive"] / self.xtwitter_rel_tweet_cnt
+        self.xtwitter_neg_rate = x_sent_val_cnts["negative"] / self.xtwitter_rel_tweet_cnt
+        self.xtwitter_neu_rate = x_sent_val_cnts["neutral"] / self.xtwitter_rel_tweet_cnt
 
         # Convert column to date
         xtwitter_times = pd.to_datetime(self.df_x["created_at"])

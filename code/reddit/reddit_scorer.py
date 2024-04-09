@@ -45,6 +45,9 @@ class ScorePosts():
         ggcp_credentials: GCP project credentials used to interface with GCP storage
 
         df: pandas dataframe containing a column with tweet text ("text")
+
+        dup_cols: Columns to use in determining duplicates (which are dropped before saving)
+
         update_scores: Boolean indicating if scores should be updated and overwritten (True)
                         or only new scores should be added for not scored posts
 
@@ -66,11 +69,14 @@ class ScorePosts():
     relevance_model1_filename = "reddit-setfit-model.joblib"
     sentiment_model_hf_location = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
+    # Dup columns
+    dup_cols = ["id", "title", "selftext"]
+
     # GCP Credentials
     gcp_credentials = ""
 
     # Flag indicating if old scores should be overwritten
-    update_scores = False
+    update_scores = True
 
     # Logging flag
     score_logging = True
@@ -86,8 +92,6 @@ class ScorePosts():
         '''
         Initialize the ScoreTweets class.
         '''
-
-        print('Okay we are here')
 
         # Update any key word args
         self.__dict__.update(kwargs)
@@ -306,6 +310,9 @@ class ScorePosts():
         if not self.update_scores and self.scored_file_found:
 
             self.df_new = pd.concat(objs=[self.df_new, self.df_scored])
+
+        # Drop duplicates
+        self.df_new = self.df_new.drop_duplicates(subset=self.dup_cols)
 
         # Save everything
         self.df_new.to_csv(path_or_buf=os.path.join(self.posts_file_path,
