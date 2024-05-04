@@ -1,8 +1,13 @@
 # Utilities supporting the GVCEH 3 Streamlit dashboard
 
+import os
+
 import pandas as pd
 import streamlit as st
 from st_files_connection import FilesConnection
+from google.cloud import storage
+
+
 
 
 class DashboardData:
@@ -37,6 +42,9 @@ class DashboardData:
 
         '''
 
+        ######################
+        self.__set_gcp_creds()
+
         # Read data
         self.__read_data__()
 
@@ -53,8 +61,7 @@ class DashboardData:
 :
         '''
 
-        # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "../../data/environment/parliament-rss-2177945b12d6.json"
-
+        # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "../../data/environment/npaicivitas-serviceaccount.json"
 
     def __read_data__(self):
         '''
@@ -66,20 +73,16 @@ class DashboardData:
 
         '''
 
+        # GCP connection
+        conn = st.connection('gcs', type=FilesConnection)
+
         # Read Reddit data
 
         # Reddit posts data
         posts_file_path = "gs://{}/{}{}".format(self.gcp_bucket_name,
                                                 self.reddit_posts_path,
                                                 self.reddit_posts_file)
-        # # Posts dataframe
-        # self.df_r = pd.read_csv(filepath_or_buffer=posts_file_path)
-
-        # Create streamlit connection object
-        conn = st.connection('gcs', type=FilesConnection)
-        self.df_r = conn.read("{}{}".format(self.reddit_posts_path, self.reddit_posts_file),
-                              input_format="csv",
-                              ttl=600)
+        self.df_r = conn.read(posts_file_path, input_format="csv", ttl=600)
 
         # Drop duplicates
         self.df_r = self.df_r.drop_duplicates(subset=self.reddit_dup_cols)
@@ -90,13 +93,7 @@ class DashboardData:
         tweets_file_path = "gs://{}/{}{}".format(self.gcp_bucket_name,
                                                  self.xtwitter_tweets_path,
                                                  self.xtwitter_tweets_file)
-
-        # self.df_x = pd.read_csv(filepath_or_buffer=tweets_file_path)
-
-        # Create streamlit connection object
-        self.df_x = conn.read("{}{}".format(self.xtwitter_tweets_path, self.xtwitter_tweets_file),
-                              input_format="csv",
-                              ttl=600)
+        self.df_x = conn.read(tweets_file_path, input_format="csv", ttl=600)
 
         # Drop duplicates
         self.df_x = self.df_x.drop_duplicates(subset=self.xtwitter_dup_cols)

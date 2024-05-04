@@ -35,9 +35,9 @@ images_path = os.path.dirname(__file__)
 # my_file = path+'/photo.png'
 
 # images_path = "images"
-# gvceh_logo = Image.open(os.path.join(images_path,
-# 									 "branding.png"))
-gvceh_logo = Image.open(images_path+"/branding.png")
+gvceh_logo = Image.open(os.path.join(images_path,
+									 "branding.png"))
+# gvceh_logo = Image.open(images_path+"/branding.png")
 
 ###### Step 2: Get data
 
